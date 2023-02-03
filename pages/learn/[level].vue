@@ -12,7 +12,8 @@
     </div>
     <div v-else>
       <h1>{{ words[currentWord].def }}</h1>
-      <button @click="nextWord">Next -></button>
+      <button @click="nextWord" v-if="currentWord != words.length - 1">Next -></button>
+      <NuxtLink v-else @click="nextWord" :to="'../learn/' + (Number(curLevel) + 1)">Go -></NuxtLink>
     </div>
   </div>
 </template>
@@ -20,8 +21,10 @@
 <script lang="ts" setup>
 import levels from "../../src/levels.json";
 const route = useRoute();
+const router = useRouter();
 
 interface Word {
+  image?: String;
   word: String;
   rom: String; //romanization
   def: String;
@@ -29,7 +32,6 @@ interface Word {
 
 let curLevel = useState("curLevel", () => Number(route.params.level));
 let data = useState("data", () => levels.levels[curLevel.value - 1]);
-
 let gam = useState("gam", () => false);
 let defin = useState("defin", () => false);
 let mainInput = useState("mainInput", () => "");
@@ -46,6 +48,13 @@ let check = () => {
 };
 let nextWord = () => {
   defin.value = !defin.value;
-  currentWord.value++;
+  if (++currentWord.value == words.value.length) {
+    if (levels.levels.length > curLevel.value + 1) {
+      gam.value = !gam.value;
+      router.push('./' + ++curLevel.value);
+    } else {
+      router.push('./completed');
+    }
+  }
 };
 </script>
