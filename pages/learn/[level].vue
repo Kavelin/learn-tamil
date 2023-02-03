@@ -1,6 +1,7 @@
 <template>
   <div v-if="!gam">
-    <h1>Level {{ theLevel }}</h1>
+    <h1>Level {{ curLevel }} : {{ data.title }} </h1>
+    <p v-for="page in data.pages" v-bind:key="page">{{ page }}</p>
     <button @click="nextPage">Next -></button>
   </div>
   <div id="gaming" v-else>
@@ -17,29 +18,27 @@
 </template>
 
 <script lang="ts" setup>
+import levels from "../../src/levels.json";
 const route = useRoute();
 
 interface Word {
-  image?: String;
   word: String;
   rom: String; //romanization
   def: String;
 }
 
-let theLevel = useState("theLevel", () => route.params.level);
+let curLevel = useState("curLevel", () => Number(route.params.level));
+let data = useState("data", () => levels.levels[curLevel.value - 1]);
 
 let gam = useState("gam", () => false);
 let defin = useState("defin", () => false);
 let mainInput = useState("mainInput", () => "");
-let words = useState("words", () => [
-  { word: "அம்மா", rom: "amma", def: "mom" },
-  { word: "அப்பா", rom: "appa", def: "dad" },
-]);
+let words = useState("words", () => data.value.words);
 let currentWord = useState("currentWord", () => 0);
 let nextPage = () => {
   //if (pages opofdals jflaj)
   gam.value = !gam.value;
-}
+};
 let check = () => {
   if (mainInput.value == words.value[currentWord.value].rom)
     defin.value = !defin.value;

@@ -1,0 +1,28 @@
+{
+  "levels": [
+    {
+      "title": "First letters: அ, ஆ, ம, ப.",
+      "pages": [
+        "Welcome! Let's learn Tamil!",
+        "There are 247 letters in the Tamil alphabet, and while this may seem daunting at first, it follows a pattern that gets easier to follow as we go along.",
+        "The first vowel of the tamil alphabet is அ, pronounced like the a in 'allow'.",
+        "The second vowel is simply the long version of that, ஆ. Simply pronounce it twice as long!",
+        "The first consanant we will learn is ம, pronounced like the English letter M.",
+        "With the vowels we have learned so far, there are three ways this consonant shows up: ம், ம, and மா",
+        "ம்: When there is a dot on top of the consonant, it signifies no vowel after the sound.",
+        "ம: When it is written without a dot, it defaults to the அ vowel, resulting in the 'ma' sound.",
+        "மா: When that character is present after a consonant, it is the ஆ vowel, resulting in the 'maa' sound",
+        "The next consonant is the ப, pronounced like the English letter P.",
+        "The same rules that apply to ம், ம, மா, also apply to ப், ப (pa), பா (paa).",
+        "Let's try to read some words!"
+      ],
+      "words": [
+        {"word":"அம்மா", "def":"mom", "rom":"amma"},
+        {"word":"அப்பா", "def":"dad", "rom":"appa"},
+        {"word":"பாப்பா", "def":"child", "rom":"pappa"},
+        {"word":"மாமா", "def":"uncle", "rom":"mama"},
+        {"word":"ஆமாம்", "def":"yes", "rom":"aamaam"}
+      ]
+    }
+  ]
+}
