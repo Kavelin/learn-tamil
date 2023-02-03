@@ -2,6 +2,8 @@
 
 based off of https://letslearnhangul.com
 
+to do: make romanization api instead of making a set romanization !!
+
 flow of learning the alphabet
   - அ, ஆ, ம, ப
     - அம்மா - mom
