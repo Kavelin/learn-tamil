@@ -1,3 +1,3 @@
 <template>
-    good jo
+    You finished!
 </template>

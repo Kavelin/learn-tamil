@@ -1,19 +1,40 @@
 <template>
-  <div v-if="!gam">
-    <h1>Level {{ curLevel }} : {{ data.title }} </h1>
-    <p v-for="page in data.pages" v-bind:key="page">{{ page }}</p>
-    <button @click="nextPage">Next -></button>
-  </div>
-  <div id="gaming" v-else>
-    <div v-if="!defin">
-      <h1 id="to_type">{{ words[currentWord].word }}</h1>
-      <input type="text" @keypress.enter="check" v-model="mainInput" />
-      <button @click="check">Next -></button>
+  <div class="level">
+    <div v-if="!gam">
+      <h1>Lesson {{ curLevel }}: {{ data.title }}</h1>
+      <div>
+        <p v-html="data.pages[curPage]"></p>
+        <button @click="nextPage">Next -></button>
+      </div>
     </div>
-    <div v-else>
-      <h1>{{ words[currentWord].def }}</h1>
-      <button @click="nextWord" v-if="currentWord != words.length - 1">Next -></button>
-      <NuxtLink v-else @click="nextWord" :to="'../learn/' + (Number(curLevel) + 1)">Go -></NuxtLink>
+    <div id="gaming" v-else>
+      <div>
+        <h1 id="to_type">
+          {{ words[curWord].word }}
+          <div v-if="defin">
+            <h1>{{ words[curWord].def }}</h1>
+          </div>
+        </h1>
+        <input
+          type="text"
+          @keypress.enter="() => (defin ? nextWord() : check())"
+          v-model="mainInput"
+        />
+
+        <button
+          @click="() => (defin ? nextWord() : check())"
+          v-if="curWord != words.length - 1"
+        >
+          Next ->
+        </button>
+
+        <NuxtLink
+          v-else-if="defin"
+          @click="nextWord"
+          :to="'../learn/' + (Number(curLevel) + 1)"
+          >Go -></NuxtLink
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -25,35 +46,39 @@ const router = useRouter();
 
 interface Word {
   image?: String;
+  sound?: String;
   word: String;
-  rom: String; //romanization
+  rom?: String; //romanization
   def: String;
 }
 
 let curLevel = useState("curLevel", () => Number(route.params.level));
+let curWord = useState("curWord", () => 0);
+let curPage = useState("curPage", () => 0);
 let data = useState("data", () => levels.levels[curLevel.value - 1]);
 let gam = useState("gam", () => false);
 let defin = useState("defin", () => false);
 let mainInput = useState("mainInput", () => "");
 let words = useState("words", () => data.value.words);
-let currentWord = useState("currentWord", () => 0);
+const refreshing = ref(false);
 let nextPage = () => {
-  //if (pages opofdals jflaj)
-  gam.value = !gam.value;
+  if (++curPage.value != data.value.pages.length) gam.value = gam.value;
+  else gam.value = !gam.value;
 };
 let check = () => {
-  if (mainInput.value == words.value[currentWord.value].rom)
+  if (mainInput.value == words.value[curWord.value].rom)
     defin.value = !defin.value;
-  mainInput.value = "";
+  else mainInput.value = "";
 };
-let nextWord = () => {
+let nextWord = async () => {
   defin.value = !defin.value;
-  if (++currentWord.value == words.value.length) {
-    if (levels.levels.length > curLevel.value + 1) {
-      gam.value = !gam.value;
-      router.push('./' + ++curLevel.value);
+  mainInput.value = "";
+  if (++curWord.value == words.value.length) {
+    if (levels.levels[curLevel.value]) {
+      await navigateTo("./" + ++curLevel.value);
+      router.go(0);
     } else {
-      router.push('./completed');
+      await navigateTo("./completed");
     }
   }
 };

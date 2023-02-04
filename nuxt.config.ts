@@ -11,7 +11,7 @@ export default defineNuxtConfig({
         {
           charset: "utf-8",
         },
-      ],
+      ]
     },
   },
 });

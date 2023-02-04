@@ -1,5 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100;300;400&display=swap');
 body {
     margin:0;
     padding:0;
-    background: #dda;
+    background: #fff;
+    font-family: 'Noto Sans Tamil', sans-serif;
+}
+h1 {
+    font-weight:400;
+}
+.level {
+    width:100vw;
+    height:100vh;
+    display:flex;
+    overflow:hidden;
+}
+.nuxt-loading-indicator {
+    background: repeating-linear-gradient(to right, rgb(0, 220, 130) 0%, rgb(52, 205, 254) 50%, rgb(0, 71, 225) 100%)!important;
 }
