@@ -38,6 +38,7 @@
 
 <script lang="ts" setup>
 import levels from "../../src/levels.json";
+import { romanize } from "./romanization";
 const route = useRoute();
 const router = useRouter();
 
@@ -63,7 +64,7 @@ let nextPage = () => {
   else gam.value = !gam.value;
 };
 let check = () => {
-  if (mainInput.value == words.value[curWord.value].rom)
+  if (mainInput.value == words.value[curWord.value].rom || romanize(mainInput.value, words.value[curWord.value].def))
     defin.value = !defin.value;
   else mainInput.value = "";
 };
