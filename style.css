@@ -5,14 +5,40 @@ body {
     background: #fff;
     font-family: 'Noto Sans Tamil', sans-serif;
 }
+button {
+    border:none;
+    padding:8px;
+    box-shadow:0 2px 2px 1px #00000050;
+    font-family: 'Noto Sans Tamil', sans-serif;
+}
 h1 {
     font-weight:400;
+}
+#pages {
+    height:30vw;
+    font-size:larger;
+    transition: height 300ms;
 }
 .level {
     width:100vw;
     height:100vh;
     display:flex;
     overflow:hidden;
+    justify-content: center;
+}
+
+.inner {
+    top:20vh;
+    padding:0 2vw;
+    position:relative;
+    width:50vw;
+    max-width:50vw;
+    display:flex;
+    justify-content: center;
+}
+#pages-outer {
+    
+    flex-direction: column;
 }
 .nuxt-loading-indicator {
     background: repeating-linear-gradient(to right, rgb(0, 220, 130) 0%, rgb(52, 205, 254) 50%, rgb(0, 71, 225) 100%)!important;

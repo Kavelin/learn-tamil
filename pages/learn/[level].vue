@@ -1,19 +1,16 @@
 <template>
   <div class="level">
-    <div v-if="!gam">
-      <h1>Lesson {{ curLevel }}: {{ data.title }}</h1>
-      <div>
+    <div v-if="!gam" id="pages-outer" class="inner">
+      <h1 id="lesson">Lesson {{ curLevel }}: {{ data.title }}</h1><br><br><br>
+      <div id="pages">
         <p v-html="data.pages[curPage]"></p>
         <button @click="nextPage">Next -></button>
       </div>
     </div>
-    <div id="gaming" v-else>
+    <div id="gaming" class="inner" v-else>
       <div>
         <h1 id="to_type">
-          {{ words[curWord].word }}
-          <div v-if="defin">
-            <h1>{{ words[curWord].def }}</h1>
-          </div>
+          {{ words[curWord].word }}: <span v-if="defin">{{ words[curWord].def }}</span>
         </h1>
         <input
           type="text"
@@ -23,17 +20,17 @@
 
         <button
           @click="() => (defin ? nextWord() : check())"
-          v-if="curWord != words.length - 1"
-        >
+          
+        ><!--<NuxtLink
+        v-if="curWord == words.length - 1 && defin"
+          @click="nextWord"
+          :to="'../learn/' + (Number(curLevel) + 1)"
+          >Next -></NuxtLink
+        >-->
           Next ->
         </button>
 
-        <NuxtLink
-          v-else-if="defin"
-          @click="nextWord"
-          :to="'../learn/' + (Number(curLevel) + 1)"
-          >Go -></NuxtLink
-        >
+        
       </div>
     </div>
   </div>

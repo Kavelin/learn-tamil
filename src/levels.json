@@ -1,7 +1,7 @@
 {
   "levels": [
     {
-      "title": "First letters: அ, ஆ, ம, ப.",
+      "title": "First letters: அ, ஆ, ம, ப",
       "pages": [
         "Welcome! Let's learn Tamil!",
         "There are 247 letters in the Tamil alphabet, and while this may seem daunting at first, it follows a pattern that gets easier to follow as we go along.",
@@ -24,9 +24,9 @@
         {"word":"ஆமாம்", "def":"yes", "rom":"aamaam"}
       ]
     },{
-      "title": "ட, க, த",
+      "title": "Adding 3 consonants: ட, க, த",
       "pages": [
-        "Introducing three letters this lesson to keep it simple.",
+        "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
         "ட்: pronounced somewhere between English D and T. When two of these are joined, more closely to tt. ட (da), டா (daa)",
         "க்: pronounced somwhere between English K and G. When two of these are joined, more closely to kk. க (ga), கா (gaa)",
         "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! "
@@ -35,7 +35,18 @@
         {"word":"தாத்தா", "def":"grandfather", "rom":"thaaththaa"},
         {"word":"காகம்", "def":"crow", "rom":"kaakam"},
         {"word":"பட்டம்", "def":"kite", "rom":"pattam"},
-        {"word":"கட்டம்", "def":"block", "rom":"kaddam"}
+        {"word":"பாடம்", "def":"lesson", "rom":"padam"}
+      ]
+    },{
+      "title": "Knee! இ, ன, ண, ந",
+      "pages": [
+        ""
+      ],
+      "words": [
+        {"word":"தாத்தா", "def":"grandfather", "rom":"thaaththaa"},
+        {"word":"காகம்", "def":"crow", "rom":"kaakam"},
+        {"word":"பட்டம்", "def":"kite", "rom":"pattam"},
+        {"word":"பாடம்", "def":"lesson", "rom":"padam"}
       ]
     }
   ]
