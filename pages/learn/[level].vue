@@ -11,8 +11,8 @@
     <div id="gaming" class="inner" v-else>
       <div>
         <h1 id="to_type">
-          {{ words[curWord].word }}:
-          <span v-if="defin">{{ words[curWord].def }}</span>
+          {{ words[curWord].word }}
+          <span v-if="defin">: {{ words[curWord].def }}</span>
         </h1>
         <input
           type="text"
@@ -52,13 +52,9 @@ const refreshing = ref(false);
 let nextPage = () => {
   if (++curPage.value != data.value.pages.length) gam.value = gam.value;
   else gam.value = !gam.value;
-};
+}
 let check = () => {
-  if (
-    mainInput.value == words.value[curWord.value].rom ||
-    romanize(mainInput.value, words.value[curWord.value].def)
-  )
-    defin.value = !defin.value;
+  if (romanize(mainInput.value, words.value[curWord.value].word)) defin.value = !defin.value;
   else mainInput.value = "";
 };
 let nextWord = async () => {

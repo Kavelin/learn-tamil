@@ -23,7 +23,6 @@ h1 {
     width:100vw;
     height:100vh;
     display:flex;
-    overflow:hidden;
     justify-content: center;
 }
 
@@ -40,5 +39,5 @@ h1 {
     flex-direction: column;
 }
 .nuxt-loading-indicator {
-    background: repeating-linear-gradient(to right, rgb(0, 220, 130) 0%, rgb(52, 205, 254) 50%, rgb(0, 71, 225) 100%)!important;
+    background: black!important;
 }
