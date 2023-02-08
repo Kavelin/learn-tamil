@@ -66,7 +66,7 @@ export function romanize(input: String, definition: String) {
     if (!ret) break; // if return is set to false then something doesn't match up, return false
     let found = ecs.find((d) => d.sound == defArr[curChar]); //find the matching englishCounterpart sound of the string in definition
     
-    for (let c = 0; c < found?.englishSounds.length; c++) {
+    if (found) for (let c = 0; c < found?.englishSounds.length; c++) {
       // loop through all english sounds
       let i = found?.englishSounds[c];
       if (input.slice(curInp, curInp + i.length) == i) {
