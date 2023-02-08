@@ -7,7 +7,7 @@ export function romanize(input: String, definition: String) {
   let ret: boolean = true;
   let curChar: number = 0;
   let curInp: number = 0;
-  let defArr = definition.match(/[\u0b80-\u0bff][\u0bbe-\u0bcd\u0bd7]?/g) || [];
+  let defArr = definition.match(/[\u0b80-\u0bff][\u0bbe-\u0bcd\u0bd7]?|\s/g) || [];
   let ec = (sound: String, ...englishSounds: String[]) => {
     return { sound, englishSounds };
   };
@@ -15,7 +15,7 @@ export function romanize(input: String, definition: String) {
     if (!ret) break;
     let found = [
       //english counterparts
-
+      ec(" ", " "),
       ec("ப்", "p", "b"),
       ec("ம்", "m"),
 
