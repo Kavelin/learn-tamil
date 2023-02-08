@@ -6,6 +6,7 @@
         "Welcome! Let's learn Tamil!",
         "There are 247 letters in the Tamil alphabet, and while this may seem daunting at first, it follows a pattern that gets easier to follow as we go along.",
         "The first vowel of the tamil alphabet is அ, pronounced like the A in 'allow'.",
+        "Whenever I introduce a new vowel, remember to pronounce it out of your mouth so you get used to it. It's really important to practice these sounds if you want to learn efficiently!",
         "The second vowel is simply the long version of that, ஆ. Simply pronounce it twice as long!",
         "The first consanant we will learn is ம, pronounced like the English letter M.",
         "With the vowels we have learned so far, there are three ways this consonant shows up: ம், ம, and மா",
@@ -40,13 +41,27 @@
     },{
       "title": "Knee! இ, ன, ண, ந",
       "pages": [
-        ""
+        "This level might be a little tricky for new learners who have no experience whatsoever. I'll try and take it slow!",
+        "First, I'm going to introduce a new vowel: இ, pronounced like the i in 'bin'. I decided not to keep the long version of this vowel until next round.",
+        "To combine இ with consonants, you add an arc from on top to the bottom right of a consonant. பி (pi), மி (mi), தி (thi), கி(ki) , டி(di)",
+        "Now let's get into the consonants: ன, ண, ந. <b> They all sound like the same english letter: N. </b>",
+        "Why on earth would Tamilians make three different letters for the same sound? Well, as we continue learning the language, it's just one of those rules that become more common and that we have to deal with.", 
+        "So, lets compare the two that look similar, ன and ண. These two actually have a slightly different pronounciation that can be hard to miss! "
       ],
       "words": [
-        {"word":"தாத்தா", "def":"grandfather", "rom":"thaaththaa"},
-        {"word":"காகம்", "def":"crow", "rom":"kaakam"},
-        {"word":"பட்டம்", "def":"kite", "rom":"pattam"},
-        {"word":"பாடம்", "def":"lesson", "rom":"padam"}
+        {"word":"நாம்", "def":"we", "rom":"naam"},
+        {"word":"நான்", "def":"i", "rom":"naan"},
+        {"word":"இந்த", "def":"this", "rom":"intha"},
+        {"word":"அந்த", "def":"that", "rom":"antha"},
+
+        {"word":"அண்ணா", "def":"older brother", "rom":"anna"},
+        {"word":"அண்ணி", "def":"sister-in-law (of your elderly brother)", "rom":"anni"},
+        {"word":"தம்பி", "def":"younger brother", "rom":"thambi"},
+        {"word":"பாட்டி", "def":"grandmother", "rom":"patti"},
+
+        {"word":"அந்த", "def":"that", "rom":"antha"}
+        
+
       ]
     }
   ]

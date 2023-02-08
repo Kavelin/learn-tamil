@@ -1,7 +1,8 @@
 <template>
   <div class="level">
     <div v-if="!gam" id="pages-outer" class="inner">
-      <h1 id="lesson">Lesson {{ curLevel }}: {{ data.title }}</h1><br><br><br>
+      <h1 id="lesson">Lesson {{ curLevel }}: {{ data.title }}</h1>
+      <br /><br /><br />
       <div id="pages">
         <p v-html="data.pages[curPage]"></p>
         <button @click="nextPage">Next -></button>
@@ -10,7 +11,8 @@
     <div id="gaming" class="inner" v-else>
       <div>
         <h1 id="to_type">
-          {{ words[curWord].word }}: <span v-if="defin">{{ words[curWord].def }}</span>
+          {{ words[curWord].word }}:
+          <span v-if="defin">{{ words[curWord].def }}</span>
         </h1>
         <input
           type="text"
@@ -18,19 +20,7 @@
           v-model="mainInput"
         />
 
-        <button
-          @click="() => (defin ? nextWord() : check())"
-          
-        ><!--<NuxtLink
-        v-if="curWord == words.length - 1 && defin"
-          @click="nextWord"
-          :to="'../learn/' + (Number(curLevel) + 1)"
-          >Next -></NuxtLink
-        >-->
-          Next ->
-        </button>
-
-        
+        <button @click="() => (defin ? nextWord() : check())">Next -></button>
       </div>
     </div>
   </div>
@@ -64,7 +54,10 @@ let nextPage = () => {
   else gam.value = !gam.value;
 };
 let check = () => {
-  if (mainInput.value == words.value[curWord.value].rom || romanize(mainInput.value, words.value[curWord.value].def))
+  if (
+    mainInput.value == words.value[curWord.value].rom ||
+    romanize(mainInput.value, words.value[curWord.value].def)
+  )
     defin.value = !defin.value;
   else mainInput.value = "";
 };
