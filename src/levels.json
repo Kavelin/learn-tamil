@@ -18,11 +18,11 @@
         "Let's try to read some words!"
       ],
       "words": [
-        { "word": "அம்மா", "def": "mom", "rom": "amma" },
-        { "word": "அப்பா", "def": "dad", "rom": "appa" },
-        { "word": "பாப்பா", "def": "child", "rom": "pappa" },
-        { "word": "மாமா", "def": "uncle", "rom": "mama" },
-        { "word": "ஆமாம்", "def": "yes", "rom": "aamaam" }
+        { "word": "அம்மா", "def": "mom" },
+        { "word": "அப்பா", "def": "dad"},
+        { "word": "பாப்பா", "def": "child" },
+        { "word": "மாமா", "def": "uncle" },
+        { "word": "ஆமாம்", "def": "yes" }
       ]
     },
     {
@@ -34,10 +34,10 @@
         "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! "
       ],
       "words": [
-        { "word": "தாத்தா", "def": "grandfather", "rom": "thaaththaa" },
-        { "word": "காகம்", "def": "crow", "rom": "kaakam" },
-        { "word": "பட்டம்", "def": "kite", "rom": "pattam" },
-        { "word": "பாடம்", "def": "lesson", "rom": "padam" }
+        { "word": "தாத்தா", "def": "grandfather"},
+        { "word": "காகம்", "def": "crow"},
+        { "word": "பட்டம்", "def": "kite"},
+        { "word": "பாடம்", "def": "lesson"}
       ]
     },
     {
@@ -55,19 +55,19 @@
         "Pay attention to correct pronunciation, and notice where the different Ns are while learning these new words!"
       ],
       "words": [
-        { "word": "நாம்", "def": "we", "rom": "naam" },
-        { "word": "நான்", "def": "i", "rom": "naan" },
-        { "word": "இந்த", "def": "this", "rom": "intha" },
-        { "word": "அந்த", "def": "that", "rom": "antha" },
+        { "word": "நாம்", "def": "we"},
+        { "word": "நான்", "def": "i"},
+        { "word": "இந்த", "def": "this"},
+        { "word": "அந்த", "def": "that"},
 
-        { "word": "அண்ணா", "def": "older brother", "rom": "anna" },
+        { "word": "அண்ணா", "def": "older brother"},
         {
           "word": "அண்ணி",
           "def": "sister-in-law (of your elderly brother)",
           "rom": "anni"
         },
-        { "word": "தம்பி", "def": "younger brother", "rom": "thambi" },
-        { "word": "பாட்டி", "def": "grandmother", "rom": "patti" },
+        { "word": "தம்பி", "def": "younger brother"},
+        { "word": "பாட்டி", "def": "grandmother"},
 
         { "word": "மிதி", "def": "pedal (verb)" },
         { "word": "மணி", "def": "bell" },

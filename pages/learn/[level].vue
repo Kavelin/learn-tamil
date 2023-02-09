@@ -1,10 +1,11 @@
 <template>
   <div class="level">
     <div v-if="!gam" id="pages-outer" class="inner">
-      <h1 id="lesson">Lesson {{ curLevel }}: {{ data.title }}</h1>
+      <h1 id="lesson"> {{ (curLevel > 2 ? 'பாடம் ' : 'Lesson ') + curLevel }}: {{ data.title }}</h1>
       <br /><br /><br />
       <div id="pages">
         <p v-html="data.pages[curPage]"></p>
+        <button @click="backPage">&lt;- Back</button>
         <button @click="nextPage">Next -></button>
       </div>
     </div>
@@ -20,7 +21,7 @@
           v-model="mainInput"
         />
 
-        <button @click="() => (defin ? nextWord() : check())">Next -></button>
+        <button @click="() => (defin ? nextWord() : check())">{{ defin?'Next':'Check'}} -></button>
       </div>
     </div>
   </div>
@@ -28,7 +29,7 @@
 
 <script lang="ts" setup>
 import levels from "../../src/levels.json";
-import { romanize } from "./romanization";
+import { checkDef } from "./check";
 const route = useRoute();
 const router = useRouter();
 
@@ -36,7 +37,6 @@ interface Word {
   image?: String;
   sound?: String;
   word: String;
-  rom?: String; //romanization
   def: String;
 }
 
@@ -52,9 +52,13 @@ const refreshing = ref(false);
 let nextPage = () => {
   if (++curPage.value != data.value.pages.length) gam.value = gam.value;
   else gam.value = !gam.value;
+};
+let backPage = () => {
+  if (curPage.value > 0) curPage.value--;
 }
 let check = () => {
-  if (romanize(mainInput.value, words.value[curWord.value].word)) defin.value = !defin.value;
+  if (checkDef(mainInput.value, words.value[curWord.value].word))
+    defin.value = !defin.value;
   else mainInput.value = "";
 };
 let nextWord = async () => {
@@ -64,9 +68,7 @@ let nextWord = async () => {
     if (levels.levels[curLevel.value]) {
       await navigateTo("./" + ++curLevel.value);
       router.go(0);
-    } else {
-      await navigateTo("./completed");
-    }
+    } else await navigateTo("./completed");
   }
 };
 </script>
