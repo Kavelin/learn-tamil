@@ -1,11 +1,4 @@
 import chars from "../../src/chars.json";
-interface englishCounterpart {
-  sound: String;
-  englishSounds: String[];
-}
-let ec = (sound: String, ...englishSounds: String[]) => {
-  return { sound, englishSounds };
-};
 export function checkDef(input: String, definition: String) {
   let ret: boolean = true;
   let curChar: number = 0;

@@ -1,27 +1,49 @@
 <template>
   <div class="level">
-    <div v-if="!gam" id="pages-outer" class="inner">
-      <h1 id="lesson"> {{ (curLevel > 2 ? 'பாடம் ' : 'Lesson ') + curLevel }}: {{ data.title }}</h1>
+    <div v-if="!showGaming" id="pages-outer" class="inner">
+      <h1 id="lesson">
+        {{ (curLevel > 2 ? "பாடம் " : "Lesson ") + curLevel }}: {{ data.title }}
+      </h1>
       <br /><br /><br />
       <div id="pages">
         <p v-html="data.pages[curPage]"></p>
-        <button @click="backPage">&lt;- Back</button>
-        <button @click="nextPage">Next -></button>
+        <button @click="backPage">← Back</button>
+        <button @click="nextPage">Next →</button>
       </div>
     </div>
     <div id="gaming" class="inner" v-else>
-      <div>
+      <div id="sounds" v-if="!showGamingWords">
+        <div>
+          {{ currentSounds[curSound] }}
+          <button
+            v-for="es in gameCurrentEnglishSounds"
+            :key="es"
+            @click="() => checkSound(es)"
+          >
+            {{ es }}
+          </button>
+        </div>
+        <button
+          @click="finishSounds"
+          v-if="currentSounds.length == 0 && wrongSounds.length == 0"
+        >
+          Learn Words →
+        </button>
+      </div>
+      <div id="words" v-else>
         <h1 id="to_type">
           {{ words[curWord].word }}
-          <span v-if="defin">: {{ words[curWord].def }}</span>
+          <span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
         <input
           type="text"
-          @keypress.enter="() => (defin ? nextWord() : check())"
+          @keypress.enter="() => (showDef ? nextWord() : check())"
           v-model="mainInput"
         />
 
-        <button @click="() => (defin ? nextWord() : check())">{{ defin?'Next':'Check'}} -></button>
+        <button @click="() => (showDef ? nextWord() : check())">
+          {{ showDef ? "Next" : "Check" }} →
+        </button>
       </div>
     </div>
   </div>
@@ -29,6 +51,7 @@
 
 <script lang="ts" setup>
 import levels from "../../src/levels.json";
+import chars from "../../src/chars.json";
 import { checkDef } from "./check";
 const route = useRoute();
 const router = useRouter();
@@ -39,33 +62,80 @@ interface Word {
   word: String;
   def: String;
 }
+let curLevel = ref(Number(route.params.level));
+let curWord = ref(0);
+let curSound = ref(0);
+let curPage = ref(0);
 
-let curLevel = useState("curLevel", () => Number(route.params.level));
-let curWord = useState("curWord", () => 0);
-let curPage = useState("curPage", () => 0);
-let data = useState("data", () => levels.levels[curLevel.value - 1]);
-let gam = useState("gam", () => false);
-let defin = useState("defin", () => false);
-let mainInput = useState("mainInput", () => "");
-let words = useState("words", () => data.value.words);
-const refreshing = ref(false);
+let data = ref(levels[curLevel.value - 1]);
+
+let showGaming = ref(false);
+let showGamingWords = ref(false);
+
+let showDef = ref(false);
+let mainInput = ref("");
+let words = ref(data.value.words);
+
+let currentSounds = ref(<string[]>[]);
+let wrongSounds = ref(<string[]>[]);
+let currentEnglishSounds = ref(chars.map((x) => x.slice(1)).flat());
+let gameCurrentEnglishSounds = ref(<string[]>[]);
 let nextPage = () => {
-  if (++curPage.value != data.value.pages.length) gam.value = gam.value;
-  else gam.value = !gam.value;
+  if (++curPage.value != data.value.pages.length)
+    showGaming.value = showGaming.value;
+  else {
+    let cur = levels.slice(0, curLevel.value);
+    cur
+      .map((x) => x.vowels)
+      .flat()
+      .map((x) => x[1])
+      .forEach((i) =>
+        cur
+          .map((x) => x.consanants)
+          .flat()
+          .forEach((j) => currentSounds.value.push(j + i))
+      );
+    currentSounds.value.sort(() => 0.5 - Math.random());
+    gameCurrentEnglishSounds.value = <string[]>[
+    chars
+      .find((d) => d[0] == currentSounds.value[curSound.value])
+      ?.slice(1)
+      .sort(() => 0.5 - Math.random())[0],
+  ].concat(
+    currentEnglishSounds.value.sort(() => 0.5 - Math.random()).slice(0, 3)
+  );
+    showGaming.value = !showGaming.value;
+  }
 };
+
 let backPage = () => {
   if (curPage.value > 0) curPage.value--;
-}
+};
+
+let checkSound = (es: string) => {
+  if (chars
+      .find((d) => d[0] == currentSounds.value[curSound.value])
+      ?.slice(1)?.includes(es)) {
+    
+    let theSounds = chars
+      .find((d) => d[0] == currentSounds.value[++curSound.value])
+      ?.slice(1);
+    gameCurrentEnglishSounds.value = <string[]>[theSounds?.sort(() => 0.5 - Math.random())[0]].concat(currentEnglishSounds.value.sort(() => 0.5 - Math.random()).slice(0, 3));
+  }
+};
+
+let finishSounds = () => {};
+
 let check = () => {
   if (checkDef(mainInput.value, words.value[curWord.value].word))
-    defin.value = !defin.value;
+    showDef.value = !showDef.value;
   else mainInput.value = "";
 };
 let nextWord = async () => {
-  defin.value = !defin.value;
+  showDef.value = !showDef.value;
   mainInput.value = "";
   if (++curWord.value == words.value.length) {
-    if (levels.levels[curLevel.value]) {
+    if (levels[curLevel.value]) {
       await navigateTo("./" + ++curLevel.value);
       router.go(0);
     } else await navigateTo("./completed");

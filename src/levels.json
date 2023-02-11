@@ -1,102 +1,119 @@
-{
-  "levels": [
-    {
-      "title": "First letters: அ, ஆ, ம, ப",
-      "pages": [
-        "Welcome! Let's learn Tamil!",
-        "There are 247 letters in the Tamil alphabet, and while this may seem daunting at first, it follows a pattern that gets easier to follow as we go along.",
-        "The first vowel of the tamil alphabet is அ, pronounced like the A in 'allow'.",
-        "Whenever I introduce a new vowel, remember to pronounce it out of your mouth so you get used to it. It's really important to practice these sounds if you want to learn efficiently!",
-        "The second vowel is simply the long version of that, ஆ. Simply pronounce it twice as long!",
-        "The first consanant we will learn is ம, pronounced like the English letter M.",
-        "With the vowels we have learned so far, there are three ways this consonant shows up: ம், ம, and மா",
-        "ம்: When there is a dot on top of the consonant, it signifies no vowel after the sound.",
-        "ம: When it is written without a dot, it defaults to the அ vowel, resulting in the 'ma' sound.",
-        "மா: When that character is present after a consonant, it is the ஆ vowel, resulting in the 'maa' sound",
-        "The next consonant is the ப, pronounced like the English letter P.",
-        "The same rules that apply to ம், ம, மா, also apply to ப், ப (pa), பா (paa).",
-        "Let's try to read some words!"
-      ],
-      "words": [
-        { "word": "அம்மா", "def": "mom" },
-        { "word": "அப்பா", "def": "dad"},
-        { "word": "பாப்பா", "def": "child" },
-        { "word": "மாமா", "def": "uncle" },
-        { "word": "ஆமாம்", "def": "yes" }
-      ]
-    },
-    {
-      "title": "Adding 3 consonants: ட, க, த",
-      "pages": [
-        "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
-        "ட்: pronounced somewhere between English D and T. When two of these are joined, more closely to tt. ட (da), டா (daa)",
-        "க்: pronounced somwhere between English K and G. When two of these are joined, more closely to kk. க (ga), கா (gaa)",
-        "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! "
-      ],
-      "words": [
-        { "word": "தாத்தா", "def": "grandfather"},
-        { "word": "காகம்", "def": "crow"},
-        { "word": "பட்டம்", "def": "kite"},
-        { "word": "பாடம்", "def": "lesson"}
-      ]
-    },
-    {
-      "title": "Knee! இ, ன, ண, ந",
-      "pages": [
-        "This level might be a little tricky for new learners who have no experience whatsoever. I'll try and take it slow!",
-        "First, I'm going to introduce a new vowel: இ, pronounced like the i in 'bin'. I decided not to keep the long version of this vowel until next round.",
-        "To combine இ with consonants, you add an arc from on top to the bottom right of a consonant. பி (pi), மி (mi), தி (thi), கி(ki) , டி(di)",
-        "Now let's get into the consonants: ன, ண, ந. <b> They all sound like the same english letter: N. </b>",
-        "Why on earth would Tamilians make three different letters for the same sound? Well, as we continue learning the language, it's just one of those rules that become more common and that we have to deal with.",
-        "So, lets compare the two that look similar, ன and ண. These two actually have a slightly different pronounciation that can be hard to miss! ",
-        "Notice where your tongue goes when you pronounce 'n'. The difference between the two looped (ன) and three looped (ண) is where you place your tongue. For the two looped you place it next to your teeth, and the three looped is placed farther back on the roof of your mouth. ",
-        "Tongue placement is important when pronouncing certain consonants in Tamil. I will expand on this in later lessons, but it's important to know that there are two different types of 'n'. I will admit, however, when you hear it there seems to be no difference, and are easy to mix up!",
-        "The last 'n', ந, is pronounced like the two looped 'n' (ன) but is only used in the beginning of words and right before த. ன and ண NEVER come in the beginning of a word!",
-        "Pay attention to correct pronunciation, and notice where the different Ns are while learning these new words!"
-      ],
-      "words": [
-        { "word": "நாம்", "def": "we"},
-        { "word": "நான்", "def": "i"},
-        { "word": "இந்த", "def": "this"},
-        { "word": "அந்த", "def": "that"},
+[
+  {
+    "title": "First letters: அ, ஆ, ம, ப",
+    "vowels": [
+      ["அ", ""],
+      ["ஆ", "ா"]
+    ],
+    "consanants": ["ம", "ப"],
+    "pages": [
+      "Welcome! Let's learn Tamil!",
+      "There are 247 letters in the Tamil alphabet, and while this may seem daunting at first, it follows a pattern that gets easier to follow as we go along.",
+      "The first vowel of the tamil alphabet is அ, pronounced like the A in 'allow'.",
+      "Whenever I introduce a new vowel, remember to pronounce it out of your mouth so you get used to it. It's really important to practice these sounds if you want to learn efficiently!",
+      "The second vowel is simply the long version of that, ஆ. Simply pronounce it twice as long!",
+      "The first consanant we will learn is ம, pronounced like the English letter M.",
+      "With the vowels we have learned so far, there are three ways this consonant shows up: ம், ம, and மா",
+      "ம்: When there is a dot on top of the consonant, it signifies no vowel after the sound.",
+      "ம: When it is written without a dot, it defaults to the அ vowel, resulting in the 'ma' sound.",
+      "மா: When \"ா\" is present after a consonant, it is the ஆ vowel, resulting in the 'maa' sound",
+      "The next consonant is the ப, pronounced like the English letter P.",
+      "The same rules that apply to ம், ம, மா, also apply to ப், ப (pa), பா (paa).",
+      "Let's try to read some words!"
+    ],
+    "words": [
+      { "word": "அம்மா", "def": "mom"},
+      { "word": "அப்பா", "def": "dad" },
+      { "word": "பாப்பா", "def": "child" },
+      { "word": "மாமா", "def": "uncle" },
+      { "word": "ஆமாம்", "def": "yes" }
+    ]
+  },
+  {
+    "title": "Adding 3 consonants: ட, க, த",
+    "vowels":[],
+    "consanants": ["ட", "க", "த"],
+    "pages": [
+      "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
+      "ட்: pronounced somewhere between English D and T. When two of these are joined, more closely to tt. ட (da), டா (daa)",
+      "க்: pronounced somwhere between English K and G. When two of these are joined, more closely to kk. க (ga), கா (gaa)",
+      "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! "
+    ],
+    "words": [
+      { "word": "தாத்தா", "def": "grandfather" },
+      { "word": "காகம்", "def": "crow" },
+      { "word": "பட்டம்", "def": "kite" },
+      { "word": "பாடம்", "def": "lesson" }
+    ]
+  },
+  {
+    "title": "Knee! இ, ன, ண, ந",
+    "vowels": [["இ", "ி"]],
+    "consanants": ["ன", "ண", "ந"],
+    "pages": [
+      "This level might be a little tricky for new learners who have no experience whatsoever. I'll try and take it slow!",
+      "First, I'm going to introduce a new vowel: இ, pronounced like the i in 'bin'. I decided not to keep the long version of this vowel until next round.",
+      "To combine இ with consonants, you add an arc from on top to the bottom right of a consonant. பி (pi), மி (mi), தி (thi), கி(ki) , டி(di)",
+      "Now let's get into the consonants: ன, ண, ந. <b> They all sound like the same english letter: N. </b>",
+      "Why on earth would Tamilians make three different letters for the same sound? Well, as we continue learning the language, it's just one of those rules that become more common and that we have to deal with.",
+      "So, lets compare the two that look similar, ன and ண. These two actually have a slightly different pronounciation that can be hard to miss! ",
+      "Notice where your tongue goes when you pronounce 'n'. The difference between the two looped (ன) and three looped (ண) is where you place your tongue. For the two looped you place it next to your teeth, and the three looped is placed farther back on the roof of your mouth. ",
+      "Tongue placement is important when pronouncing certain consonants in Tamil. I will expand on this in later lessons, but it's important to know that there are two different types of 'n'. I will admit, however, when you hear it there seems to be no difference, and are easy to mix up!",
+      "The last 'n', ந, is pronounced like the two looped 'n' (ன) but is only used in the beginning of words and right before த. ன and ண NEVER come in the beginning of a word!",
+      "Pay attention to correct pronunciation, and notice where the different Ns are while learning these new words!"
+    ],
+    "words": [
+      { "word": "நாம்", "def": "we" },
+      { "word": "நான்", "def": "i" },
+      { "word": "இந்த", "def": "this" },
+      { "word": "அந்த", "def": "that" },
 
-        { "word": "அண்ணா", "def": "older brother"},
-        {
-          "word": "அண்ணி",
-          "def": "sister-in-law (of your elderly brother)",
-          "rom": "anni"
-        },
-        { "word": "தம்பி", "def": "younger brother"},
-        { "word": "பாட்டி", "def": "grandmother"},
+      { "word": "அண்ணா", "def": "older brother" },
+      {
+        "word": "அண்ணி",
+        "def": "sister-in-law (of your elderly brother)",
+        "rom": "anni"
+      },
+      { "word": "தம்பி", "def": "younger brother" },
+      { "word": "பாட்டி", "def": "grandmother" },
 
-        { "word": "மிதி", "def": "pedal (verb)" },
-        { "word": "மணி", "def": "bell" },
-        { "word": "பனி", "def": "snow" },
-        { "word": "ஆணி", "def": "nail" },
-        { "word": "கத்தி", "def": "knife" }
-      ]
-    }, {
-      "title": "Ear! ஈ, ர, ற",
-      "pages": [
-        "New vowel: ஈ, the longer version of இ. ",
-        "To combine it with consonants, you add a loop at the top at the same place where இ's line was.",
-        "The next two consanants are both a version of R. Same as the last lesson, these two vary in their pronounciation depending on where you place your tongue.",
-        "ர is the 'softer version', ற is the 'harder version', which just means you place your tongue farther in.",
-        "It's important that ற has another way to being pronounced, when it's placed like so: ற்ற. This makes the ற் be pronounced like a t, so it makes a 'tr' sound.",
-        "While this set of words doesn't have a double ற, there will be some in the future, so watch out for those!"
-      ],
-      "words": [
-        { "word": "தண்ணீர்", "def": "water"},
-        { "word": "கண்ணீர்", "def": "tear"},
-        { "word": "தீ", "def": "fire"},
-        { "word": "நகரம்", "def": "town"},
-        { "word": "கிராமம்", "def": "village"},
-        { "word": "ஈ", "def": "fly"},
-        { "word": "மீன்", "def": "fish"},
-        { "word": "ஈட்டி", "def": "spear"},
-        { "word": "காரம்", "def": "spice"},
-        { "word": "ஈரம்", "def": "wet"}
-      ]
-    }
-  ]
-}
+      { "word": "மிதி", "def": "pedal (verb)" },
+      { "word": "மணி", "def": "bell" },
+      { "word": "பனி", "def": "snow" },
+      { "word": "ஆணி", "def": "nail" },
+      { "word": "கத்தி", "def": "knife" }
+    ]
+  },
+  {
+    "title": "Ear! ஈ, ர, ற",
+    "vowels": [["ஈ", "ீ"]],
+    "consanants": ["ர", "ற"],
+    "pages": [
+      "New vowel: ஈ, the longer version of இ. ",
+      "To combine it with consonants, you add a loop at the top at the same place where இ's line was.",
+      "The next two consanants are both a version of R. Same as the last lesson, these two vary in their pronounciation depending on where you place your tongue.",
+      "ர is the 'softer version', ற is the 'harder version', which just means you place your tongue farther in.",
+      "It's important that ற has another way to being pronounced, when it's placed like so: ற்ற. This makes the ற் be pronounced like a t, so it makes a 'tr' sound.",
+      "While this set of words doesn't have a double ற, there will be some in the future, so watch out for those!"
+    ],
+    "words": [
+      { "word": "தண்ணீர்", "def": "water" },
+      { "word": "கண்ணீர்", "def": "tear" },
+      { "word": "தீ", "def": "fire" },
+      { "word": "நகரம்", "def": "town" },
+      { "word": "கிராமம்", "def": "village" },
+      { "word": "ஈ", "def": "fly" },
+      { "word": "மீன்", "def": "fish" },
+      { "word": "ஈட்டி", "def": "spear" },
+      { "word": "காரம்", "def": "spice" },
+      { "word": "ஈரம்", "def": "wet" }
+    ]
+  },
+  {
+    "title": "Aisle! ஐ, ள, ல, ழ",
+    "vowels": [["ஐ", "ை"]],
+    "consanants": ["ள", "ல", "ழ"],
+    "pages": [""],
+    "words": [{ "word": "தண்ணீர்", "def": "water" }]
+  }
+]
