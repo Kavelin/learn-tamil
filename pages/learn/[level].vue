@@ -13,8 +13,8 @@
     </div>
     <div id="gaming" class="inner" v-else>
       <div id="sounds" v-if="!showGamingWords">
-        <div>
-          {{ currentSounds[curSound] }}
+        <div v-if="currentSounds.length != 0">
+          {{ currentSounds[0] }} {{ wrongSounds }}
           <button
             v-for="es in gameCurrentEnglishSounds"
             :key="es"
@@ -23,10 +23,17 @@
             {{ es }}
           </button>
         </div>
-        <button
-          @click="finishSounds"
-          v-if="currentSounds.length == 0 && wrongSounds.length == 0"
-        >
+        <div v-else-if="wrongSounds.length != 0 && currentSounds.length == 0">
+          {{ wrongSounds }}
+          <button
+            v-for="es in gameCurrentEnglishSounds"
+            :key="es"
+            @click="() => checkWrongSound(es)"
+          >
+            {{ es }}
+          </button>
+        </div>
+        <button @click="showGamingWords = !showGamingWords" v-else>
           Learn Words →
         </button>
       </div>
@@ -50,8 +57,8 @@
 </template>
 
 <script lang="ts" setup>
-import levels from "../../src/levels.json";
-import chars from "../../src/chars.json";
+import levels from "./levels.json";
+import chars from "./chars.json";
 import { checkDef } from "./check";
 const route = useRoute();
 const router = useRouter();
@@ -64,7 +71,6 @@ interface Word {
 }
 let curLevel = ref(Number(route.params.level));
 let curWord = ref(0);
-let curSound = ref(0);
 let curPage = ref(0);
 
 let data = ref(levels[curLevel.value - 1]);
@@ -96,35 +102,57 @@ let nextPage = () => {
           .forEach((j) => currentSounds.value.push(j + i))
       );
     currentSounds.value.sort(() => 0.5 - Math.random());
-    gameCurrentEnglishSounds.value = <string[]>[
-    chars
-      .find((d) => d[0] == currentSounds.value[curSound.value])
-      ?.slice(1)
-      .sort(() => 0.5 - Math.random())[0],
-  ].concat(
-    currentEnglishSounds.value.sort(() => 0.5 - Math.random()).slice(0, 3)
-  );
+    shuffleSounds(currentSounds.value);
     showGaming.value = !showGaming.value;
   }
 };
+
+let shuffleSounds = (arr: String[]) => {
+  gameCurrentEnglishSounds.value = <string[]>[
+    chars
+      .find((d) => d[0] == arr[0])
+      ?.slice(1)
+      .sort(() => 0.5 - Math.random())[0],
+  ]
+    .concat(
+      currentEnglishSounds.value.sort(() => 0.5 - Math.random()).slice(0, 3)
+    ).sort(() => 0.5 - Math.random());
+};
+
 
 let backPage = () => {
   if (curPage.value > 0) curPage.value--;
 };
 
 let checkSound = (es: string) => {
-  if (chars
-      .find((d) => d[0] == currentSounds.value[curSound.value])
-      ?.slice(1)?.includes(es)) {
-    
-    let theSounds = chars
-      .find((d) => d[0] == currentSounds.value[++curSound.value])
-      ?.slice(1);
-    gameCurrentEnglishSounds.value = <string[]>[theSounds?.sort(() => 0.5 - Math.random())[0]].concat(currentEnglishSounds.value.sort(() => 0.5 - Math.random()).slice(0, 3));
+  if (
+    chars
+      .find((d) => d[0] == currentSounds.value[0])
+      ?.slice(1)
+      ?.includes(es)
+  ) {
+    currentSounds.value.splice(0, 1);
+  } else {
+    wrongSounds.value.push(currentSounds.value[0]);
+    currentSounds.value.splice(0, 1);
   }
+  if (!currentSounds.value.length) shuffleSounds(wrongSounds.value);
+  shuffleSounds(currentSounds.value);
 };
-
-let finishSounds = () => {};
+let checkWrongSound = (es: string) => {
+  if (
+    chars
+      .find((d) => d[0] == wrongSounds.value[0])
+      ?.slice(1)
+      ?.includes(es)
+  ) {
+    wrongSounds.value.splice(0, 1);
+  } else {
+    wrongSounds.value.push(wrongSounds.value[0]);
+    wrongSounds.value.splice(0, 1);
+  }
+  shuffleSounds(wrongSounds.value);
+};
 
 let check = () => {
   if (checkDef(mainInput.value, words.value[curWord.value].word))

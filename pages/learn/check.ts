@@ -1,4 +1,4 @@
-import chars from "../../src/chars.json";
+import chars from "./chars.json";
 export function checkDef(input: String, definition: String) {
   let ret: boolean = true;
   let curChar: number = 0;
