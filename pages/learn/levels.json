@@ -22,7 +22,7 @@
       "Let's try to read some words!"
     ],
     "words": [
-      { "word": "அம்மா", "def": "mom"},
+      { "word": "அம்மா", "def": "mom" },
       { "word": "அப்பா", "def": "dad" },
       { "word": "பாப்பா", "def": "child" },
       { "word": "மாமா", "def": "uncle" },
@@ -31,7 +31,7 @@
   },
   {
     "title": "Adding 3 consonants: ட, க, த",
-    "vowels":[],
+    "vowels": [],
     "consanants": ["ட", "க", "த"],
     "pages": [
       "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
@@ -69,15 +69,11 @@
       { "word": "அந்த", "def": "that" },
 
       { "word": "அண்ணா", "def": "older brother" },
-      {
-        "word": "அண்ணி",
-        "def": "sister-in-law (of your elderly brother)",
-        "rom": "anni"
-      },
+      { "word": "அண்ணி", "def": "sister-in-law", "rom": "anni" },
       { "word": "தம்பி", "def": "younger brother" },
       { "word": "பாட்டி", "def": "grandmother" },
 
-      { "word": "மிதி", "def": "pedal (verb)" },
+      { "word": "மிதி", "def": "pedal/stomp (verb)" },
       { "word": "மணி", "def": "bell" },
       { "word": "பனி", "def": "snow" },
       { "word": "ஆணி", "def": "nail" },

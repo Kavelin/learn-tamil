@@ -14,6 +14,9 @@ button {
     transition:background 300ms, border 300ms;
     background:#d4d4d4;
 }
+.buttons {
+    display:flex;
+}
 button:hover {
     background:#adadad;
 }
