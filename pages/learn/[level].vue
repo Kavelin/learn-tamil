@@ -176,7 +176,7 @@ let nextWord = async () => {
     if (levels[curLevel.value]) {
       await navigateTo("./" + ++curLevel.value);
       router.go(0);
-    } else await navigateTo("./completed");
+    } else await navigateTo("./completed-page");
   }
 };
 </script>
