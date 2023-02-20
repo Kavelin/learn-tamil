@@ -35,15 +35,23 @@
     "consanants": ["ட", "க", "த"],
     "pages": [
       "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
-      "ட்: pronounced somewhere between English D and T. When two of these are joined, more closely to tt. ட (da), டா (daa)",
-      "க்: pronounced somwhere between English K and G. When two of these are joined, more closely to kk. க (ga), கா (gaa)",
-      "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! "
+      "ட்: pronounced somewhere between English D and T. When two of these are joined, more closely to tt.",
+      "ட் combined with அ makes ட (da). ட் + அ = ட",
+      "ட் combined with ஆ makes டா (daa). ட் + ஆ = டா",
+      "க்: pronounced somewhere between English K and G."
+      "க் combined with அ makes க (ka). க் + அ = க",
+      "க் combined with ஆ makes கா (kaa). க் + ஆ = கா", 
+      "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! ",
+      "த் combined with அ makes த (tha). த் + அ = த",
+      "த் combined with ஆ makes தா (thaa). த் + ஆ = தா"      
     ],
     "words": [
-      { "word": "தாத்தா", "def": "grandfather" },
+      { "word": "படம்", "def": "picture" },
+      { "word": "பாடம்", "def": "lesson" },
       { "word": "காகம்", "def": "crow" },
+      { "word": "தாத்தா", "def": "grandfather" },
       { "word": "பட்டம்", "def": "kite" },
-      { "word": "பாடம்", "def": "lesson" }
+      { "word": "கட்டடம்", "def": "building" }
     ]
   },
   {
