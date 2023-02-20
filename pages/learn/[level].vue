@@ -148,7 +148,7 @@ let checkSound = (es: string) => {
   }
   if (!currentSounds.value.length) shuffleSounds(wrongSounds.value);
   else shuffleSounds(currentSounds.value);
-}
+};
 let checkWrongSound = (es: string) => {
   if (
     chars
