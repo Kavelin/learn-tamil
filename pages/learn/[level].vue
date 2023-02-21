@@ -6,10 +6,12 @@
       </h1>
       <br /><br /><br />
       <div id="pages">
-        <p v-html="data.pages[curPage]"></p>
-        <button @click="backPage">← Back</button>
+        <div class="page" v-html="data.pages[curPage]"></div>
+        
+      <button @click="backPage">← Back</button>
         <button @click="nextPage">Next →</button>
       </div>
+      
     </div>
     <div id="gaming" class="inner" v-else>
       <div id="sounds" v-if="!showGamingWords">
@@ -102,7 +104,7 @@ let nextPage = () => {
 };
 
 let initSounds = () => {
-  let cur = levels.slice(0, curLevel.value);
+  let cur = levels.slice(curLevel.value - 1);
   cur
     .map((x) => x.vowels)
     .flat()
@@ -113,6 +115,22 @@ let initSounds = () => {
         .flat()
         .forEach((j) => currentSounds.value.push(j + i))
     );
+  if (curLevel.value >= 2) {
+    let all = levels.slice(0, curLevel.value);
+    let conc:string[] = [];
+    let count = 0;
+    let extraWords = 5;
+    all
+    .map((x) => x.vowels)
+    .flat()
+    .map((x) => x[1])
+    .forEach((i) =>
+      all
+        .map((x) => x.consanants)
+        .flat()
+        .forEach((j) => {if (++count < extraWords) currentSounds.value.push(j + i)})
+    );
+  }
   currentSounds.value.sort(() => 0.5 - Math.random());
   shuffleSounds(currentSounds.value);
 };

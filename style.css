@@ -45,10 +45,16 @@ h1 {
     width:50vw;
     max-width:50vw;
     display:flex;
+}
+#gaming {
     justify-content: center;
+}
+#page {
+    display:flex;
 }
 #pages-outer {
     
+    justify-content: start;
     flex-direction: column;
 }
 .nuxt-loading-indicator {

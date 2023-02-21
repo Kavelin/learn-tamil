@@ -128,7 +128,7 @@
       "To combine ஐ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ை</div> character before the consonant. <br/>For example பை (pai), மை (mai), டை (tai), கை (kai), தை (thai), நை (nai), ணை(nai), னை(nai), ரை(rai), றை(rai)",
       "The new consonants we are going to learn in this lesson represent L sound. <br/> But as with N sound (ன, ண, ந) and R sound (ர, ற), L sound has three variations in Tamil. ல, ள, ழ",
       "It is important to learn the right pronunciation of these different sounds. If you use the wrong version, meaning of the words could be different. Hence it is important to pronounce it correctly so that you can write it correctly.",
-      "Pronouncing it the right way is easy once you understand the tongue placement. See the picture.",
+      "Pronouncing it the right way is easy once you understand where you have to place your tongue for each consonant. Practice putting your tongue in the different places. <img src='https://qph.cf2.quoracdn.net/main-qimg-06453f63d065cd2820931ae6dadb2a6b' width=250 alt='tamil tongue placements'>",
       "ல is pronounced at the front. ள is pronounced in the middle. ழ is pronounced by flipping the tongue all the way to the back. See the picture. ழ is special to Tamil. So sometimes zha is used as a romanized version.",
       "Now let's see how these new consonants we learned here will appear with ஐ. <br/> <b>லை, ளை, ழை</b>"
     ],
@@ -136,16 +136,19 @@
       { "word": "பல்", "def": "tooth", "rom": "pal" },
       { "word": "பால்", "def": "milk", "rom": "paal" },
       { "word": "கல்", "def": "stone", "rom": "kal" },
-      { "word": "கால்", "def": "leg", "rom": "kaal" },      
+      { "word": "கால்", "def": "leg", "rom": "kaal" },    
+
       { "word": "பல்லி", "def": "lizard", "rom": "palli" },
       { "word": "பள்ளி", "def": "school", "rom": "palli" },      
       { "word": "பலம்", "def": "strength", "rom": "palam" },
       { "word": "பழம்", "def": "fruit", "rom": "palam" },
+
       { "word": "தலை", "def": "head", "rom": "thalai" },
       { "word": "மழை", "def": "rain", "rom": "malai" },
       { "word": "மலை", "def": "mountain", "rom": "malai" },      
       { "word": "கதை", "def": "story", "rom": "kathai" },
-      { "word": "கடை", "def": "shop", "rom": "kadai" },                              
+      { "word": "கடை", "def": "shop", "rom": "kadai" },  
+
       { "word": "மை", "def": "ink", "rom": "mai" },
       { "word": "பை", "def": "bag", "rom": "pai" },
       { "word": "கை", "def": "hand", "rom": "kai" }                              
