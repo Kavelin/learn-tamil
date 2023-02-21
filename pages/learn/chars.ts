@@ -30,4 +30,6 @@ let chars = ["", ..."ாிீுூெேைொோௌ்"].flatMap((i, v) =>
     ),
   ])
 );
+chars[298][1] = "hak";
+chars[292].push("t");
 export default chars;
