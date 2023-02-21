@@ -37,14 +37,14 @@
     "pages": [
       "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
       "ட்: pronounced somewhere between English D and T. <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_18.gif'><img width='64' alt='Writing Tamil 18' src='https://upload.wikimedia.org/wikipedia/commons/c/c9/Writing_Tamil_18.gif'></a>",
-      "ட் combined with அ makes ட (da). ட் + அ = ட",
-      "ட் combined with ஆ makes டா (daa). ட் + ஆ = டா",
+      "ட் combined with அ makes ட (da).  <b>ட் + அ = ட</b>",
+      "ட் combined with ஆ makes டா (daa). <b>ட் + ஆ = டா</b>",
       "க்: pronounced somewhere between English K and G. <a title='தகவலுழவன், Public domain, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_14.gif'><img width='64' alt='Writing Tamil 14' src='https://upload.wikimedia.org/wikipedia/commons/d/d6/Writing_Tamil_14.gif'></a>",
-      "க் combined with அ makes க (ka). க் + அ = க",
-      "க் combined with ஆ makes கா (kaa). க் + ஆ = கா", 
+      "க் combined with அ makes க (ka). <b>க் + அ = க</b>",
+      "க் combined with ஆ makes கா (kaa). <b>க் + ஆ = கா</b>", 
       "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_20.gif'><img width='64' alt='Writing Tamil 20' src='https://upload.wikimedia.org/wikipedia/commons/e/e4/Writing_Tamil_20.gif'></a>",
-      "த் combined with அ makes த (tha). த் + அ = த",
-      "த் combined with ஆ makes தா (thaa). த் + ஆ = தா"      
+      "த் combined with அ makes த (tha). <b>த் + அ = த</b>",
+      "த் combined with ஆ makes தா (thaa). <b>த் + ஆ = தா</b>"      
     ],
     "words": [
       { "word": "படம்", "def": "picture" },
@@ -101,9 +101,9 @@
       "It's important that ற has another way to being pronounced, when it's placed like so: ற்ற. This makes the ற் be pronounced like a t, so it makes a 'tr' sound. <a title='த*உழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_30.gif'><img width='64' alt='Writing Tamil 30' src='https://upload.wikimedia.org/wikipedia/commons/e/e3/Writing_Tamil_30.gif'></a>",
       "While this next set of words doesn't have a double ற, there will be some in the future, so watch out for those!",
       "With the introduction of ர and ற, we can also expand on the ன, ண, and ந rules from before. ",
-      "ன is called ற நகரம் as it is used when paired with ற (as ன்ற). <a title='த*உழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_31.gif'><img width='64' alt='Writing Tamil 31' src='https://upload.wikimedia.org/wikipedia/commons/3/31/Writing_Tamil_31.gif'></a>",
-      "ண is called ட நகரம் for the same reason (as ண்ட) <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_19.gif'><img width='64' alt='Writing Tamil 19' src='https://upload.wikimedia.org/wikipedia/commons/6/6c/Writing_Tamil_19.gif'></a>",
-      "And remember, only ந goes in the beginning, and is called த நகரம் because it shows up in the middle of words as ந்த.",
+      "ன is called றன்னகரம் as it is used when paired with ற (as ன்ற). <a title='த*உழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_31.gif'><img width='64' alt='Writing Tamil 31' src='https://upload.wikimedia.org/wikipedia/commons/3/31/Writing_Tamil_31.gif'></a>",
+      "ண is called டண்ணகரம் for the same reason (as ண்ட) <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_19.gif'><img width='64' alt='Writing Tamil 19' src='https://upload.wikimedia.org/wikipedia/commons/6/6c/Writing_Tamil_19.gif'></a>",
+      "And remember, only ந goes in the beginning of the words, and is called தந்நகரம் because it shows up in the middle of words as ந்த.",
       "I'll remind you that as you recognize more and more words, the pattern becomes more evident and easier to tell which one to use when hearing a new word."
     ],
     "words": [
@@ -125,11 +125,12 @@
     "consanants": ["ள", "ல", "ழ"],
     "pages": [
       "New vowel: ஐ, pronounced ai.",
-      "To combine ஐ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ை</div> character before the consonant.",
-      "The new consonants we are going to learn in this lesson represent L sound. But as with N sound (ன, ண, ந) and R sound (ர, ற), L sound has three variations in Tamil. ல, ள, ழ",
+      "To combine ஐ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ை</div> character before the consonant. <br/>For example பை (pai), மை (mai), டை (tai), கை (kai), தை (thai), நை (nai), ணை(nai), னை(nai), ரை(rai), றை(rai)",
+      "The new consonants we are going to learn in this lesson represent L sound. <br/> But as with N sound (ன, ண, ந) and R sound (ர, ற), L sound has three variations in Tamil. ல, ள, ழ",
       "It is important to learn the right pronunciation of these different sounds. If you use the wrong version, meaning of the words could be different. Hence it is important to pronounce it correctly so that you can write it correctly.",
       "Pronouncing it the right way is easy once you understand the tongue placement. See the picture.",
-      "ல is pronounced at the front. ள is pronounced in the middle. ழ is pronounced by flipping the tongue all the way to the back. See the picture. ழ is special to Tamil. So sometimes zha is used as a romanized version."
+      "ல is pronounced at the front. ள is pronounced in the middle. ழ is pronounced by flipping the tongue all the way to the back. See the picture. ழ is special to Tamil. So sometimes zha is used as a romanized version.",
+      "Now let's see how these new consonants we learned here will appear with ஐ. <br/> <b>லை, ளை, ழை</b>"
     ],
     "words": [
       { "word": "பல்", "def": "tooth", "rom": "pal" },
@@ -139,8 +140,15 @@
       { "word": "பல்லி", "def": "lizard", "rom": "palli" },
       { "word": "பள்ளி", "def": "school", "rom": "palli" },      
       { "word": "பலம்", "def": "strength", "rom": "palam" },
-      { "word": "பழம்", "def": "fruit", "rom": "palam" }      
-      
+      { "word": "பழம்", "def": "fruit", "rom": "palam" },
+      { "word": "தலை", "def": "head", "rom": "thalai" },
+      { "word": "மழை", "def": "rain", "rom": "malai" },
+      { "word": "மலை", "def": "mountain", "rom": "malai" },      
+      { "word": "கதை", "def": "story", "rom": "kathai" },
+      { "word": "கடை", "def": "shop", "rom": "kadai" },                              
+      { "word": "மை", "def": "ink", "rom": "mai" },
+      { "word": "பை", "def": "bag", "rom": "pai" },
+      { "word": "கை", "def": "hand", "rom": "kai" }                              
     ]
   }
 ]
