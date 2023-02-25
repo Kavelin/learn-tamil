@@ -12,14 +12,18 @@
       "The first vowel of the tamil alphabet is அ, pronounced like the A in 'allow'. <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_2.gif'><img width=64 src='https://upload.wikimedia.org/wikipedia/commons/7/7c/Writing_Tamil_2.gif'></a>",
       "Whenever I introduce a new vowel, remember to pronounce it out of your mouth so you get used to it. It's really important to practice these sounds if you want to learn efficiently!",
       "Also, whenever there is a GIF as shown, practice drawing it by writing it or even just tracing it with your finger. <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_22.gif'><img width='64' alt='Writing Tamil 22' src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Writing_Tamil_22.gif'></a>",
-      "The second vowel is simply the long version of அ, which is written as ஆ. Simply pronounce it twice as long! <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Tamil_writng_3.gif'><img width='64' alt='Tamil writng 3' src='https://upload.wikimedia.org/wikipedia/commons/9/90/Tamil_writng_3.gif'></a>",
-      "The first consanant we will learn is ம, pronounced like the English letter M. ",
-      "With the vowels we have learned so far, there are three ways this consonant shows up: ம், ம, and மா",
+      "The second vowel is simply the long version of அ, which is written as ஆ. Simply pronounce it twice as long as அ! <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Tamil_writng_3.gif'><img width='64' alt='Tamil writng 3' src='https://upload.wikimedia.org/wikipedia/commons/9/90/Tamil_writng_3.gif'></a>",
+      "The first consanant we will learn is ம், pronounced like the English letter M. ",
+      "Next we will see how consonants are combined with vowels. With the vowels we have learned so far, there are three ways this consonant shows up: ம் (m), ம (ma), and மா (maa)",
       "ம்: When there is a dot on top of the consonant, it signifies no vowel after the sound. <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_23.gif'><img width='64' alt='Writing Tamil 23' src='https://upload.wikimedia.org/wikipedia/commons/4/45/Writing_Tamil_23.gif'></a>",
-      "ம: When it is written without a dot, it defaults to the அ vowel, resulting in the 'ma' sound.\n ம் + அ = ம",
-      "மா: When \"ா\" is present after a consonant, it is the ஆ vowel, resulting in the 'maa' sound.\n ம் + ஆ = மா\n <a title='த*உழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_35.gif'><img width='32' alt='Writing Tamil 35' src='https://upload.wikimedia.org/wikipedia/commons/1/10/Writing_Tamil_35.gif'></a>",
-      "The next consonant is the ப், pronounced like the English letter P. <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_22.gif'><img width='64' alt='Writing Tamil 22' src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Writing_Tamil_22.gif'></a>",
-      "The same rules that apply to ம், ம, மா, also apply to ப், ப (pa), பா (paa).",
+      "ம: When it is written without a dot, it defaults to the அ vowel, resulting in the 'ma' sound.<br/> ம் + அ = ம",
+      "மா: When \"ா\" is present after a consonant, it is the ஆ vowel, resulting in the 'maa' sound.<br/> ம் + ஆ = மா\n <a title='த*உழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_35.gif'><img width='32' alt='Writing Tamil 35' src='https://upload.wikimedia.org/wikipedia/commons/1/10/Writing_Tamil_35.gif'></a>",
+      "The next consonant is the ப், pronounced like the English letter P or B (depending upon where the letter appears in the word). <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_22.gif'><img width='64' alt='Writing Tamil 22' src='https://upload.wikimedia.org/wikipedia/commons/f/f8/Writing_Tamil_22.gif'></a>",
+      "Note: In Tamil, hard consonants like ப் will be pronounced differently based on where they appear in the word. So ப் can represent the sound of P or B. You will learn this better as you get familiar with more words",
+      "Now let's look at combining ப் with vowels. The same rules that apply to ம் (m), ம (ma), மா (maa), also apply to ப் (p), ப (pa), பா (paa).",
+      "ப்: When there is a dot on top of the consonant, it signifies no vowel after the sound.",
+      "ப் combined with அ makes ப (pa).  <b>ப் + அ = ப</b>",
+      "ப் combined with ஆ makes பா (paa). <b>ப் + ஆ = பா</b>",
       "Let's put what you've learned to practice!"
     ],
     "words": [
@@ -36,15 +40,16 @@
     "consanants": ["ட", "க", "த"],
     "pages": [
       "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
-      "ட்: pronounced somewhere between English D and T. <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_18.gif'><img width='64' alt='Writing Tamil 18' src='https://upload.wikimedia.org/wikipedia/commons/c/c9/Writing_Tamil_18.gif'></a>",
-      "ட் combined with அ makes ட (da).  <b>ட் + அ = ட</b>",
-      "ட் combined with ஆ makes டா (daa). <b>ட் + ஆ = டா</b>",
+      "ட்: pronounced like English T or D (depending upon context). <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_18.gif'><img width='64' alt='Writing Tamil 18' src='https://upload.wikimedia.org/wikipedia/commons/c/c9/Writing_Tamil_18.gif'></a>",
+      "ட் combined with அ makes ட (ta).  <b>ட் + அ = ட</b>",
+      "ட் combined with ஆ makes டா (taa). <b>ட் + ஆ = டா</b>",
       "க்: pronounced somewhere between English K and G. <a title='தகவலுழவன், Public domain, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_14.gif'><img width='64' alt='Writing Tamil 14' src='https://upload.wikimedia.org/wikipedia/commons/d/d6/Writing_Tamil_14.gif'></a>",
       "க் combined with அ makes க (ka). <b>க் + அ = க</b>",
       "க் combined with ஆ makes கா (kaa). <b>க் + ஆ = கா</b>", 
       "த்: pronounced like 'th' in English. It's the 'th' used in Tamil! <a title='தகவலுழவன், CC BY-SA 3.0 &lt;https://creativecommons.org/licenses/by-sa/3.0&gt;, via Wikimedia Commons' href='https://commons.wikimedia.org/wiki/File:Writing_Tamil_20.gif'><img width='64' alt='Writing Tamil 20' src='https://upload.wikimedia.org/wikipedia/commons/e/e4/Writing_Tamil_20.gif'></a>",
       "த் combined with அ makes த (tha). <b>த் + அ = த</b>",
-      "த் combined with ஆ makes தா (thaa). <b>த் + ஆ = தா</b>"      
+      "த் combined with ஆ makes தா (thaa). <b>த் + ஆ = தா</b>",
+      "Now let's review what you learned!"      
     ],
     "words": [
       { "word": "படம்", "def": "picture" },
@@ -86,6 +91,7 @@
       { "word": "மணி", "def": "bell", "rom":"mani"},
       { "word": "பனி", "def": "snow" , "rom":"pani"},
       { "word": "ஆணி", "def": "nail" , "rom":"aani"},
+      { "word": "அணில்", "def": "squirrel" , "rom":"anil"},
       { "word": "கத்தி", "def": "knife" , "rom":"kaththi"}
     ]
   },
@@ -152,6 +158,33 @@
       { "word": "மை", "def": "ink", "rom": "mai" },
       { "word": "பை", "def": "bag", "rom": "pai" },
       { "word": "கை", "def": "hand", "rom": "kai" }                              
+    ]
+  },
+  {
+    "title": "YaaY! எ, ஏ, ய, வ",
+    "vowels": [["எ", "ெ"], ["ஏ", "ே"]],
+    "consanants": ["ய", "வ"],
+    "pages": [
+      "In this lesson we will learn two new vowels and two new consonants. <br/>Let's first look at the vowels <br/> எ pronounced like E in 'let' <br/> ஏ (pronounced like ae) is longer version of எ.",
+      "To combine எ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ெ</div> character before the consonant. <br/>For example பெ (pe), மெ (me), டெ (te), கெ (ke), தெ (the), நெ (ne), ணெ (ne), னெ (ne), ரெ (re), றெ (re), லெ (le), ளெ (le), ழெ (le)",
+      "To combine ஏ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ே</div> character before the consonant. <br/>For example பே (pae), மே (mae),  டே (tae), கே (kae), தே (thae), நே (nae), ணே (nae), னே (nae), ரே (rae), றே (rae), லே (lae), ளே (lae), ழே (lae)",
+      "The new consonants we are going to learn in this lesson are ய்  (represent the consonant form of y and pronounced iy) and வ் (represent v sound).",
+      "Now let's see how these new consonants ய் and வ் will appear with எ and ஏ. <br/> ய் with எ is <b>யெ (ye)</b> <br/> ய் with ஏ is <b>யே (yae)</b> <br/>வ் with எ is <b>வெ (ve)</b> <br/> வ் with ஏ is <b>வே (vae)</b>",
+      "Now you can see how all these letters follow the pattern and how easy it is to learn Tamil. Let's review what we learned in this lesson!"
+    ],
+    "words": [
+      { "word": "வாய்", "def": "mouth", "rom": "vaaiy" },
+      { "word": "நாய்", "def": "dog", "rom": "naaiy" },
+      { "word": "தாய்", "def": "mother", "rom": "thaaiy" },
+      { "word": "வா", "def": "come", "rom": "vaa" },
+      { "word": "வால்", "def": "tail", "rom": "vaal" },                             
+      { "word": "பெரிய", "def": "big", "rom": "periya" },                             
+      { "word": "சிறிய", "def": "small", "rom": "siRiya" },
+      { "word": "பெயர்", "def": "name", "rom": "peyar" },                             
+      { "word": "பெட்டி", "def": "box", "rom": "petti" },                                                                                
+      { "word": "பெண்", "def": "female", "rom": "pen" },                             
+      { "word": "ஆண்", "def": "male", "rom": "aan" }                                                                                 
+      
     ]
   }
 ]
