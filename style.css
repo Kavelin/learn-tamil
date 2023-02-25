@@ -49,7 +49,7 @@ h1 {
 #gaming {
     justify-content: center;
 }
-#page {
+.page {
     display:flex;
 }
 #pages-outer {
