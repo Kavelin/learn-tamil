@@ -104,7 +104,7 @@ let nextPage = () => {
 };
 
 let initSounds = () => {
-  let cur = levels.slice(curLevel.value - 1);
+  let cur = levels.slice(curLevel.value - 1, curLevel.value);
   cur
     .map((x) => x.vowels)
     .flat()
