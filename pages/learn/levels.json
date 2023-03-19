@@ -201,7 +201,11 @@
       { "word": "பெண்", "def": "woman", "rom": "pen" },                             
       { "word": "ஆண்", "def": "man", "rom": "aan" },                                                                                 
       { "word": "யானை", "def": "elephant", "rom": "yaanai" },                             
-      { "word": "சேவல்", "def": "rooster", "rom": "saeval" }                                        
+      { "word": "சேவல்", "def": "rooster", "rom": "saeval" },
+      { "word": "இந்த", "def": "this", "rom":"intha"},
+      { "word": "அந்த", "def": "that", "rom":"antha"},
+      { "word": "எந்த", "def": "which?", "rom":"entha"}
+                                              
     ]
   },
   {
@@ -209,7 +213,7 @@
     "vowels": [["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ெள"]],
     "consanants": [],
     "pages": [
-      "In this lesson we will learn three new vowels. <br/>",
+      "In this lesson we will learn three new vowels. <br/> ",
       "New vowels in this lesson are <br/> ஒ pronounced like the first O in 'tomato' <br/> ஓ (pronounced like second O in 'tomato') is longer version of ஒ.<br/> ஔ (pronounced like ou in 'sound')",
       "To combine ஒ with consonants, you add ெ character before the consonant and ா character after the consonant. <br/>For example பொ (po), மொ (mo), டொ (to), கொ (ko), தொ (tho), சொ (cho), நொ (no), ணொ (no), னொ (no), ரொ (ro), றொ (ro),  லொ (lo), ளொ (lo), ழொ (lo)",
       "To combine ஓ with consonants, you add ே  character before the consonant and ா character after the consonant. <br/>For example  போ (pO),  மோ (mO),   டோ (tO),  கோ (kO),  தோ (thO), சோ (chO), நோ (nO),  ணோ (nO),  னோ (nO),  ரோ (rO),  றோ (rO),  லோ (lO),  ளோ (lO),  ழோ (lO)",
@@ -228,6 +232,77 @@
       { "word": "கோழி", "def": "hen", "rom": "kOli" },      
       { "word": "தோட்டம்", "def": "garden", "rom": "thOttam" },
       { "word": "வௌவால்", "def": "bat", "rom": "vouvaal" }      
+    ]
+  },
+  {
+    "title": "Getting there! ங், ஞ்",
+    "vowels": [],
+    "consanants": ["ங", "ஞ"],
+    "pages": [
+      "In this lesson we will learn two new consonants. <br/> With this lesson, we have learned all the consonants. We will do a review after the next lesson.",
+      "New consonants in this lesson are <br/> ங் pronounced like n in 'ringing' or 'angle' <br/> ஞ் (pronounced like n in 'angel')",
+      "ங் and ஞ் are commonly used with their respective friendly letters. ங் appears with க series letters and ஞ் appears with ச series letters. <br/> We will learn more about friendly letters in a later lesson.",
+      "Let's review what we learned in this lesson!"
+    ],
+    "words": [
+      { "word": "அங்கே", "def": "there", "rom": "angae" },
+      { "word": "இங்கே", "def": "here", "rom": "ingae" },                             
+      { "word": "எங்கே", "def": "where", "rom": "engae" },
+      { "word": "சிங்கம்", "def": "lion", "rom": "singam" },      
+      { "word": "தேங்காய்", "def": "coconut", "rom": "thaengaay" },
+      { "word": "மஞ்சள்", "def": "yellow or turmeric", "rom": "manjal" },                             
+      { "word": "பஞ்சம்", "def": "famine", "rom": "panjam" }    
+    ]
+  },
+  {
+    "title": "Woohoo! Almost there! உ, ஊ",
+    "vowels": [["உ", "ு"], ["ஊ", "ூ"]],
+    "consanants": [],
+    "pages": [
+      "In this lesson we will learn two new vowels. <br/> With this lesson, we have learned all the vowels. In the next lesson we will review all the vowels.",
+      "New vowels in this lesson are <br/> உ pronounced like u in 'put' <br/> ஊ (pronounced like oo in 'too') is the longer version of உ",
+      "Combining உ and ஊ with consonants is a bit complex, so we saved this for last.",
+      "To combine உ with consonants, there are three different modifiers used. <img src='/images/u-modifiers.png'/>",
+      "ப், வ், ய், ச் use the vertical line modifier. <br/><br/> ப் + உ = பு <br/> வ் + உ = வு <br/> ய் + உ = யு <br/> ச் + உ = சு",
+      "ம், ர், க், ழ், ள், ட் use the squiggly modifier. <br/><br/> ம் + உ = மு <br/> ர் + உ = ரு <br/> க் + உ = கு <br/> ழ் + உ = ழு <br/> ள் + உ = ளு <br/> ட் + உ =  டு ",
+      "ந், ன், ண், த், ற், ல் use the combination modifier. <br/><br/> ந் + உ = நு <br/> ன் + உ = னு <br/> ண் + உ = ணு <br/> த் + உ = து <br/> ற் + உ = று <br/> ல் + உ = லு <br/> ",    
+      "உ modifiers <br/> <img src='/images/u-modifiers.png'/> <br/> <table width=100%><tr><td>ப் + உ = பு <br/> வ் + உ = வு <br/> ய் + உ = யு <br/> ச் + உ = சு</td><td>ம் + உ = மு <br/> ர் + உ = ரு <br/> க் + உ = கு <br/> ழ் + உ = ழு <br/> ள் + உ = ளு <br/> ட் + உ =  டு </td><td>ந் + உ = நு <br/> ன் + உ = னு <br/> ண் + உ = ணு <br/> த் + உ = து <br/> ற் + உ = று <br/> ல் + உ = லு </td></tr></table>",
+      "To combine ஊ with consonants, there are two different modifiers used. <img src='/images/oo-modifiers.png'/>",      
+      "ப், ய், ம், ழ், ர், ட், வ், ள் use the squiggly modifier. <br/><br/> ப் + ஊ = பூ <br/> ய் + ஊ = யூ <br/> ம் + ஊ = மூ  <br/> ழ் + ஊ = ழூ <br/> ர் + ஊ = ரூ <br/> ட் + ஊ =  டூ <br/>  வ் + ஊ = வூ <br/> ள் + ஊ = ளூ <br/>",
+      "ந், ன், ண், ற், த், ல்  use the combination modifier. <br/><br/> ந் + ஊ = நூ <br/> ன்  + ஊ = னூ  <br/> ண் + ஊ = ணூ <br/> ற் + ஊ = றூ <br/> த் + ஊ = தூ <br/> ல் + ஊ = லூ <br/> ",
+      "In addition, க் and ச் are a bit different. <br/><br/> க்  + ஊ = கூ <br/>  ச் + ஊ = சூ <br/>  ",
+      "ஊ modifiers <br/> <img src='/images/oo-modifiers.png'/> <br/> <table width=100%><tr><td> ப் + ஊ = பூ <br/> ய் + ஊ = யூ <br/> ம் + ஊ = மூ  <br/> ழ் + ஊ = ழூ <br/> ர் + ஊ = ரூ <br/> ட் + ஊ =  டூ <br/>  வ் + ஊ = வூ <br/> ல் + ஊ = லூ </td><td> ந் + ஊ = நூ <br/> ன்  + ஊ = னூ  <br/> ண் + ஊ = ணூ <br/> ற் + ஊ = றூ <br/> த் + ஊ = தூ <br/> ல் + ஊ = லூ </td><td>க்  + ஊ = கூ <br/>  ச் + ஊ = சூ </td></tr></table>",      
+      "Let's review what we learned in this lesson!"
+    ],
+    "words": [
+      { "word": "பாம்பு", "def": "snake", "rom": "paambu" },
+      { "word": "ஆடு", "def": "goat", "rom": "aadu" },                             
+      { "word": "மாடு", "def": "ox", "rom": "maadu" },
+      { "word": "பசு", "def": "cow", "rom": "pasu" },      
+      { "word": "வீடு", "def": "house", "rom": "veedu" },
+      { "word": "தெரு", "def": "street", "rom": "theru" },            
+      { "word": "விளக்கு", "def": "lamp", "rom": "vilakku" },
+      { "word": "குடை", "def": "umbrella", "rom": "kudai" },                             
+      { "word": "கடவுள்", "def": "God", "rom": "kadavul" },
+      { "word": "அது", "def": "that one", "rom": "athu" },
+      { "word": "இது", "def": "this one", "rom": "ithu" },
+      { "word": "எது", "def": "which one?", "rom": "ethu" },      
+      { "word": "கதவு", "def": "door", "rom": "kathavu" },
+      { "word": "பூட்டு", "def": "lock", "rom": "poottu" },
+      { "word": "சாவி", "def": "key", "rom": "chaavi" },
+      { "word": "முகம்", "def": "face", "rom": "mugam" },      
+      { "word": "மூக்கு", "def": "nose", "rom": "mookku" },      
+      { "word": "நாக்கு", "def": "tongue", "rom": "naakku" },      
+      { "word": "காது", "def": "ear", "rom": "kaathu" },
+      { "word": "மருந்து", "def": "medicine", "rom": "marunthu" },      
+      { "word": "எறும்பு", "def": "ant", "rom": "erumbu" },      
+      { "word": "கரும்பு", "def": "sugarcane", "rom": "karumbu" },      
+      { "word": "ஆறு", "def": "river or number 6", "rom": "aaru" },      
+      { "word": "நூல்", "def": "book or thread", "rom": "nool" },      
+      { "word": "தூண்", "def": "pillar", "rom": "thoon" },      
+      { "word": "சூரியன்", "def": "sun", "rom": "sooriyan" },      
+      { "word": "சந்திரன்", "def": "moon", "rom": "chanthiran" },
+      { "word": "நிலா", "def": "moon", "rom": "nilaa" }      
     ]
   }
 ]
