@@ -147,7 +147,7 @@
     "pages": [
       "In this lesson, we will learn a new vowel and 3 consonants.",    
       "New vowel: ஐ, pronounced ai.",
-      "To combine ஐ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ை</div> character before the consonant. <br/>For example பை (pai), மை (mai), டை (tai), கை (kai), தை (thai), நை (nai), ணை(nai), னை(nai), ரை(rai), றை(rai)",
+      "To combine ஐ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ை</div> character before the consonant. <br/>For example பை (pai), மை (mai), டை (tai), கை (kai), தை (thai), சை (chai), நை (nai), ணை(nai), னை(nai), ரை(rai), றை(rai)",
       "The new consonants we are going to learn in this lesson represent L sound. <br/> But as with N sound (ன, ண, ந) and R sound (ர, ற), L sound has three variations in Tamil. ல, ள, ழ",
       "It is important to learn the right pronunciation of these different sounds. If you use the wrong version, meaning of the words could be different. Hence it is important to pronounce it correctly so that you can write it correctly.",
       "Pronouncing it the right way is easy once you understand where you have to place your tongue for each consonant. Practice putting your tongue in the different places. <img src='https://qph.cf2.quoracdn.net/main-qimg-06453f63d065cd2820931ae6dadb2a6b' width=250 alt='tamil tongue placements'>",
@@ -162,7 +162,7 @@
 
       { "word": "பல்லி", "def": "lizard", "rom": "palli" },
       { "word": "பள்ளி", "def": "school", "rom": "palli" },      
-      { "word": "பலம்", "def": "strength", "rom": "palam" },
+      { "word": "பலம்", "def": "strength", "rom": "balam" },
       { "word": "பழம்", "def": "fruit", "rom": "palam" },
 
       { "word": "தலை", "def": "head", "rom": "thalai" },
@@ -182,8 +182,8 @@
     "consanants": ["ய", "வ"],
     "pages": [
       "In this lesson we will learn two new vowels and two new consonants. <br/>Let's first look at the vowels <br/> எ pronounced like E in 'let' <br/> ஏ (pronounced like ae) is longer version of எ.",
-      "To combine எ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ெ</div> character before the consonant. <br/>For example பெ (pe), மெ (me), டெ (te), கெ (ke), தெ (the), நெ (ne), ணெ (ne), னெ (ne), ரெ (re), றெ (re), லெ (le), ளெ (le), ழெ (le)",
-      "To combine ஏ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ே</div> character before the consonant. <br/>For example பே (pae), மே (mae),  டே (tae), கே (kae), தே (thae), நே (nae), ணே (nae), னே (nae), ரே (rae), றே (rae), லே (lae), ளே (lae), ழே (lae)",
+      "To combine எ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ெ</div> character before the consonant. <br/>For example பெ (pe), மெ (me), டெ (te), கெ (ke), தெ (the), செ (che), நெ (ne), ணெ (ne), னெ (ne), ரெ (re), றெ (re), லெ (le), ளெ (le), ழெ (le)",
+      "To combine ஏ with consonants, you add <div style='display: inline-flex;overflow: hidden;width: 23.5px;'>ே</div> character before the consonant. <br/>For example பே (pae), மே (mae),  டே (tae), கே (kae), தே (thae),  சே (chae),  நே (nae), ணே (nae), னே (nae), ரே (rae), றே (rae), லே (lae), ளே (lae), ழே (lae)",
       "The new consonants we are going to learn in this lesson are ய்  (represent the consonant form of y) and வ் (represent v sound).",
       "Now let's see how these new consonants ய் and வ் will appear with எ and ஏ. <br/> ய் with எ is <b>யெ (ye)</b> <br/> ய் with ஏ is <b>யே (yae)</b> <br/>வ் with எ is <b>வெ (ve)</b> <br/> வ் with ஏ is <b>வே (vae)</b>",
       "Now you can see how all these letters follow the pattern and how easy it is to learn Tamil. Let's review what we learned in this lesson!"
@@ -199,8 +199,35 @@
       { "word": "பெயர்", "def": "name", "rom": "peyar" },                             
       { "word": "பெட்டி", "def": "box", "rom": "petti" },                                                                                
       { "word": "பெண்", "def": "woman", "rom": "pen" },                             
-      { "word": "ஆண்", "def": "man", "rom": "aan" }                                                                                 
-      
+      { "word": "ஆண்", "def": "man", "rom": "aan" },                                                                                 
+      { "word": "யானை", "def": "elephant", "rom": "yaanai" },                             
+      { "word": "சேவல்", "def": "rooster", "rom": "saeval" }                                        
+    ]
+  },
+  {
+    "title": "WoW! ஒ, ஓ, ஔ",
+    "vowels": [["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ெள"]],
+    "consanants": [],
+    "pages": [
+      "In this lesson we will learn three new vowels. <br/>",
+      "New vowels in this lesson are <br/> ஒ pronounced like the first O in 'tomato' <br/> ஓ (pronounced like second O in 'tomato') is longer version of ஒ.<br/> ஔ (pronounced like ou in 'sound')",
+      "To combine ஒ with consonants, you add ெ character before the consonant and ா character after the consonant. <br/>For example பொ (po), மொ (mo), டொ (to), கொ (ko), தொ (tho), சொ (cho), நொ (no), ணொ (no), னொ (no), ரொ (ro), றொ (ro),  லொ (lo), ளொ (lo), ழொ (lo)",
+      "To combine ஓ with consonants, you add ே  character before the consonant and ா character after the consonant. <br/>For example  போ (pO),  மோ (mO),   டோ (tO),  கோ (kO),  தோ (thO), சோ (chO), நோ (nO),  ணோ (nO),  னோ (nO),  ரோ (rO),  றோ (rO),  லோ (lO),  ளோ (lO),  ழோ (lO)",
+      "To combine ஔ with consonants, you add ெ  character before the consonant and ள character after the consonant. <br/>For example பௌ  (pou), மௌ (mou),  டௌ (tou),  கௌ (kou),  தௌ (thou), சௌ  (chou), நௌ (nou), ணௌ (nou),  னௌ (nou), ரௌ (rou),  றௌ(rou),  லௌ(lou),  ளௌ(lou),  ழௌ(lou)",
+      "Let's review what we learned in this lesson!"
+    ],
+    "words": [
+      { "word": "ஒரு", "def": "one", "rom": "oru" },
+      { "word": "ஒட்டகம்", "def": "camel", "rom": "ottagam" },                             
+      { "word": "சொல்", "def": "word", "rom": "sol" },
+      { "word": "தொப்பி", "def": "hat", "rom": "thoppi" },      
+      { "word": "தொட்டி", "def": "tub", "rom": "thotti" },
+      { "word": "போ", "def": "go", "rom": "pO" },                             
+      { "word": "ஓடு", "def": "run", "rom": "Odu" },      
+      { "word": "கோவில்", "def": "temple", "rom": "kOvil" },
+      { "word": "கோழி", "def": "hen", "rom": "kOli" },      
+      { "word": "தோட்டம்", "def": "garden", "rom": "thOttam" },
+      { "word": "வௌவால்", "def": "bat", "rom": "vouvaal" }      
     ]
   }
 ]
