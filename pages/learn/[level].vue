@@ -7,23 +7,17 @@
       <br /><br /><br />
       <div id="pages">
         <div class="page" v-html="data.pages[curPage]"></div>
-        
-      <button @click="backPage">← Back</button>
+        <button @click="backPage">← Back</button>
         <button @click="nextPage">Next →</button>
       </div>
-      
+
     </div>
     <div id="gaming" class="inner" v-else>
       <div id="sounds" v-if="!showGamingWords">
         <div v-if="currentSounds.length != 0">
           <h1>{{ currentSounds[0] }}</h1>
           <div class="buttons">
-            <button
-              v-for="es in gameCurrentEnglishSounds"
-              :key="es"
-              class="sound-btn"
-              @click="() => checkSound(es)"
-            >
+            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="() => checkSound(es)">
               {{ es }}
             </button>
           </div>
@@ -31,12 +25,7 @@
         <div v-else-if="wrongSounds.length != 0 && currentSounds.length == 0">
           <h1>Re: {{ wrongSounds[0] }}</h1>
           <div class="buttons">
-            <button
-              v-for="es in gameCurrentEnglishSounds"
-              :key="es"
-              class="sound-btn"
-              @click="() => checkWrongSound(es)"
-            >
+            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="() => checkWrongSound(es)">
               {{ es }}
             </button>
           </div>
@@ -50,11 +39,7 @@
           {{ words[curWord].word }}
           <span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
-        <input
-          type="text"
-          @keypress.enter="() => (showDef ? nextWord() : check())"
-          v-model="mainInput"
-        />
+        <input type="text" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
 
         <button @click="() => (showDef ? nextWord() : check())">
           {{ showDef ? "Next" : "Check" }} →
@@ -68,6 +53,7 @@
 import levels from "./levels.json";
 import chars from "./chars";
 import { checkDef } from "./check";
+import initDraw from "./initDraw";
 const route = useRoute();
 const router = useRouter();
 
@@ -94,14 +80,24 @@ let currentSounds = ref(<string[]>[]);
 let wrongSounds = ref(<string[]>[]);
 let currentEnglishSounds = ref(chars.map((x) => x.slice(1)).flat());
 let gameCurrentEnglishSounds = ref(<string[]>[]);
-let nextPage = () => {
-  if (++curPage.value != data.value.pages.length)
+let nextPage = async () => {
+  if (++curPage.value != data.value.pages.length) {
     showGaming.value = showGaming.value;
-  else {
+    await nextTick();
+    initDraw(document.querySelector(".draw"));
+  } else {
     initSounds();
     showGaming.value = !showGaming.value;
   }
-};
+}
+
+let backPage = async () => {
+  if (curPage.value > 0) curPage.value--;
+  await nextTick();
+  initDraw(document.querySelector(".draw"));
+}
+
+
 
 let initSounds = () => {
   let cur = levels.slice(curLevel.value - 1, curLevel.value);
@@ -117,21 +113,21 @@ let initSounds = () => {
     );
   if (curLevel.value >= 2) {
     let all = levels.slice(0, curLevel.value);
-    let conc:string[] = [];
+    let conc: string[] = [];
     let count = 0;
     let extraWords = 5;
     all
-    .map((x) => x.vowels)
-    .flat()
-    .map((x) => x[1])
-    .forEach((i) =>
-      all
-        .map((x) => x.consanants)
-        .flat()
-        .forEach((j) => {if (++count < extraWords) currentSounds.value.push(j + i)})
-    );
+      .map((x) => x.vowels)
+      .flat()
+      .map((x) => x[1])
+      .forEach((i) =>
+        all
+          .map((x) => x.consanants)
+          .flat()
+          .forEach((j) => { if (++count < extraWords) currentSounds.value.push(j + i) })
+      );
   }
-  currentSounds.value.sort(() => 0.5 - Math.random());
+  currentSounds.value.sort(_ => 0.5 - Math.random());
   shuffleSounds(currentSounds.value);
 };
 
@@ -147,11 +143,6 @@ let shuffleSounds = (arr: String[]) => {
     )
     .sort(() => 0.5 - Math.random());
 };
-
-let backPage = () => {
-  if (curPage.value > 0) curPage.value--;
-};
-
 let checkSound = (es: string) => {
   if (
     chars
