@@ -100,34 +100,29 @@ let backPage = async () => {
 
 
 let initSounds = () => {
-  let cur = levels.slice(curLevel.value - 1, curLevel.value);
-  cur
-    .map((x) => x.vowels)
-    .flat()
-    .map((x) => x[1])
-    .forEach((i) =>
-      cur
-        .map((x) => x.consanants)
-        .flat()
-        .forEach((j) => currentSounds.value.push(j + i))
+  let curData = levels.slice(curLevel.value - 1, curLevel.value)[0]; // level data
+  let notcurDatas = levels.slice(0, curLevel.value - 1); //all before current level data
+  let notcur = <string[]>[]; // have to limit other level sounds into current sounds
+  let extraSounds = 5; //number of other level sounds 
+  curData.vowels.map((x) => x[1]) //get the "additive vowel" character
+    .forEach((i) => //add each vowel to each consonant and push that to current sounds
+      curData.consanants.forEach((j) => currentSounds.value.push(j + i))
     );
-  if (curLevel.value >= 2) {
-    let all = levels.slice(0, curLevel.value);
-    let conc: string[] = [];
-    let count = 0;
-    let extraWords = 5;
-    all
-      .map((x) => x.vowels)
-      .flat()
-      .map((x) => x[1])
+  if (curLevel.value > 1) {
+    notcurDatas
+      .map((x) => x.vowels) //get vowels from every level
+      .flat() //they are all inside objects so flatten
+      .map((x) => x[1]) //get the "additive vowel" character
       .forEach((i) =>
-        all
+        notcurDatas
           .map((x) => x.consanants)
           .flat()
-          .forEach((j) => { if (++count < extraWords) currentSounds.value.push(j + i) })
+          .forEach((j) => { notcur.push(j + i) })
       );
+      notcur.sort(_ => 0.5 - Math.random());
   }
-  currentSounds.value.sort(_ => 0.5 - Math.random());
+  currentSounds.value.push(...notcur.slice(0, extraSounds));
+  //currentSounds.value.sort(_ => 0.5 - Math.random());
   shuffleSounds(currentSounds.value);
 };
 
