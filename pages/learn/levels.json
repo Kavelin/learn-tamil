@@ -32,14 +32,14 @@
       "Now, let's put what you've learned to practice!"
     ],
     "words": [
-      { "word": "அம்மா", "def": "mom" },
-      { "word": "அப்பா", "def": "dad" },
-      { "word": "பாப்பா", "def": "baby" },
-      { "word": "மாமா", "def": "uncle" },
-      { "word": "ஆமாம்", "def": "yes" },
-      { "word": "படம்", "def": "picture" },
-      { "word": "பாடம்", "def": "lesson" },
-      { "word": "பட்டம்", "def": "kite" }
+      { "word": "அம்மா", "def": "mom", "rom":"ammaa"},
+      { "word": "அப்பா", "def": "dad", "rom":"appaa"},
+      { "word": "பாப்பா", "def": "baby", "rom":"paappaa"},
+      { "word": "மாமா", "def": "uncle", "rom":"maamaa"},
+      { "word": "ஆமாம்", "def": "yes", "rom":"aamaam"},
+      { "word": "படம்", "def": "picture", "rom":"padam"},
+      { "word": "பாடம்", "def": "lesson", "rom":"paadam"},
+      { "word": "பட்டம்", "def": "kite", "rom":"pattam"}
     ]
   },
   {
@@ -61,11 +61,11 @@
       "Now let's review what you learned!<br/>"      
     ],
     "words": [
-      { "word": "சட்டம்", "def": "frame" },
-      { "word": "மட்டம்", "def": "level" },            
-      { "word": "கட்டடம்", "def": "building" },
-      { "word": "காகம்", "def": "crow" },
-      { "word": "தாத்தா", "def": "grandfather" }
+      { "word": "சட்டம்", "def": "frame", "rom":"sattam"},
+      { "word": "மட்டம்", "def": "level","rom":"mattam" },            
+      { "word": "கட்டடம்", "def": "building","rom":"kattadam" },
+      { "word": "காகம்", "def": "crow", "rom":"kaagam"},
+      { "word": "தாத்தா", "def": "grandfather", "rom":"thaaththaa"}
       
     ]
   },
@@ -173,7 +173,7 @@
 
       { "word": "தலை", "def": "head", "rom": "thalai" },
       { "word": "மழை", "def": "rain", "rom": "malai" },
-      { "word": "மலை", "def": "mountain", "rom": "malai" },      
+      { "word": "மலை", "def": "mountain", "rom": "malai" },
       { "word": "கதை", "def": "story", "rom": "kathai" },
       { "word": "கடை", "def": "shop", "rom": "kadai" },  
 
@@ -196,8 +196,8 @@
       "Now let's see how these new consonants ய் and வ் will appear with எ and ஏ. <br/> ய் with எ is <b>யெ (ye)</b> <br/> ய் with ஏ is <b>யே (yae)</b> <br/>வ் with எ is <b>வெ (ve)</b> <br/> வ் with ஏ is <b>வே (vae)</b>"
     ],
     "words": [
-      { "word": "வா", "def": "come", "rom": "vaa" },
-      { "word": "வால்", "def": "tail", "rom": "vaal" },                             
+      { "word": "வா", "def": "come", "rom": "vaa"},
+      { "word": "வால்", "def": "tail", "rom": "vaal" , "sound":"vaal.mp3"},                             
       { "word": "வாய்", "def": "mouth", "rom": "vaay" },
       { "word": "நாய்", "def": "dog", "rom": "naay" },
       { "word": "தாய்", "def": "mother", "rom": "thaay" },

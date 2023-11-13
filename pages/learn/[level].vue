@@ -39,6 +39,7 @@
           {{ words[curWord].word }}
           <span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
+        <div id="mostAccRom" v-if="showDef"> <b> {{ words[curWord].rom  }} </b> <button v-if="'sound' in words[curWord]" v-on:click="playSound">🔊</button></div>
         <input type="text" v-if="!showDef" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
         <div id="correction" v-html="correction"></div>
         <button @click="() => (showDef ? nextWord() : check())">
@@ -57,12 +58,6 @@ import initDraw from "./initDraw";
 const route = useRoute();
 const router = useRouter();
 
-interface Word {
-  image?: String;
-  sound?: String;
-  word: String;
-  def: String;
-}
 let curLevel = ref(Number(route.params.level));
 let curWord = ref(0);
 let curPage = ref(0);
@@ -174,6 +169,7 @@ let check = () => {
     showDef.value = !showDef.value;
     correction.value = "";
     mainInput.value = "";
+    playSound();
 }
   else {
     correction.value = 
@@ -181,7 +177,13 @@ let check = () => {
       `<span class='correction'>${val.curEnglish}</span>` + 
       mainInput.value.slice(val.curInp + val.curEnglish.length);
   }
-};
+}
+let playSound = () => {
+  if ('sound' in words.value[curWord.value])  {
+      var snd = new Audio("/sounds/" + words.value[curWord.value].sound);
+      snd.play();
+    }
+}
 let nextWord = async () => {
   showDef.value = !showDef.value;
   mainInput.value = "";
