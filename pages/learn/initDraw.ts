@@ -1,5 +1,4 @@
 export default function initDraw(canvas: HTMLCanvasElement | null) {
-    console.log(canvas);
     if (canvas) {
         canvas.style.touchAction = "none";
         canvas.style.background = `no-repeat center url(${canvas.dataset.url})`;

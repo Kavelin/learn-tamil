@@ -17,6 +17,11 @@ button {
 canvas {
     touch-action: none;
 }
+.correction {
+    color:red;
+    text-decoration: underline;
+    white-space:pre;
+}
 .buttons {
     display:flex;
 }

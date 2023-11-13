@@ -3,6 +3,7 @@ export function checkDef(input: String, definition: String) {
   let ret: boolean = true;
   let curChar: number = 0;
   let curInp: number = 0;
+  let curEnglish:string = "";
   let defArr = definition.match(/[\u0b80-\u0bff][\u0bbe-\u0bcd\u0bd7]?|\s/g) || [];
   while (curChar < defArr.length) {
     if (!ret) break;
@@ -11,6 +12,8 @@ export function checkDef(input: String, definition: String) {
     if (englishSounds)
       for (let c = 0; c < englishSounds.length; c++) {
         let i = englishSounds[c];
+        
+    curEnglish = input.slice(curInp, curInp + i.length);
         if (input.slice(curInp, curInp + i.length) == i) {
           curInp += i.length;
           ret = true;
@@ -19,5 +22,5 @@ export function checkDef(input: String, definition: String) {
       }
     curChar++;
   }
-  return ret;
+  return {ret, curInp, curEnglish}
 }

@@ -39,8 +39,8 @@
           {{ words[curWord].word }}
           <span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
-        <input type="text" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
-
+        <input type="text" v-if="!showDef" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
+        <div id="correction" v-html="correction"></div>
         <button @click="() => (showDef ? nextWord() : check())">
           {{ showDef ? "Next" : "Check" }} →
         </button>
@@ -74,6 +74,7 @@ let showGamingWords = ref(false);
 
 let showDef = ref(false);
 let mainInput = ref("");
+let correction = ref("");
 let words = ref(data.value.words);
 
 let currentSounds = ref(<string[]>[]);
@@ -122,7 +123,6 @@ let initSounds = () => {
       notcur.sort(_ => 0.5 - Math.random());
   }
   currentSounds.value.push(...notcur.slice(0, extraSounds));
-  //currentSounds.value.sort(_ => 0.5 - Math.random());
   shuffleSounds(currentSounds.value);
 };
 
@@ -169,9 +169,18 @@ let checkWrongSound = (es: string) => {
 };
 
 let check = () => {
-  if (checkDef(mainInput.value, words.value[curWord.value].word))
+  let val = checkDef(mainInput.value, words.value[curWord.value].word);
+  if (val.ret) {
     showDef.value = !showDef.value;
-  else mainInput.value = "";
+    correction.value = "";
+    mainInput.value = "";
+}
+  else {
+    correction.value = 
+      mainInput.value.slice(0, val.curInp) + 
+      `<span class='correction'>${val.curEnglish}</span>` + 
+      mainInput.value.slice(val.curInp + val.curEnglish.length);
+  }
 };
 let nextWord = async () => {
   showDef.value = !showDef.value;
