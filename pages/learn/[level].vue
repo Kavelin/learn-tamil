@@ -39,7 +39,8 @@
           {{ words[curWord].word }}
           <span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
-        <div id="mostAccRom" v-if="showDef"> <b> {{ words[curWord].rom  }} </b> <button v-if="'sound' in words[curWord]" v-on:click="playSound">🔊</button></div>
+        <div id="mostAccRom" v-if="showDef"> <b> {{ words[curWord].rom }} </b> <button v-if="'sound' in words[curWord]"
+            v-on:click="playSound(words[curWord].sound!)">🔊</button></div>
         <input type="text" v-if="!showDef" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
         <div id="correction" v-html="correction"></div>
         <button @click="() => (showDef ? nextWord() : check())">
@@ -57,6 +58,13 @@ import { checkDef } from "./check";
 import initDraw from "./initDraw";
 const route = useRoute();
 const router = useRouter();
+interface Word {
+  word: string;
+  def: string;
+  rom: string;
+  sound?: string;
+  image?: string;
+}
 
 let curLevel = ref(Number(route.params.level));
 let curWord = ref(0);
@@ -70,7 +78,7 @@ let showGamingWords = ref(false);
 let showDef = ref(false);
 let mainInput = ref("");
 let correction = ref("");
-let words = ref(data.value.words);
+let words = ref(<Word[]>data.value.words);
 
 let currentSounds = ref(<string[]>[]);
 let wrongSounds = ref(<string[]>[]);
@@ -81,6 +89,7 @@ let nextPage = async () => {
     showGaming.value = showGaming.value;
     await nextTick();
     initDraw(document.querySelector(".draw"));
+    initButtons(document.querySelectorAll("button[data-sound]"));
   } else {
     initSounds();
     showGaming.value = !showGaming.value;
@@ -93,7 +102,9 @@ let backPage = async () => {
   initDraw(document.querySelector(".draw"));
 }
 
-
+let initButtons = (btns: NodeListOf<HTMLButtonElement>) => {
+  btns.forEach(i => i.addEventListener("click", e => playSound(i.dataset.sound!)));
+}
 
 let initSounds = () => {
   let curData = levels.slice(curLevel.value - 1, curLevel.value)[0]; // level data
@@ -115,7 +126,7 @@ let initSounds = () => {
           .flat()
           .forEach((j) => { notcur.push(j + i) })
       );
-      notcur.sort(_ => 0.5 - Math.random());
+    notcur.sort(_ => 0.5 - Math.random());
   }
   currentSounds.value.push(...notcur.slice(0, extraSounds));
   shuffleSounds(currentSounds.value);
@@ -169,20 +180,18 @@ let check = () => {
     showDef.value = !showDef.value;
     correction.value = "";
     mainInput.value = "";
-    playSound();
-}
+    playSound("/sounds/words/" + words.value[curWord.value].sound);
+  }
   else {
-    correction.value = 
-      mainInput.value.slice(0, val.curInp) + 
-      `<span class='correction'>${val.curEnglish}</span>` + 
+    correction.value =
+      mainInput.value.slice(0, val.curInp) +
+      `<span class='correction'>${val.curEnglish}</span>` +
       mainInput.value.slice(val.curInp + val.curEnglish.length);
   }
 }
-let playSound = () => {
-  if ('sound' in words.value[curWord.value])  {
-      var snd = new Audio("/sounds/" + words.value[curWord.value].sound);
-      snd.play();
-    }
+let playSound = (path: string) => {
+  var snd = new Audio(path);
+  snd.play();
 }
 let nextWord = async () => {
   showDef.value = !showDef.value;
