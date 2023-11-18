@@ -329,17 +329,35 @@
     "words": [
       {"word":"மண்", "def":"dirt", "rom":"man"},
       {"word":"மான்", "def":"deer", "rom":"maan"},
-      {},
-      {}
+      {"word":"கோடி", "def":"crore (10 million)", "rom":"kOdi"},
+      {"word":"கொடி", "def":"umbrella", "rom":"kodi"},
+      {"word":"மலை", "def":"mountain", "rom":"malai"},
+      {"word":"மாலை", "def":"garland or evening", "rom":"maalai"},
+      {"word":"கலை", "def":"arts", "rom":"kalai"},
+      {"word":"காலை", "def":"morning", "rom":"maalai"},
+      {"word":"கலை", "def":"arts", "rom":"kalai"},
+      {"word":"காலை", "def":"morning", "rom":"maalai"}
     ]
   },
   {
-    "title":"Consonance (",
+    "title":"Consonance (வல்லினம், மெல்லினம், இடையினம்)",
     "vowels": [],
     "consanants": [],
     "pages": [
-      "",
-      "hi"
+      "In tamil, the consonants are split up into three groups of six: வல்லினம் (hard), மெல்லினம் (soft), இடையினம் (middle)",
+      "The "
+    ],
+    "words": [
+
+    ]
+  },
+  {
+    "title":"Putting it all together",
+    "vowels": [],
+    "consanants": [],
+    "pages": [
+      "Table nedungakku",
+      ""
     ],
     "words": [
 
@@ -370,7 +388,7 @@
     ]
   },
   {
-    "title":"pronunciation (uchurippu)",
+    "title":"pronunciation (உச்சரிப்பு)",
     "vowels": [],
     "consanants": [],
     "pages": [
