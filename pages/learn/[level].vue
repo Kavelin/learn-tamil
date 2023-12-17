@@ -39,8 +39,8 @@
           {{ words[curWord].word }}
           <span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
-        <div id="mostAccRom" v-if="showDef"> <b> {{ words[curWord].rom }} </b> <button v-if="'sound' in words[curWord]"
-            v-on:click="playSound(words[curWord].sound!)">🔊</button></div>
+        <div id="mostAccRom" v-if="showDef"> <b> {{ words[curWord].rom }} </b> <button
+            v-on:click="playSound('/sounds/words/' + (curLevel) + '/' + (words[curWord].sound ?? words[curWord].rom + '.mp3'))">🔊</button></div>
         <input type="text" v-if="!showDef" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
         <div id="correction" v-html="correction"></div>
         <button @click="() => (showDef ? nextWord() : check())">
@@ -180,7 +180,7 @@ let check = () => {
     showDef.value = !showDef.value;
     correction.value = "";
     mainInput.value = "";
-    playSound("/sounds/words/" + words.value[curWord.value].sound);
+    playSound('/sounds/words/' + (curLevel.value) + '/' + (words.value[curWord.value].sound ?? words.value[curWord.value].rom + '.mp3'));
   }
   else {
     correction.value =

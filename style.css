@@ -58,7 +58,6 @@ h1 {
     justify-content: center;
 }
 #pages-outer {
-    
     justify-content: start;
     flex-direction: column;
 }

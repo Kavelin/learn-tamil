@@ -200,7 +200,7 @@
     ],
     "words": [
       { "word": "வா", "def": "come", "rom": "vaa"},
-      { "word": "வால்", "def": "tail", "rom": "vaal" , "sound":"vaal.mp3"},                             
+      { "word": "வால்", "def": "tail", "rom": "vaal" },                             
       { "word": "வாய்", "def": "mouth", "rom": "vaay" },
       { "word": "நாய்", "def": "dog", "rom": "naay" },
       { "word": "தாய்", "def": "mother", "rom": "thaay" },
@@ -236,11 +236,11 @@
       { "word": "சொல்", "def": "word", "rom": "sol" },
       { "word": "தொப்பி", "def": "hat", "rom": "thoppi" },      
       { "word": "தொட்டி", "def": "tub", "rom": "thotti" },
-      { "word": "போ", "def": "go", "rom": "pO" },                             
-      { "word": "ஓடு", "def": "run", "rom": "Odu" },      
-      { "word": "கோவில்", "def": "temple", "rom": "kOvil" },
-      { "word": "கோழி", "def": "hen", "rom": "kOli" },      
-      { "word": "தோட்டம்", "def": "garden", "rom": "thOttam" },
+      { "word": "போ", "def": "go", "rom": "pO", "sound":"po.mp3"},
+      { "word": "ஓடு", "def": "run", "rom": "Odu", "sound":"odu.mp3"},      
+      { "word": "கோவில்", "def": "temple", "rom": "kOvil", "sound":"kovil.mp3" },
+      { "word": "கோழி", "def": "hen", "rom": "kOli", "sound":"koli.mp3"}, 
+      { "word": "தோட்டம்", "def": "garden", "rom": "thOttam", "sound":""},
       { "word": "வௌவால்", "def": "bat", "rom": "vouvaal" }      
     ]
   },
@@ -257,11 +257,11 @@
       "Let's review what we learned in this lesson!<br/>"
     ],
     "words": [
-      { "word": "அங்கே", "def": "there", "rom": "angae" },
-      { "word": "இங்கே", "def": "here", "rom": "ingae" },                             
-      { "word": "எங்கே", "def": "where", "rom": "engae" },
+      { "word": "அங்கே", "def": "there", "rom": "ange" },
+      { "word": "இங்கே", "def": "here", "rom": "inge" },                             
+      { "word": "எங்கே", "def": "where", "rom": "enge" },
       { "word": "சிங்கம்", "def": "lion", "rom": "singam" },      
-      { "word": "தேங்காய்", "def": "coconut", "rom": "thaengaay" },
+      { "word": "தேங்காய்", "def": "coconut", "rom": "thengaay" },
       { "word": "மஞ்சள்", "def": "yellow or turmeric", "rom": "manjal" },                             
       { "word": "பஞ்சம்", "def": "famine", "rom": "panjam" }    
     ]
@@ -328,14 +328,14 @@
     "words": [
       {"word":"மண்", "def":"dirt", "rom":"man"},
       {"word":"மான்", "def":"deer", "rom":"maan"},
-      {"word":"கோடி", "def":"crore (10 million)", "rom":"kOdi"},
+      {"word":"கோடி", "def":"crore (10 million)", "rom":"kOdi", "sound":"koodi.mp3"},
       {"word":"கொடி", "def":"umbrella", "rom":"kodi"},
       {"word":"மலை", "def":"mountain", "rom":"malai"},
-      {"word":"மாலை", "def":"garland or evening", "rom":"maalai"},
+      {"word":"மாலை", "def":"garland or evening", "rom":"maalai.mp3"},
       {"word":"கலை", "def":"arts", "rom":"kalai"},
-      {"word":"காலை", "def":"morning", "rom":"maalai"},
-      {"word":"கலை", "def":"arts", "rom":"kalai"},
-      {"word":"காலை", "def":"morning", "rom":"maalai"}
+      {"word":"காலை", "def":"morning", "rom":"kaalai"},
+      {"word":"களை", "def":"weed", "rom":"kalai", "sound":"kalai (weed).mp3"},
+      {"word":"காளை", "def":"bull", "rom":"kaalai", "sound":"kaalai (bull).mp3"}
     ]
   },
   {

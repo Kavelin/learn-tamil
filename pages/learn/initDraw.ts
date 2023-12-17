@@ -9,9 +9,11 @@ export default function initDraw(canvas: HTMLCanvasElement | null) {
         canvas.addEventListener("mousedown", startDrawing);
         canvas.addEventListener("mousemove", drawLine);
         canvas.addEventListener("mouseup", stopDrawing);
+        canvas.addEventListener("mouseout", stopDrawing);
         canvas.addEventListener("pointerdown", startDrawing);
         canvas.addEventListener("pointermove", drawLine);
         canvas.addEventListener("pointerup", stopDrawing);
+        canvas.addEventListener("pointerout", stopDrawing);
 
         function startDrawing(eventvs01: MouseEvent) {
             pressedMouse = true;
