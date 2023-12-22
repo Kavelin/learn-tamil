@@ -11,8 +11,23 @@ button {
     padding:8px;
     font-family: 'Noto Sans Tamil', sans-serif;
     margin:8px;
-    transition:background 300ms, border 300ms;
+    transition:background 300ms, border-color 300ms;
     background:#d4d4d4;
+}
+button:hover {
+    background:#adadad;
+}
+button:click {
+    background:#353535;
+    border-color:#353535;
+}
+.correct {
+    background: #69d360 !important;
+    border-color:  #2bb632 !important;
+}
+.wrong {
+    background: #df6161 !important;
+    border-color:#b62b2b !important;
 }
 canvas {
     touch-action: none;
@@ -24,13 +39,6 @@ canvas {
 }
 .buttons {
     display:flex;
-}
-button:hover {
-    background:#adadad;
-}
-button:click {
-    background:#353535;
-    border-color:#353535;
 }
 h1 {
     font-weight:400;

@@ -32,10 +32,10 @@
       "Now, let's put what you've learned to practice!"
     ],
     "words": [
-      { "word": "அம்மா", "def": "mom", "rom":"ammaa"},
-      { "word": "அப்பா", "def": "dad", "rom":"appaa"},
-      { "word": "பாப்பா", "def": "baby", "rom":"paappaa"},
-      { "word": "மாமா", "def": "uncle", "rom":"maamaa"},
+      { "word": "அம்மா", "def": "mom", "rom":"ammaa", "sound":"amma.mp3"},
+      { "word": "அப்பா", "def": "dad", "rom":"appaa", "sound":"appa.mp3"},
+      { "word": "பாப்பா", "def": "baby", "rom":"paappaa", "sound":"paapa.mp3"},
+      { "word": "மாமா", "def": "uncle", "rom":"maamaa", "sound":"mama.mp3"},
       { "word": "ஆமாம்", "def": "yes", "rom":"aamaam"},
       { "word": "படம்", "def": "picture", "rom":"padam"},
       { "word": "பாடம்", "def": "lesson", "rom":"paadam"},
@@ -65,7 +65,7 @@
       { "word": "மட்டம்", "def": "level","rom":"mattam" },            
       { "word": "கட்டடம்", "def": "building","rom":"kattadam" },
       { "word": "காகம்", "def": "crow", "rom":"kaagam"},
-      { "word": "தாத்தா", "def": "grandfather", "rom":"thaaththaa"}
+      { "word": "தாத்தா", "def": "grandfather", "rom":"thaaththaa", "sound":"thaaththaa.mp3"}
       
     ]
   },
@@ -98,14 +98,14 @@
       { "word": "அண்ணா", "def": "older brother" , "rom":"annaa"},
       { "word": "அண்ணி", "def": "sister-in-law", "rom": "anni" },
       { "word": "தம்பி", "def": "younger brother" , "rom":"thambi"},
-      { "word": "பாட்டி", "def": "grandmother" , "rom":"patti"},
+      { "word": "பாட்டி", "def": "grandmother" , "rom":"paatti"},
 
       { "word": "மிதி", "def": "pedal/stomp (verb)", "rom":"mithi" },
       { "word": "மணி", "def": "bell", "rom":"mani"},
       { "word": "பனி", "def": "snow" , "rom":"pani"},
       { "word": "ஆணி", "def": "nail" , "rom":"aani"},
       { "word": "அணில்", "def": "squirrel" , "rom":"anil"},
-      { "word": "கத்தி", "def": "knife" , "rom":"kaththi"}
+      { "word": "கத்தி", "def": "knife" , "rom":"kaththi", "sound":"kathi.mp3"}
     ]
   },
   {
@@ -134,8 +134,8 @@
       { "word": "நீ", "def": "you" , "rom": "nee"},            
 
       { "word": "மீன்", "def": "fish" , "rom": "meen"},
-      { "word": "ஈட்டி", "def": "spear" , "rom": "eeddi"},
-      { "word": "காரம்", "def": "spice" , "rom": "kaaram"},
+      { "word": "ஈட்டி", "def": "spear" , "rom": "eetti"},
+      { "word": "காரம்", "def": "spice" , "rom": "kaaram"}, 
       { "word": "ஈரம்", "def": "wet" , "rom": "eeram"},
 
       { "word": "தண்ணீர்", "def": "water", "rom": "thanneer"},
@@ -166,13 +166,13 @@
       { "word": "கல்", "def": "stone", "rom": "kal" },
       { "word": "கால்", "def": "leg", "rom": "kaal" },    
 
-      { "word": "பல்லி", "def": "lizard", "rom": "palli" },
-      { "word": "பள்ளி", "def": "school", "rom": "palli" },      
+      { "word": "பல்லி", "def": "lizard", "rom": "palli"},
+      { "word": "பள்ளி", "def": "school", "rom": "palli", "sound":"palli (school).mp3" },      
       { "word": "பலம்", "def": "strength", "rom": "balam" },
       { "word": "பழம்", "def": "fruit", "rom": "palam" },
 
       { "word": "தலை", "def": "head", "rom": "thalai" },
-      { "word": "மழை", "def": "rain", "rom": "malai" },
+      { "word": "மழை", "def": "rain", "rom": "malai", "sound":"malai (rain).mp3"},
       { "word": "மலை", "def": "mountain", "rom": "malai" },
       { "word": "கதை", "def": "story", "rom": "kathai" },
       { "word": "கடை", "def": "shop", "rom": "kadai" },  

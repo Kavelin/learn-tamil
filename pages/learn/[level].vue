@@ -1,23 +1,20 @@
 <template>
   <div class="level">
     <div v-if="!showGaming" id="pages-outer" class="inner">
-      <h1 id="lesson">
-        {{ (curLevel > 2 ? "பாடம் " : "Lesson ") + curLevel }}: {{ data.title }}
-      </h1>
+      <h1 id="lesson">{{ (curLevel > 2 ? "பாடம் " : "Lesson ") + curLevel }}: {{ data.title }}</h1>
       <br /><br /><br />
       <div id="pages">
         <div class="page" v-html="data.pages[curPage]"></div>
         <button @click="backPage">← Back</button>
         <button @click="nextPage">Next →</button>
       </div>
-
     </div>
     <div id="gaming" class="inner" v-else>
       <div id="sounds" v-if="!showGamingWords">
         <div v-if="currentSounds.length != 0">
           <h1>{{ currentSounds[0] }}</h1>
           <div class="buttons">
-            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="() => checkSound(es)">
+            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="checkSound($event, es)">
               {{ es }}
             </button>
           </div>
@@ -25,27 +22,24 @@
         <div v-else-if="wrongSounds.length != 0 && currentSounds.length == 0">
           <h1>Re: {{ wrongSounds[0] }}</h1>
           <div class="buttons">
-            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="() => checkWrongSound(es)">
+            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="checkWrongSound($event, es)">
               {{ es }}
             </button>
           </div>
         </div>
-        <button @click="showGamingWords = !showGamingWords" v-else>
-          Learn Words →
-        </button>
+        <button @click="showGamingWords = !showGamingWords" v-else>Learn Words →</button>
       </div>
       <div id="words" v-else>
         <h1 id="to_type">
           {{ words[curWord].word }}
           <span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
-        <div id="mostAccRom" v-if="showDef"> <b> {{ words[curWord].rom }} </b> <button
-            v-on:click="playSound('/sounds/words/' + (curLevel) + '/' + (words[curWord].sound ?? words[curWord].rom + '.mp3'))">🔊</button></div>
+        <div id="mostAccRom" v-if="showDef">
+          <b> {{ words[curWord].rom }} </b> <button v-on:click="playWord(words[curWord])">🔊</button>
+        </div>
         <input type="text" v-if="!showDef" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
         <div id="correction" v-html="correction"></div>
-        <button @click="() => (showDef ? nextWord() : check())">
-          {{ showDef ? "Next" : "Check" }} →
-        </button>
+        <button id="check-btn" @click="() => (showDef ? nextWord() : check())" class="">{{ showDef ? "Next" : "Check" }} →</button>
       </div>
     </div>
   </div>
@@ -94,26 +88,37 @@ let nextPage = async () => {
     initSounds();
     showGaming.value = !showGaming.value;
   }
+};
+
+function shuffleArray(a: Array<any>) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
 }
 
 let backPage = async () => {
   if (curPage.value > 0) curPage.value--;
   await nextTick();
   initDraw(document.querySelector(".draw"));
-}
+};
 
 let initButtons = (btns: NodeListOf<HTMLButtonElement>) => {
-  btns.forEach(i => i.addEventListener("click", e => playSound(i.dataset.sound!)));
-}
+  btns.forEach((i) => i.addEventListener("click", (e) => playAudio(i.dataset.sound!)));
+};
 
 let initSounds = () => {
   let curData = levels.slice(curLevel.value - 1, curLevel.value)[0]; // level data
   let notcurDatas = levels.slice(0, curLevel.value - 1); //all before current level data
   let notcur = <string[]>[]; // have to limit other level sounds into current sounds
-  let extraSounds = 5; //number of other level sounds 
-  curData.vowels.map((x) => x[1]) //get the "additive vowel" character
-    .forEach((i) => //add each vowel to each consonant and push that to current sounds
-      curData.consanants.forEach((j) => currentSounds.value.push(j + i))
+  let extraSounds = 5; //number of other level sounds
+  curData.vowels
+    .map((x) => x[1]) //get the "additive vowel" character
+    .forEach(
+      (
+        i //add each vowel to each consonant and push that to current sounds
+      ) => curData.consanants.forEach((j) => currentSounds.value.push(j + i))
     );
   if (curLevel.value > 1) {
     notcurDatas
@@ -124,54 +129,70 @@ let initSounds = () => {
         notcurDatas
           .map((x) => x.consanants)
           .flat()
-          .forEach((j) => { notcur.push(j + i) })
+          .forEach((j) => {
+            notcur.push(j + i);
+          })
       );
-    notcur.sort(_ => 0.5 - Math.random());
+    shuffleArray(notcur);
   }
   currentSounds.value.push(...notcur.slice(0, extraSounds));
   shuffleSounds(currentSounds.value);
 };
 
 let shuffleSounds = (arr: String[]) => {
-  gameCurrentEnglishSounds.value = <string[]>[
-    chars
-      .find((d) => d[0] == arr[0])
-      ?.slice(1)
-      .sort(() => 0.5 - Math.random())[0],
-  ]
-    .concat(
-      currentEnglishSounds.value.sort(() => 0.5 - Math.random()).slice(0, 3)
-    )
-    .sort(() => 0.5 - Math.random());
+  gameCurrentEnglishSounds.value = <string[]>shuffleArray(
+    [
+      //
+      shuffleArray(chars.find((d) => d[0] == arr[0])?.slice(1)!)[0], //
+    ].concat(shuffleArray(currentEnglishSounds.value).slice(0, 3))
+  );
 };
-let checkSound = (es: string) => {
+let checkSound = (e: Event, es: string) => {
   if (
     chars
       .find((d) => d[0] == currentSounds.value[0])
       ?.slice(1)
       ?.includes(es)
   ) {
-    currentSounds.value.splice(0, 1);
+    (<HTMLButtonElement>e.target).classList.add("correct");
+    console.log(currentSounds.value[0]);
+    playSound(currentSounds.value[0]);
   } else {
     wrongSounds.value.push(currentSounds.value[0]);
-    currentSounds.value.splice(0, 1);
+    (<HTMLButtonElement>e.target).classList.add("wrong");
   }
-  if (!currentSounds.value.length) shuffleSounds(wrongSounds.value);
-  else shuffleSounds(currentSounds.value);
+  setTimeout(() => {
+    currentSounds.value.splice(0, 1);
+    if (!currentSounds.value.length) shuffleSounds(wrongSounds.value);
+    else shuffleSounds(currentSounds.value);
+  }, 1000);
 };
-let checkWrongSound = (es: string) => {
+let checkWrongSound = (e: Event, es: string) => {
   if (
     chars
       .find((d) => d[0] == wrongSounds.value[0])
       ?.slice(1)
       ?.includes(es)
   ) {
-    wrongSounds.value.splice(0, 1);
+    (<HTMLButtonElement>e.target).classList.add("correct");
+    playSound(currentSounds.value[0]);
   } else {
     wrongSounds.value.push(wrongSounds.value[0]);
-    wrongSounds.value.splice(0, 1);
+    (<HTMLButtonElement>e.target).classList.add("wrong");
   }
-  shuffleSounds(wrongSounds.value);
+  setTimeout(() => {
+    wrongSounds.value.splice(0, 1);
+    shuffleSounds(wrongSounds.value);
+  }, 1000);
+};
+let playSound = (sound: string) => {
+  if ([...sound].length > 1) {
+    if (sound[1] == "்") playAudio("/sounds/muthal/" + "k,ng,ch,ny,d,danagaram,th,thanagaram,p,m,y,r,l1,v,l3,l2,Rstrong,ranagaram".split(",")[[..."கஙசஞடணதநபமயரலவழளறன"].indexOf(sound[0])] + ".mp3");
+    else playAudio("/sounds/uyirmey/" + "k,ng,ch,ny,d,danagaram,th,thanagaram,p,m,y,r,l1,v,l3,l2,Rstrong,ranagaram".split(",")[[..."கஙசஞடணதநபமயரலவழளறன"].indexOf(sound[0])] + "/" + "aa,i,ee,u,oo,e,ae,ai,o,onedil,ow".split(",")[[..."ாிீுூெேைொோௌ"].indexOf(sound[1])] + ".mp3");
+  } else {
+    if ([..."அஆஇஈஉஊஎஏஐஒஓஔ"].indexOf(sound) > -1) playAudio("/sounds/muthal/" + "a,aa,i,ee,u,oo,e,ae,ai,o,onedil,ou".split(",")[[..."அஆஇஈஉஊஎஏஐஒஓஔ"].indexOf(sound)] + ".mp3");
+    else playAudio("/sounds/uyirmey/" + "k,ng,ch,ny,d,danagaram,th,thanagaram,p,m,y,r,l1,v,l3,l2,Rstrong,ranagaram".split(",")[[..."கஙசஞடணதநபமயரலவழளறன"].indexOf(sound)] + "/a.mp3");
+  }
 };
 
 let check = () => {
@@ -180,19 +201,42 @@ let check = () => {
     showDef.value = !showDef.value;
     correction.value = "";
     mainInput.value = "";
-    playSound('/sounds/words/' + (curLevel.value) + '/' + (words.value[curWord.value].sound ?? words.value[curWord.value].rom + '.mp3'));
+    playWord(words.value[curWord.value]);
+  } else {
+    correction.value = mainInput.value.slice(0, val.curInp) + `<span class='correction'>${val.curEnglish}</span>` + mainInput.value.slice(val.curInp + val.curEnglish.length);
   }
-  else {
-    correction.value =
-      mainInput.value.slice(0, val.curInp) +
-      `<span class='correction'>${val.curEnglish}</span>` +
-      mainInput.value.slice(val.curInp + val.curEnglish.length);
-  }
-}
-let playSound = (path: string) => {
-  var snd = new Audio(path);
-  snd.play();
-}
+};
+
+let playWord = (word: Word) => {
+  playAudio("/sounds/words/" + curLevel.value + "/" + (word.sound ?? word.rom + ".mp3"));
+};
+let ctx: AudioContext;
+let playAudio = async (path: string) => {
+  let source: AudioBufferSourceNode;
+  source = ctx.createBufferSource();
+  const audioBuffer = await fetch(path)
+    .then((res) => res.arrayBuffer())
+    .then((ArrayBuffer) => ctx.decodeAudioData(ArrayBuffer));
+
+  source.buffer = audioBuffer;
+  source.connect(ctx.destination);
+  source.start();
+};
+onMounted(() => {
+  ctx = new AudioContext();
+  ctx.resume();
+  document.addEventListener("keyup", (e) => {
+    if (showGaming.value) {
+      //if (showGamingWords.value && e.key == "Enter") (<HTMLButtonElement>document.querySelector("#check-btn")).click();
+      if (!showGamingWords.value && !isNaN(Number(e.key))) (<HTMLButtonElement>document.querySelectorAll(".sound-btn")[Number(e.key) - 1])?.click();
+      if (wrongSounds.value.length != 0 && currentSounds.value.length == 0 && e.key == "Enter") showGamingWords.value = !showGamingWords.value;
+    } else {
+      if (e.key == "ArrowRight") nextPage();
+      if (e.key == "ArrowLeft") backPage();
+    }
+  });
+});
+
 let nextWord = async () => {
   showDef.value = !showDef.value;
   mainInput.value = "";
