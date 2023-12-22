@@ -14,7 +14,7 @@
         <div v-if="currentSounds.length != 0">
           <h1>{{ currentSounds[0] }}</h1>
           <div class="buttons">
-            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="checkSound($event, es)">
+            <button v-for="es in gameCurrentEnglishSounds" :key="currentSounds[0] + es" :disabled="soundDisable" class="sound-btn" @click="checkSound($event, es)">
               {{ es }}
             </button>
           </div>
@@ -22,7 +22,7 @@
         <div v-else-if="wrongSounds.length != 0 && currentSounds.length == 0">
           <h1>Re: {{ wrongSounds[0] }}</h1>
           <div class="buttons">
-            <button v-for="es in gameCurrentEnglishSounds" :key="es" class="sound-btn" @click="checkWrongSound($event, es)">
+            <button v-for="es in gameCurrentEnglishSounds" :disabled="soundDisable" :key="wrongSounds[0] + es" class="sound-btn" @click="checkWrongSound($event, es)">
               {{ es }}
             </button>
           </div>
@@ -37,7 +37,7 @@
         <div id="mostAccRom" v-if="showDef">
           <b> {{ words[curWord].rom }} </b> <button v-on:click="playWord(words[curWord])">🔊</button>
         </div>
-        <input type="text" v-if="!showDef" @keypress.enter="() => (showDef ? nextWord() : check())" v-model="mainInput" />
+        <input type="text" v-if="!showDef" v-model="mainInput" id="input" autocomplete="off" />
         <div id="correction" v-html="correction"></div>
         <button id="check-btn" @click="() => (showDef ? nextWord() : check())" class="">{{ showDef ? "Next" : "Check" }} →</button>
       </div>
@@ -73,6 +73,8 @@ let showDef = ref(false);
 let mainInput = ref("");
 let correction = ref("");
 let words = ref(<Word[]>data.value.words);
+
+let soundDisable = ref(false);
 
 let currentSounds = ref(<string[]>[]);
 let wrongSounds = ref(<string[]>[]);
@@ -148,6 +150,7 @@ let shuffleSounds = (arr: String[]) => {
   );
 };
 let checkSound = (e: Event, es: string) => {
+  soundDisable.value = true;
   if (
     chars
       .find((d) => d[0] == currentSounds.value[0])
@@ -165,9 +168,11 @@ let checkSound = (e: Event, es: string) => {
     currentSounds.value.splice(0, 1);
     if (!currentSounds.value.length) shuffleSounds(wrongSounds.value);
     else shuffleSounds(currentSounds.value);
+    soundDisable.value = false;
   }, 1000);
 };
 let checkWrongSound = (e: Event, es: string) => {
+  soundDisable.value = true;
   if (
     chars
       .find((d) => d[0] == wrongSounds.value[0])
@@ -175,7 +180,7 @@ let checkWrongSound = (e: Event, es: string) => {
       ?.includes(es)
   ) {
     (<HTMLButtonElement>e.target).classList.add("correct");
-    playSound(currentSounds.value[0]);
+    playSound(wrongSounds.value[0]);
   } else {
     wrongSounds.value.push(wrongSounds.value[0]);
     (<HTMLButtonElement>e.target).classList.add("wrong");
@@ -183,6 +188,7 @@ let checkWrongSound = (e: Event, es: string) => {
   setTimeout(() => {
     wrongSounds.value.splice(0, 1);
     shuffleSounds(wrongSounds.value);
+    soundDisable.value = false;
   }, 1000);
 };
 let playSound = (sound: string) => {
@@ -227,7 +233,15 @@ onMounted(() => {
   ctx.resume();
   document.addEventListener("keyup", (e) => {
     if (showGaming.value) {
-      //if (showGamingWords.value && e.key == "Enter") (<HTMLButtonElement>document.querySelector("#check-btn")).click();
+      if (showGamingWords.value) {
+        if (document.activeElement != <HTMLInputElement>document.querySelector("#input") && e.key.length == 1) {
+          (<HTMLInputElement>document.querySelector("#input")).focus();
+          mainInput.value += e.key;
+        }
+        if (e.key == "Enter") {
+          (<HTMLButtonElement>document.querySelector("#check-btn")).click();
+        }
+      }
       if (!showGamingWords.value && !isNaN(Number(e.key))) (<HTMLButtonElement>document.querySelectorAll(".sound-btn")[Number(e.key) - 1])?.click();
       if (wrongSounds.value.length != 0 && currentSounds.value.length == 0 && e.key == "Enter") showGamingWords.value = !showGamingWords.value;
     } else {

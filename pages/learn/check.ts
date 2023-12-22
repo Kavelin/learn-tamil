@@ -21,7 +21,7 @@ export function checkDef(input: String, definition: String) {
       }
     curChar++;
   }
-  if (input.length != curInp) {
+  if (ret && input.length > curInp) {
     ret = false;
     curEnglish = input.slice(curInp++);
   }
