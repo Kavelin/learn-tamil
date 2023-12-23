@@ -1,8 +1,8 @@
 <template>
   <div class="level">
+    <h1 id="cur">{{ (curLevel > 2 ? "பாடம் " : "Lesson ") + curLevel }}</h1>
+    <h1 v-if="!showGaming" id="lesson">{{ data.title }}</h1>
     <div v-if="!showGaming" id="pages-outer" class="inner">
-      <h1 id="lesson">{{ (curLevel > 2 ? "பாடம் " : "Lesson ") + curLevel }}: {{ data.title }}</h1>
-      <br /><br /><br />
       <div id="pages">
         <div class="page" v-html="data.pages[curPage]"></div>
         <button @click="backPage">← Back</button>
@@ -12,7 +12,7 @@
     <div id="gaming" class="inner" v-else>
       <div id="sounds" v-if="!showGamingWords">
         <div v-if="currentSounds.length != 0">
-          <h1>{{ currentSounds[0] }}</h1>
+          <h1 id="sound-header">{{ currentSounds[0] }}</h1>
           <div class="buttons">
             <button v-for="es in gameCurrentEnglishSounds" :key="currentSounds[0] + es" :disabled="soundDisable" class="sound-btn" @click="checkSound($event, es)">
               {{ es }}
@@ -27,15 +27,14 @@
             </button>
           </div>
         </div>
-        <button @click="showGamingWords = !showGamingWords" v-else>Learn Words →</button>
       </div>
       <div id="words" v-else>
         <h1 id="to_type">
-          {{ words[curWord].word }}
-          <span v-if="showDef">: {{ words[curWord].def }} </span>
+          {{ words[curWord].word }}<span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
+        <img :src="'/images/' + curLevel + '/' + words[curWord].image" v-if="words[curWord].image && showDef" width="300"/>
         <div id="mostAccRom" v-if="showDef">
-          <b> {{ words[curWord].rom }} </b> <button v-on:click="playWord(words[curWord])">🔊</button>
+          <i> {{ words[curWord].rom }} </i> <button v-on:click="playWord(words[curWord])">🔊</button>
         </div>
         <input type="text" v-if="!showDef" v-model="mainInput" id="input" autocomplete="off" />
         <div id="correction" v-html="correction"></div>
@@ -158,7 +157,6 @@ let checkSound = (e: Event, es: string) => {
       ?.includes(es)
   ) {
     (<HTMLButtonElement>e.target).classList.add("correct");
-    console.log(currentSounds.value[0]);
     playSound(currentSounds.value[0]);
   } else {
     wrongSounds.value.push(currentSounds.value[0]);
@@ -166,7 +164,10 @@ let checkSound = (e: Event, es: string) => {
   }
   setTimeout(() => {
     currentSounds.value.splice(0, 1);
-    if (!currentSounds.value.length) shuffleSounds(wrongSounds.value);
+    if (!currentSounds.value.length) {
+      if (wrongSounds.value.length == 0) showGamingWords.value = !showGamingWords.value;
+      else shuffleSounds(wrongSounds.value);
+    }
     else shuffleSounds(currentSounds.value);
     soundDisable.value = false;
   }, 1000);
@@ -186,9 +187,14 @@ let checkWrongSound = (e: Event, es: string) => {
     (<HTMLButtonElement>e.target).classList.add("wrong");
   }
   setTimeout(() => {
-    wrongSounds.value.splice(0, 1);
-    shuffleSounds(wrongSounds.value);
-    soundDisable.value = false;
+    if (wrongSounds.value.length == 1) {
+      wrongSounds.value = [];
+      showGamingWords.value = !showGamingWords.value;
+    } else {
+      wrongSounds.value.splice(0, 1);
+      shuffleSounds(wrongSounds.value);
+      soundDisable.value = false;
+    }
   }, 1000);
 };
 let playSound = (sound: string) => {

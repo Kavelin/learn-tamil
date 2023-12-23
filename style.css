@@ -2,7 +2,7 @@
 body {
     margin:0;
     padding:0;
-    background: #fff;
+    background: #f1f1f1;
     font-family: 'Noto Sans Tamil', sans-serif;
 }
 button {
@@ -40,13 +40,29 @@ canvas {
 .buttons {
     display:flex;
 }
+.buttons button {
+    height:50px;
+    aspect-ratio: 1;
+}
+#cur {
+    position:absolute;
+    top:1em;
+    right:1em;
+    font-size:1.5em;
+}
 h1 {
-    font-weight:400;
+    font-weight:300;
+}
+#lesson {
+    font-size:2em;
+    font-weight:500;
+    position:absolute;
 }
 #pages {
-    height:30vw;
+    min-height:30vw;
     font-size:larger;
     transition: height 300ms;
+    overflow-y:auto;
 }
 .level {
     width:100vw;
@@ -56,14 +72,30 @@ h1 {
 }
 
 .inner {
-    padding:0 2vw;
+    padding:2em;
     position:relative;
     width:50vw;
     max-width:50vw;
     display:flex;
+    margin-top: 10%;
+    background: #fff;
+    height: fit-content;
 }
 #gaming {
     justify-content: center;
+    background:none;
+}
+#sound-header {
+    font-size:5em;
+}
+#words {
+    min-width:50vw;
+}
+#to_type {
+    font-size:3em;
+}
+#input {
+    font-size:2em;
 }
 #pages-outer {
     justify-content: start;

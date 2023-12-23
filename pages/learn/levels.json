@@ -167,7 +167,7 @@
       { "word": "கால்", "def": "leg", "rom": "kaal" },    
 
       { "word": "பல்லி", "def": "lizard", "rom": "palli"},
-      { "word": "பள்ளி", "def": "school", "rom": "palli", "sound":"palli (school).mp3" },      
+      { "word": "பள்ளி", "def": "school", "rom": "palli", "sound":"palli (school).mp3", "image":"school.jpg"},      
       { "word": "பலம்", "def": "strength", "rom": "balam" },
       { "word": "பழம்", "def": "fruit", "rom": "palam" },
 
