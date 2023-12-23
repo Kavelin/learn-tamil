@@ -320,12 +320,18 @@
   },
   {
     "title":"The long and the short of it (குறில் & நெடில்)",
-    "vowels": [],
+    "vowels": [["அ", ""],["ஆ", "ா"],["இ", "ி"],["ஈ", "ீ"],["உ", "ு"], ["ஊ", "ூ"],["எ", "ெ"], ["ஏ", "ே"],["ஐ", "ை"],["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ெள"]],
     "consanants": [],
     "pages": [
-      "As you may have noticed, Tamil vowels are split into two groups: குறில் (short sounds), and நெடில் (long sounds). Review the words and notice the differences."
+      "This lesson is to review all the vowels with a basic classification.<br><br> As you may have noticed, Tamil vowels are split into two groups:<br><br> குறில் (short sounds), and நெடில் (long sounds).",
+      "<table width=100%><tr><td><b>குறில் (short sounds)</b></td><td><b>நெடில் (long sounds)</b></td></tr><tr><td><br>அ இ உ எ ஒ</td><td><br>ஆ ஈ ஊ ஏ ஐ ஓ ஔ</td></tr></table>",
+      "It is important to use the proper long or short sound, otherwise the word's meaning might change. Review the words and notice the differences.<br>For example, பல் (pal) means tooth, whereas பால் (paal) means milk."
     ],
     "words": [
+      {"word":"பல்", "def":"teeth", "rom":"pal"},
+      {"word":"பால்", "def":"milk", "rom":"paal"},
+      {"word":"கல்", "def":"stone", "rom":"kal"},
+      {"word":"கால்", "def":"leg", "rom":"kaal"},
       {"word":"மண்", "def":"dirt", "rom":"man"},
       {"word":"மான்", "def":"deer", "rom":"maan"},
       {"word":"கோடி", "def":"crore (10 million)", "rom":"kOdi", "sound":"koodi.mp3"},
@@ -375,7 +381,7 @@
     ]
   },
   {
-    "title":"இனா எழுதுகள் (friendly letters! 😀) ",
+    "title":"இன எழுத்துகள் (friendly letters! 😀) ",
     "vowels": [],
     "consanants": [],
     "pages": [
