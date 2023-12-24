@@ -1,9 +1,11 @@
 <template>
   <div class="level">
-    <h1 id="cur">{{ (curLevel > 2 ? "பாடம் " : "Lesson ") + curLevel }}</h1>
+    <h1 id="cur">
+      <span class="padam">{{ curLevel > 2 ? "பாடம்" : "Lesson" }}</span> {{ curLevel }}
+    </h1>
     <h1 v-if="!showGaming" id="lesson">{{ data.title }}</h1>
     <div v-if="!showGaming" id="pages-outer" class="inner">
-      <div id="pages">
+      <div id="pages"> 
         <div class="page" v-html="data.pages[curPage]"></div>
         <button @click="backPage">← Back</button>
         <button @click="nextPage">Next →</button>
@@ -32,7 +34,7 @@
         <h1 id="to_type">
           {{ words[curWord].word }}<span v-if="showDef">: {{ words[curWord].def }} </span>
         </h1>
-        <img :src="'/images/' + curLevel + '/' + words[curWord].image" v-if="words[curWord].image && showDef" width="300"/>
+        <img :src="'/images/' + curLevel + '/' + words[curWord].image" v-if="words[curWord].image && showDef" width="300" />
         <div id="mostAccRom" v-if="showDef">
           <i> {{ words[curWord].rom }} </i> <button v-on:click="playWord(words[curWord])">🔊</button>
         </div>
@@ -83,7 +85,7 @@ let nextPage = async () => {
   if (++curPage.value != data.value.pages.length) {
     showGaming.value = showGaming.value;
     await nextTick();
-    initDraw(document.querySelector(".draw"));
+    initDraw(document.querySelector(".draw"), document.querySelector(".page"));
     initButtons(document.querySelectorAll("button[data-sound]"));
   } else {
     initSounds();
@@ -102,7 +104,7 @@ function shuffleArray(a: Array<any>) {
 let backPage = async () => {
   if (curPage.value > 0) curPage.value--;
   await nextTick();
-  initDraw(document.querySelector(".draw"));
+  initDraw(document.querySelector(".draw"), document.querySelector(".page"));
 };
 
 let initButtons = (btns: NodeListOf<HTMLButtonElement>) => {
@@ -161,14 +163,14 @@ let checkSound = (e: Event, es: string) => {
   } else {
     wrongSounds.value.push(currentSounds.value[0]);
     (<HTMLButtonElement>e.target).classList.add("wrong");
+    playAudio("/sounds/wrong.mp3");
   }
   setTimeout(() => {
     currentSounds.value.splice(0, 1);
     if (!currentSounds.value.length) {
       if (wrongSounds.value.length == 0) showGamingWords.value = !showGamingWords.value;
       else shuffleSounds(wrongSounds.value);
-    }
-    else shuffleSounds(currentSounds.value);
+    } else shuffleSounds(currentSounds.value);
     soundDisable.value = false;
   }, 1000);
 };
@@ -185,6 +187,7 @@ let checkWrongSound = (e: Event, es: string) => {
   } else {
     wrongSounds.value.push(wrongSounds.value[0]);
     (<HTMLButtonElement>e.target).classList.add("wrong");
+    playAudio("/sounds/wrong.mp3");
   }
   setTimeout(() => {
     if (wrongSounds.value.length == 1) {
@@ -195,7 +198,7 @@ let checkWrongSound = (e: Event, es: string) => {
       shuffleSounds(wrongSounds.value);
       soundDisable.value = false;
     }
-  }, 1000);
+  }, 1600);
 };
 let playSound = (sound: string) => {
   if ([...sound].length > 1) {
@@ -216,6 +219,7 @@ let check = () => {
     playWord(words.value[curWord.value]);
   } else {
     correction.value = mainInput.value.slice(0, val.curInp) + `<span class='correction'>${val.curEnglish}</span>` + mainInput.value.slice(val.curInp + val.curEnglish.length);
+    playAudio("/sounds/wrong.mp3");
   }
 };
 
@@ -245,7 +249,8 @@ onMounted(() => {
           mainInput.value += e.key;
         }
         if (e.key == "Enter") {
-          (<HTMLButtonElement>document.querySelector("#check-btn")).click();
+          //(<HTMLButtonElement>document.querySelector("#check-btn")).click();
+          showDef.value ? nextWord() : check();
         }
       }
       if (!showGamingWords.value && !isNaN(Number(e.key))) (<HTMLButtonElement>document.querySelectorAll(".sound-btn")[Number(e.key) - 1])?.click();

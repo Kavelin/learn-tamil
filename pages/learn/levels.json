@@ -36,14 +36,14 @@
       { "word": "அப்பா", "def": "dad", "rom":"appaa", "sound":"appa.mp3"},
       { "word": "பாப்பா", "def": "baby", "rom":"paappaa", "sound":"paapa.mp3"},
       { "word": "மாமா", "def": "uncle", "rom":"maamaa", "sound":"mama.mp3"},
-      { "word": "ஆமாம்", "def": "yes", "rom":"aamaam"},
+      { "word": "ஆமாம்", "def": "yes", "rom":"aamaam", "image":"yes.webp"},
       { "word": "படம்", "def": "picture", "rom":"padam"},
       { "word": "பாடம்", "def": "lesson", "rom":"paadam"},
       { "word": "பட்டம்", "def": "kite", "rom":"pattam"}
     ]
   },
   {
-    "title": "Adding 3 consonants: ச, க, த",
+    "title": "3 consonants: ச, க, த",
     "vowels": [],
     "consanants": ["ச", "க", "த"],
     "pages": [

@@ -1,7 +1,8 @@
-export default function initDraw(canvas: HTMLCanvasElement | null) {
+export default function initDraw(canvas: HTMLCanvasElement | null, container: HTMLDivElement | null) {
     if (canvas) {
         canvas.style.touchAction = "none";
         canvas.style.background = `no-repeat center url(${canvas.dataset.url})`;
+        canvas.width = container?.clientWidth!;
         let ctx: CanvasRenderingContext2D = canvas.getContext("2d")!;
         var pressedMouse = false;
         var x: number, y: number;

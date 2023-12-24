@@ -1,106 +1,148 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100;300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@100;300;400&display=swap");
 body {
-    margin:0;
-    padding:0;
-    background: #f1f1f1;
-    font-family: 'Noto Sans Tamil', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f1f1f1;
+  font-family: "Noto Sans Tamil", sans-serif;
 }
 button {
-    border:2px solid #adadad;
-    border-radius:4px;
-    padding:8px;
-    font-family: 'Noto Sans Tamil', sans-serif;
-    margin:8px;
-    transition:background 300ms, border-color 300ms;
-    background:#d4d4d4;
+  border: 2px solid #adadad;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: "Noto Sans Tamil", sans-serif;
+  margin: 8px;
+  transition: background 300ms, border-color 300ms;
+  background: #d4d4d4;
 }
 button:hover {
-    background:#adadad;
+  background: #adadad;
 }
 button:click {
-    background:#353535;
-    border-color:#353535;
+  background: #353535;
+  border-color: #353535;
 }
+
 .correct {
-    background: #69d360 !important;
-    border-color:  #2bb632 !important;
+  background: #69d360 !important;
+  border-color: #2bb632 !important;
 }
 .wrong {
-    background: #df6161 !important;
-    border-color:#b62b2b !important;
+  background: #df6161 !important;
+  border-color: #b62b2b !important;
 }
-canvas {
-    touch-action: none;
-}
-.correction {
-    color:red;
-    text-decoration: underline;
-    white-space:pre;
-}
+
 .buttons {
-    display:flex;
+  display: flex;
 }
 .buttons button {
-    height:50px;
-    aspect-ratio: 1;
+  height: 50px;
+  aspect-ratio: 1;
+}
+
+canvas {
+  touch-action: none;
+}
+.correction {
+  color: red;
+  text-decoration: underline;
+  white-space: pre;
 }
 #cur {
-    position:absolute;
-    top:1em;
-    right:1em;
-    font-size:1.5em;
+  position: absolute;
+  right: 1em;
+  font-size: 1.5em;
 }
 h1 {
-    font-weight:300;
+  font-weight: 300;
 }
 #lesson {
-    font-size:2em;
-    font-weight:500;
-    position:absolute;
+  font-weight: 500;
+  position: absolute;
 }
 #pages {
-    min-height:30vw;
-    font-size:larger;
-    transition: height 300ms;
-    overflow-y:auto;
+  font-size: larger;
+  transition: height 300ms;
+  overflow-y: auto;
 }
+
 .level {
-    width:100vw;
-    height:100vh;
-    display:flex;
-    justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .inner {
-    padding:2em;
-    position:relative;
-    width:50vw;
-    max-width:50vw;
-    display:flex;
-    margin-top: 10%;
-    background: #fff;
-    height: fit-content;
+  padding: 2em;
+  position: relative;
+  width: 50vw;
+  max-width: 50vw;
+  display: flex;
+  background: #fff;
+  height: fit-content;
 }
+@media (max-width: 576px) { 
+    #cur {
+        bottom:0.5em;
+    }
+    #cur::before {
+        content:"#";
+        font-size:0.8em;
+    }
+    .padam {
+        display:none;
+    }
+    #lesson {
+        font-size:1.7em;
+    }
+    #pages {
+        min-height: 10vh;
+        max-height: 70vh;
+    }
+    .inner {
+        margin-top: 20%;
+    }
+}
+@media (min-width: 576px) { 
+    #cur {
+        font-size: 2em;
+    }
+    .padam {
+        display:inline;
+    }
+    #pages {
+        
+        min-height: 30vw;
+    }
+    .inner {
+        
+        margin-top: 10%;
+    }
+}
+
 #gaming {
-    justify-content: center;
-    background:none;
+  justify-content: center;
+  background: none;
 }
 #sound-header {
-    font-size:5em;
+  font-size: 5em;
 }
 #words {
-    min-width:50vw;
+  min-width: 50vw;
 }
 #to_type {
-    font-size:3em;
+  font-size: 3em;
 }
 #input {
-    font-size:2em;
+  font-size: 2em;
+  max-width: stretch;
+  
 }
+
 #pages-outer {
-    justify-content: start;
-    flex-direction: column;
+  justify-content: start;
+  flex-direction: column;
 }
 .nuxt-loading-indicator {
-    background: black!important;
+  background: black !important;
 }
