@@ -5,7 +5,7 @@
     </h1>
     <h1 v-if="!showGaming" id="lesson">{{ data.title }}</h1>
     <div v-if="!showGaming" id="pages-outer" class="inner">
-      <div id="pages"> 
+      <div id="pages">
         <div class="page" v-html="data.pages[curPage]"></div>
         <button @click="backPage">← Back</button>
         <button @click="nextPage">Next →</button>
@@ -47,7 +47,7 @@
 </template>
 
 <script lang="ts" setup>
-import levels from "./levels.json";
+import levels from "./levels.json"; //["அ", ""],["ஆ", "ா"],["இ", "ி"],["ஈ", "ீ"],["உ", "ு"], ["ஊ", "ூ"],["எ", "ெ"], ["ஏ", "ே"],["ஐ", "ை"],["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ெள"]
 import chars from "./chars";
 import { checkDef } from "./check";
 import initDraw from "./initDraw";
@@ -75,80 +75,83 @@ let mainInput = ref("");
 let correction = ref("");
 let words = ref(<Word[]>data.value.words);
 
-let soundDisable = ref(false);
-
+let soundDisable = ref(false); // if the game sound buttons should be disabled or not
 let currentSounds = ref(<string[]>[]);
 let wrongSounds = ref(<string[]>[]);
-let currentEnglishSounds = ref(chars.map((x) => x.slice(1)).flat());
-let gameCurrentEnglishSounds = ref(<string[]>[]);
+let currentEnglishSounds = ref(chars.map((x) => x[1]).flat()); //only the first english sound
+let gameCurrentEnglishSounds = ref(<string[]>[]); //current english sounds that are being played (4)
+
 let nextPage = async () => {
   if (++curPage.value != data.value.pages.length) {
     showGaming.value = showGaming.value;
     await nextTick();
-    initDraw(document.querySelector(".draw"), document.querySelector(".page"));
-    initButtons(document.querySelectorAll("button[data-sound]"));
+    initDraw(document.querySelector(".draw"), document.querySelector(".page")); //for every canvas element in the page
+    initButtons(document.querySelectorAll("button[data-sound]")); //for all buttons that play a sound
   } else {
+    //if the next page is clicked on the last page
     initSounds();
     showGaming.value = !showGaming.value;
   }
 };
-
-function shuffleArray(a: Array<any>) {
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
 let backPage = async () => {
   if (curPage.value > 0) curPage.value--;
   await nextTick();
   initDraw(document.querySelector(".draw"), document.querySelector(".page"));
+  initButtons(document.querySelectorAll("button[data-sound]"));
 };
 
 let initButtons = (btns: NodeListOf<HTMLButtonElement>) => {
   btns.forEach((i) => i.addEventListener("click", (e) => playAudio(i.dataset.sound!)));
 };
 
+function shuffleArray(a: Array<any>, len?: number) {
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  if (len) return a.slice(0, len);
+  return a;
+}
+
 let initSounds = () => {
-  let curData = levels.slice(curLevel.value - 1, curLevel.value)[0]; // level data
-  let notcurDatas = levels.slice(0, curLevel.value - 1); //all before current level data
-  let notcur = <string[]>[]; // have to limit other level sounds into current sounds
-  let extraSounds = 5; //number of other level sounds
-  curData.vowels
+  let curData = levels.slice(curLevel.value - 1, curLevel.value)[0]; // current level data
+  curData.vowels //uyirmey
     .map((x) => x[1]) //get the "additive vowel" character
     .forEach(
-      (
-        i //add each vowel to each consonant and push that to current sounds
-      ) => curData.consanants.forEach((j) => currentSounds.value.push(j + i))
+      (i) => curData.consanants.forEach((j) => currentSounds.value.push(j + i)) //add each vowel to each consonant and push that to current sounds
     );
+  currentSounds.value.push(
+    ...curData.vowels.map((x) => x[0]), //uyir
+    ...curData.consanants.map((x) => x + "்") //mey
+  );
+  currentSounds.value = shuffleArray(currentSounds.value, 5); //limit it to 5 sounds
   if (curLevel.value > 1) {
+    let notcurDatas = levels.slice(0, curLevel.value - 1); //all level data before current level
+    let notcur = <string[]>[]; // have to limit other level sounds into current sounds
+    let extraSounds = 3; //number of other level sounds
     notcurDatas
-      .map((x) => x.vowels) //get vowels from every level
-      .flat() //they are all inside objects so flatten
+      .flatMap((x) => x.vowels) //get vowels from every level, they are all inside objects so flatten
       .map((x) => x[1]) //get the "additive vowel" character
-      .forEach((i) =>
-        notcurDatas
-          .map((x) => x.consanants)
-          .flat()
-          .forEach((j) => {
-            notcur.push(j + i);
-          })
-      );
-    shuffleArray(notcur);
+      .forEach((i) => notcurDatas.flatMap((x) => x.consanants).forEach((j) => notcur.push(j + i)));
+    notcur.push(
+      ...notcurDatas.flatMap((x) => x.vowels).map((x) => x[0]), //uyir
+      ...notcurDatas.flatMap((x) => x.consanants).map((x) => x + "்") //mey
+    );
+    for (let i = 0; i <= extraSounds; i++) currentSounds.value.push(notcur[Math.floor(Math.random() * notcur.length)]);
+    shuffleArray(currentSounds.value, 5); // shuffle new sounds in 
   }
-  currentSounds.value.push(...notcur.slice(0, extraSounds));
   shuffleSounds(currentSounds.value);
 };
 
 let shuffleSounds = (arr: String[]) => {
-  gameCurrentEnglishSounds.value = <string[]>shuffleArray(
-    [
-      //
-      shuffleArray(chars.find((d) => d[0] == arr[0])?.slice(1)!)[0], //
-    ].concat(shuffleArray(currentEnglishSounds.value).slice(0, 3))
-  );
+  gameCurrentEnglishSounds.value = <string[]>[chars.find((d) => d[0] == arr[0])![1]]; // make array with the right sound
+
+  while (gameCurrentEnglishSounds.value.length != 4) {
+    //add sounds from any level
+    let toPush = currentEnglishSounds.value[Math.floor(Math.random() * currentEnglishSounds.value.length)];
+    if (gameCurrentEnglishSounds.value.indexOf(toPush) == -1) gameCurrentEnglishSounds.value.push(toPush);
+  }
+  shuffleArray(gameCurrentEnglishSounds.value);
 };
 let checkSound = (e: Event, es: string) => {
   soundDisable.value = true;

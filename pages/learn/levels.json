@@ -220,7 +220,7 @@
   },
   {
     "title": "ow! ஒ, ஓ, ஔ",
-    "vowels": [["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ெள"]],
+    "vowels": [["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ௌ"]],
     "consanants": [],
     "pages": [
       "In this lesson we will learn three new vowels. <br/> ",
@@ -320,7 +320,7 @@
   },
   {
     "title":"The long and the short of it (குறில் & நெடில்)",
-    "vowels": [["அ", ""],["ஆ", "ா"],["இ", "ி"],["ஈ", "ீ"],["உ", "ு"], ["ஊ", "ூ"],["எ", "ெ"], ["ஏ", "ே"],["ஐ", "ை"],["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ெள"]],
+    "vowels": [],
     "consanants": [],
     "pages": [
       "This lesson is to review all the 12 vowels with a basic classification.<br><br> As you may have noticed, Tamil vowels are split into two groups:<br><br> குறில் (short sounds), and நெடில் (long sounds).",
