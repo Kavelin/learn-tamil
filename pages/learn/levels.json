@@ -323,8 +323,8 @@
     "vowels": [["அ", ""],["ஆ", "ா"],["இ", "ி"],["ஈ", "ீ"],["உ", "ு"], ["ஊ", "ூ"],["எ", "ெ"], ["ஏ", "ே"],["ஐ", "ை"],["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ெள"]],
     "consanants": [],
     "pages": [
-      "This lesson is to review all the vowels with a basic classification.<br><br> As you may have noticed, Tamil vowels are split into two groups:<br><br> குறில் (short sounds), and நெடில் (long sounds).",
-      "<table width=100%><tr><td><b>குறில் (short sounds)</b></td><td><b>நெடில் (long sounds)</b></td></tr><tr><td><br>அ இ உ எ ஒ</td><td><br>ஆ ஈ ஊ ஏ ஐ ஓ ஔ</td></tr></table>",
+      "This lesson is to review all the 12 vowels with a basic classification.<br><br> As you may have noticed, Tamil vowels are split into two groups:<br><br> குறில் (short sounds), and நெடில் (long sounds).",
+      "<table width=100%><tr><td><b>குறில் (short sounds)</b></td><td><b>நெடில் (long sounds)</b></td></tr><tr><td>அ<br><br> இ<br><br> உ<br><br> எ<br><br> ஒ<br><br></td><td><br><br>ஆ<br><br> ஈ<br><br> ஊ<br><br> ஏ<br><br> ஐ<br><br> ஓ<br><br> ஔ<br><br></td></tr></table>",
       "It is important to use the proper long or short sound, otherwise the word's meaning might change. Review the words and notice the differences.<br>For example, பல் (pal) means tooth, whereas பால் (paal) means milk."
     ],
     "words": [
@@ -349,8 +349,9 @@
     "vowels": [],
     "consanants": [],
     "pages": [
-      "In tamil, the consonants are split up into three groups of six: வல்லினம் (hard), மெல்லினம் (soft), இடையினம் (middle)",
-      "The "
+      "This lesson is to review all the 18 consonants with a basic classification.<br><br>Tamil consonants are split up into three groups of six: வல்லினம் (hard sounds), மெல்லினம் (soft sounds), இடையினம் (middle sounds)",
+      "Sound out all these letters and observe the difference in their sounds.<br> <table width=100%><tr><td><b>வல்லினம் (hard sounds)</b></td><td><b>மெல்லினம் (soft sounds)</b></td><td><b>இடையினம் (middle sounds)</b></td></tr><tr><td>க்<br> ச்<br> ட்<br> த்<br> ப்<br> ற்<br></td><td>ங்<br> ஞ்<br> ண்<br> ந்<br> ம்<br> ன்<br></td><td>ய்<br> ர்<br> ல்<br> வ்<br> ழ்<br> ள்<br></td></tr></table>",
+      "Another important thing to note is each consonsant in வல்லினம் has a corresponding consonant in மெல்லினம். They almost always appear together. <br><br>When they do, the hard sounding consonant changes its sound to be a bit soft. <br><br>For example, க in கரடி sounds like a regular வல்லினம் க(ka). <br><br>But க in தங்கம் sounds softer (ga) since it appears together with its corresponding மெல்லினம் (ங்). <br><br>This rule applies to all hard consonants and their corresponding soft consonants. Try pronouncing them alone and then together and observe they sound softer. <br><br>க vs ங்க<br>ச vs ஞ்ச<br>ட vs ண்ட<br>த vs ந்த<br>ப vs ம்ப<br>ற vs ன்ற<br> "
     ],
     "words": [
 
@@ -361,8 +362,9 @@
     "vowels": [],
     "consanants": [],
     "pages": [
-      "Table nedungakku",
-      ""
+      "Now we have learned all the Tamil alphabets. Let's review them together. You can notice they follow a regular patterns with few exceptions, so it is actually very easy to read all of them even though the number of letters seem high at first.",
+      "Review all the letters and practice saying them out loud. Vowels go across and consonants go down. Combined letters also go across in the vowel order.<br><br><table border=1 width=100%><tr><td>&nbsp;</td><td>அ</td><td>ஆ</td><td>இ</td><td>ஈ</td><td>உ</td><td>ஊ</td><td>எ</td><td>ஏ</td><td>ஐ</td><td>ஒ</td><td>ஓ</td><td>ஔ</td></tr><tr><td>க்</td><td>க</td><td>கா</td><td>கி</td><td>கீ</td><td>கு</td><td>கூ</td><td>கெ</td><td>கே</td><td>கை</td><td>கொ</td><td>கோ</td><td>கௌ</td></tr><tr><td>ங்</td><td>ங</td><td>ஙா</td><td>ஙி</td><td>ஙீ</td><td>ஙு</td><td>ஙூ</td><td>ஙெ</td><td>ஙே</td><td>ஙை</td><td>ஙொ</td><td>ஙோ</td><td>ஙௌ</td></tr><tr><td>ச்</td><td>ச</td><td>சா</td><td>சி</td><td>சீ</td><td>சு</td><td>சூ</td><td>செ</td><td>சே</td><td>சை</td><td>சொ</td><td>சோ</td><td>சௌ</td></tr><tr><td>ஞ்</td><td>ஞ</td><td>ஞா</td><td>ஞி</td><td>ஞீ</td><td>ஞு</td><td>ஞூ</td><td>ஞெ</td><td>ஞே</td><td>ஞை</td><td>ஞொ</td><td>ஞோ</td><td>ஞௌ</td></tr><tr><td>ட்</td><td>ட</td><td>டா</td><td>டி</td><td>டீ</td><td>டு</td><td>டூ</td><td>டெ</td><td>டே</td><td>டை</td><td>டொ</td><td>டோ</td><td>டௌ</td></tr><tr><td>ண்</td><td>ண</td><td>ணா</td><td>ணி</td><td>ணீ</td><td>ணு</td><td>ணூ</td><td>ணெ</td><td>ணே</td><td>ணை</td><td>ணொ</td><td>ணோ</td><td>ணௌ</td></tr><tr><td>த்</td><td>த</td><td>தா</td><td>தி</td><td>தீ</td><td>து</td><td>தூ</td><td>தெ</td><td>தே</td><td>தை</td><td>தொ</td><td>தோ</td><td>தௌ</td></tr><tr><td>ந்</td><td>ந</td><td>நா</td><td>நி</td><td>நீ</td><td>நு</td><td>நூ</td><td>நெ</td><td>நே</td><td>நை</td><td>நொ</td><td>நோ</td><td>நௌ</td></tr><tr><td>ப்</td><td>ப</td><td>பா</td><td>பி</td><td>பீ</td><td>பு</td><td>பூ</td><td>பெ</td><td>பே</td><td>பை</td><td>பொ</td><td>போ</td><td>பௌ</td></tr><tr><td>ம்</td><td>ம</td><td>மா</td><td>மி</td><td>மீ</td><td>மு</td><td>மூ</td><td>மெ</td><td>மே</td><td>மை</td><td>மொ</td><td>மோ</td><td>மௌ</td></tr><tr><td>ய்</td><td>ய</td><td>யா</td><td>யி</td><td>யீ</td><td>யு</td><td>யூ</td><td>யெ</td><td>யே</td><td>யை</td><td>யொ</td><td>யோ</td><td>யௌ</td></tr><tr><td>ர்</td><td>ர</td><td>ரா</td><td>ரி</td><td>ரீ</td><td>ரு</td><td>ரூ</td><td>ரெ</td><td>ரே</td><td>ரை</td><td>ரொ</td><td>ரோ</td><td>ரௌ</td></tr><tr><td>ல்</td><td>ல</td><td>லா</td><td>லி</td><td>லீ</td><td>லு</td><td>லூ</td><td>லெ</td><td>லே</td><td>லை</td><td>லொ</td><td>லோ</td><td>லௌ</td></tr><tr><td>வ்</td><td>வ</td><td>வா</td><td>வி</td><td>வீ</td><td>வு</td><td>வூ</td><td>வெ</td><td>வே</td><td>வை</td><td>வொ</td><td>வோ</td><td>வௌ</td></tr><tr><td>ழ்</td><td>ழ</td><td>ழா</td><td>ழி</td><td>ழீ</td><td>ழு</td><td>ழூ</td><td>ழெ</td><td>ழே</td><td>ழை</td><td>ழொ</td><td>ழோ</td><td>ழௌ</td></tr><tr><td>ள்</td><td>ள</td><td>ளா</td><td>ளி</td><td>ளீ</td><td>ளு</td><td>ளூ</td><td>ளெ</td><td>ளே</td><td>ளை</td><td>ளொ</td><td>ளோ</td><td>ளௌ</td></tr><tr><td>ற்</td><td>ற</td><td>றா</td><td>றி</td><td>றீ</td><td>று</td><td>றூ</td><td>றெ</td><td>றே</td><td>றை</td><td>றொ</td><td>றோ</td><td>றௌ</td></tr><tr><td>ன்</td><td>ன</td><td>னா</td><td>னி</td><td>னீ</td><td>னு</td><td>னூ</td><td>னெ</td><td>னே</td><td>னை</td><td>னொ</td><td>னோ</td><td>னௌ</td></tr></table>",
+      "Congratulations. Now you can read Tamil alphabets. This completes your first journey in learning Tamil."
     ],
     "words": [
 
