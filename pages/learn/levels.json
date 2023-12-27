@@ -7,7 +7,7 @@
     ],
     "consanants": ["ம", "ப", "ட"],
     "pages": [
-      "Welcome! Let's learn Tamil!<br/><br/>Tamil (actual pronunciation Thamil, also romanized as Thamizh) is a classical ancient languaage!<br/><br/>",
+      "Welcome! Let's learn Tamil!<br/><br/>Tamil (actual pronunciation Thamil, also romanized as Thamizh) is a classical ancient language!<br/>",
       "There are 247 letters in the Tamil alphabet, and while this may seem daunting at first, it follows a pattern that gets easier to follow as we go along.<BR/><BR/>There are only 30 basic letters - 12 vowels and 18 consonants. <BR/>The rest of the alphabet is derived from these 30 basic letters with just a few patterns. <BR/><BR/>",
       "In the first lesson, we will learn 2 vowels and 3 consonants.<br/><br/>",
       "The first vowel of the tamil alphabet is அ , pronounced like the A in 'allow'. <br> <button data-sound='https://upload.wikimedia.org/wikipedia/commons/5/51/Ta-%E0%AE%85.ogg'>🔊</button> <br> Practice tracing it below. <br> <canvas class='draw' data-url='https://upload.wikimedia.org/wikipedia/commons/7/7c/Writing_Tamil_2.gif'></canvas> <button onclick='document.querySelector(\".draw\").getContext(\"2d\").clearRect(0, 0, 1000, 1000)'>clear</button>",
@@ -44,7 +44,6 @@
   },
   {
     "title": "3 consonants: ச, க, த",
-    "vowels": [],
     "consanants": ["ச", "க", "த"],
     "pages": [
       "Introducing three letters this lesson just to keep it simple and expand on the usage of the அ and ஆ vowels.",
@@ -221,7 +220,6 @@
   {
     "title": "ow! ஒ, ஓ, ஔ",
     "vowels": [["ஒ", "ொ"], ["ஓ", "ோ"], ["ஔ", "ௌ"]],
-    "consanants": [],
     "pages": [
       "In this lesson we will learn three new vowels. <br/> ",
       "New vowels in this lesson are <br/> ஒ pronounced like the first O in 'tomato' <br/> ஓ (pronounced like second O in 'tomato') is longer version of ஒ.<br/> ஔ (pronounced like ou in 'sound' or 'ow!')",
@@ -246,7 +244,6 @@
   },
   {
     "title": "ngjnjngjng ங், ஞ்",
-    "vowels": [],
     "consanants": ["ங", "ஞ"],
     "pages": [
       "In this lesson we will learn two new consonants. <br/> <br/> With this lesson, we have learned all the consonants. <br/> <br/> We will do a review after the next lesson.",
@@ -269,7 +266,6 @@
   {
     "title": "Woohoo! உ, ஊ",
     "vowels": [["உ", "ு"], ["ஊ", "ூ"]],
-    "consanants": [],
     "pages": [
       "In this lesson we will learn the final vowels, உ and ஊ. <br/> உ is pronounced like u in 'put' <br/> ஊ (pronounced like oo in 'too') is the longer version of உ",
       "<br> <button data-sound='https://upload.wikimedia.org/wikipedia/commons/2/24/Ta-%E0%AE%89.ogg'>🔊</button> <br> <canvas class='draw' data-url='https://upload.wikimedia.org/wikipedia/commons/c/c9/Writing_Tamil_6.gif'></canvas> <button onclick='document.querySelector(\".draw\").getContext(\"2d\").clearRect(0, 0, 1000, 1000)'>clear</button>",
@@ -319,9 +315,7 @@
     ]
   },
   {
-    "title":"The long and the short of it (குறில் & நெடில்)",
-    "vowels": [],
-    "consanants": [],
+    "title":"The long and the short of it",
     "pages": [
       "This lesson is to review all the 12 vowels (உயிர் எழுத்துகள்) with a basic classification.<br><br> As you may have noticed, Tamil vowels are split into two groups:<br><br> குறில் (short sounds), and நெடில் (long sounds).",
       "<table width=100%><tr><td><b>குறில் (short sounds)</b></td><td><b>நெடில் (long sounds)</b></td></tr><tr><td>அ<br><br> இ<br><br> உ<br><br> எ<br><br> ஒ<br><br></td><td><br><br>ஆ<br><br> ஈ<br><br> ஊ<br><br> ஏ<br><br> ஐ<br><br> ஓ<br><br> ஔ<br><br></td></tr></table>",
@@ -346,8 +340,6 @@
   },
   {
     "title":"Classification",
-    "vowels": [],
-    "consanants": [],
     "pages": [
       "This lesson is to review all the 18 consonants (மெய் எழுத்துகள்) with a basic classification.<br><br>Tamil consonants are split up into three groups of six: வல்லினம் (hard sounds), மெல்லினம் (soft sounds), இடையினம் (middle sounds)",
       "Sound out all these letters and observe the difference in their sounds.<br> <table width=100%><tr><td><b>வல்லினம் (hard sounds)</b></td><td><b>மெல்லினம் (soft sounds)</b></td><td><b>இடையினம் (middle sounds)</b></td></tr><tr><td>க்<br> ச்<br> ட்<br> த்<br> ப்<br> ற்<br></td><td>ங்<br> ஞ்<br> ண்<br> ந்<br> ம்<br> ன்<br></td><td>ய்<br> ர்<br> ல்<br> வ்<br> ழ்<br> ள்<br></td></tr></table>",
@@ -359,48 +351,10 @@
   },
   {
     "title":"Putting it all together",
-    "vowels": [],
-    "consanants": [],
     "pages": [
       "Now we have learned all the Tamil alphabets. Let's review them together. You can notice they follow a regular patterns with just a few exceptions, so it is actually very easy to read all of them.",
       "Review all the letters and practice saying them out loud. Vowels go across and consonants go down. Combined letters also go across in the vowel order.<br><br><table border=1 width=100%><tr><td>&nbsp;</td><td>அ</td><td>ஆ</td><td>இ</td><td>ஈ</td><td>உ</td><td>ஊ</td><td>எ</td><td>ஏ</td><td>ஐ</td><td>ஒ</td><td>ஓ</td><td>ஔ</td></tr><tr><td>க்</td><td>க</td><td>கா</td><td>கி</td><td>கீ</td><td>கு</td><td>கூ</td><td>கெ</td><td>கே</td><td>கை</td><td>கொ</td><td>கோ</td><td>கௌ</td></tr><tr><td>ங்</td><td>ங</td><td>ஙா</td><td>ஙி</td><td>ஙீ</td><td>ஙு</td><td>ஙூ</td><td>ஙெ</td><td>ஙே</td><td>ஙை</td><td>ஙொ</td><td>ஙோ</td><td>ஙௌ</td></tr><tr><td>ச்</td><td>ச</td><td>சா</td><td>சி</td><td>சீ</td><td>சு</td><td>சூ</td><td>செ</td><td>சே</td><td>சை</td><td>சொ</td><td>சோ</td><td>சௌ</td></tr><tr><td>ஞ்</td><td>ஞ</td><td>ஞா</td><td>ஞி</td><td>ஞீ</td><td>ஞு</td><td>ஞூ</td><td>ஞெ</td><td>ஞே</td><td>ஞை</td><td>ஞொ</td><td>ஞோ</td><td>ஞௌ</td></tr><tr><td>ட்</td><td>ட</td><td>டா</td><td>டி</td><td>டீ</td><td>டு</td><td>டூ</td><td>டெ</td><td>டே</td><td>டை</td><td>டொ</td><td>டோ</td><td>டௌ</td></tr><tr><td>ண்</td><td>ண</td><td>ணா</td><td>ணி</td><td>ணீ</td><td>ணு</td><td>ணூ</td><td>ணெ</td><td>ணே</td><td>ணை</td><td>ணொ</td><td>ணோ</td><td>ணௌ</td></tr><tr><td>த்</td><td>த</td><td>தா</td><td>தி</td><td>தீ</td><td>து</td><td>தூ</td><td>தெ</td><td>தே</td><td>தை</td><td>தொ</td><td>தோ</td><td>தௌ</td></tr><tr><td>ந்</td><td>ந</td><td>நா</td><td>நி</td><td>நீ</td><td>நு</td><td>நூ</td><td>நெ</td><td>நே</td><td>நை</td><td>நொ</td><td>நோ</td><td>நௌ</td></tr><tr><td>ப்</td><td>ப</td><td>பா</td><td>பி</td><td>பீ</td><td>பு</td><td>பூ</td><td>பெ</td><td>பே</td><td>பை</td><td>பொ</td><td>போ</td><td>பௌ</td></tr><tr><td>ம்</td><td>ம</td><td>மா</td><td>மி</td><td>மீ</td><td>மு</td><td>மூ</td><td>மெ</td><td>மே</td><td>மை</td><td>மொ</td><td>மோ</td><td>மௌ</td></tr><tr><td>ய்</td><td>ய</td><td>யா</td><td>யி</td><td>யீ</td><td>யு</td><td>யூ</td><td>யெ</td><td>யே</td><td>யை</td><td>யொ</td><td>யோ</td><td>யௌ</td></tr><tr><td>ர்</td><td>ர</td><td>ரா</td><td>ரி</td><td>ரீ</td><td>ரு</td><td>ரூ</td><td>ரெ</td><td>ரே</td><td>ரை</td><td>ரொ</td><td>ரோ</td><td>ரௌ</td></tr><tr><td>ல்</td><td>ல</td><td>லா</td><td>லி</td><td>லீ</td><td>லு</td><td>லூ</td><td>லெ</td><td>லே</td><td>லை</td><td>லொ</td><td>லோ</td><td>லௌ</td></tr><tr><td>வ்</td><td>வ</td><td>வா</td><td>வி</td><td>வீ</td><td>வு</td><td>வூ</td><td>வெ</td><td>வே</td><td>வை</td><td>வொ</td><td>வோ</td><td>வௌ</td></tr><tr><td>ழ்</td><td>ழ</td><td>ழா</td><td>ழி</td><td>ழீ</td><td>ழு</td><td>ழூ</td><td>ழெ</td><td>ழே</td><td>ழை</td><td>ழொ</td><td>ழோ</td><td>ழௌ</td></tr><tr><td>ள்</td><td>ள</td><td>ளா</td><td>ளி</td><td>ளீ</td><td>ளு</td><td>ளூ</td><td>ளெ</td><td>ளே</td><td>ளை</td><td>ளொ</td><td>ளோ</td><td>ளௌ</td></tr><tr><td>ற்</td><td>ற</td><td>றா</td><td>றி</td><td>றீ</td><td>று</td><td>றூ</td><td>றெ</td><td>றே</td><td>றை</td><td>றொ</td><td>றோ</td><td>றௌ</td></tr><tr><td>ன்</td><td>ன</td><td>னா</td><td>னி</td><td>னீ</td><td>னு</td><td>னூ</td><td>னெ</td><td>னே</td><td>னை</td><td>னொ</td><td>னோ</td><td>னௌ</td></tr></table>",
       "Congratulations. Now you can read Tamil alphabets. This completes your first journey in learning Tamil."
-    ],
-    "words": [
-
-    ]
-  },
-  {
-    "title":"double trouble",
-    "vowels": [],
-    "consanants": [],
-    "pages": [
-      "",
-      "hi"
-    ],
-    "words": [
-
-    ]
-  },
-  {
-    "title":"இன எழுத்துகள் (friendly letters! 😀) ",
-    "vowels": [],
-    "consanants": [],
-    "pages": [
-      "",
-      "hi"
-    ],
-    "words": [
-
-    ]
-  },
-  {
-    "title":"pronunciation (உச்சரிப்பு)",
-    "vowels": [],
-    "consanants": [],
-    "pages": [
-      "",
-      "hi"
     ],
     "words": [
 

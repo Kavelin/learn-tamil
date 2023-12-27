@@ -53,6 +53,7 @@ canvas {
   position: absolute;
   right: 1em;
   font-size: 1.5em;
+  bottom:0.5em;
 }
 h1 {
   font-weight: 300;
@@ -60,6 +61,9 @@ h1 {
 #lesson {
   font-weight: 500;
   position: absolute;
+  text-overflow: clip;
+  white-space: nowrap;
+  max-width: 80vw;
 }
 #pages {
   font-size: larger;
@@ -75,18 +79,14 @@ h1 {
 }
 
 .inner {
-  padding: 2em;
+  padding: 1em;
   position: relative;
-  width: 50vw;
-  max-width: 50vw;
+  width: 70vw;
   display: flex;
   background: #fff;
   height: fit-content;
 }
-@media (max-width: 576px) { 
-    #cur {
-        bottom:0.5em;
-    }
+@media (max-width: 576px) {
     #cur::before {
         content:"#";
         font-size:0.8em;
@@ -114,7 +114,8 @@ h1 {
     }
     #pages {
         
-        min-height: 30vw;
+        min-height: 30vh;
+        max-height: 60vh;
     }
     .inner {
         
@@ -130,7 +131,15 @@ h1 {
   font-size: 5em;
 }
 #words {
-  min-width: 50vw;
+  min-width: 30vw;
+}
+
+#words img {
+  position: absolute;
+  display: block;
+  z-index: -100;
+  top: 0;
+  opacity: 0.3;
 }
 #to_type {
   font-size: 3em;

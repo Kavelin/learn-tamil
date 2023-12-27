@@ -22,9 +22,9 @@
           </div>
         </div>
         <div v-else-if="wrongSounds.length != 0 && currentSounds.length == 0">
-          <h1>Re: {{ wrongSounds[0] }}</h1>
+          <h1 >Try Again: {{ wrongSounds[0] }}</h1>
           <div class="buttons">
-            <button v-for="es in gameCurrentEnglishSounds" :disabled="soundDisable" :key="wrongSounds[0] + es" class="sound-btn" @click="checkWrongSound($event, es)">
+            <button v-for="es in gameCurrentEnglishSounds" :disabled="soundDisable" :key="wrongSounds[0] + es" class="sound-btn" @click="checkSound($event, es)">
               {{ es }}
             </button>
           </div>
@@ -114,32 +114,43 @@ function shuffleArray(a: Array<any>, len?: number) {
 }
 
 let initSounds = () => {
-  currentEnglishSounds.value = chars.map((x) => x[1]).flat();
+  //currentEnglishSounds.value = chars.map((x) => x[1]).flat();
   let curData = levels.slice(curLevel.value - 1, curLevel.value)[0]; // current level data
-  curData.vowels //uyirmey
+  (curData.vowels ?? []) //uyirmey
     .map((x) => x[1]) //get the "additive vowel" character
-    .forEach(
-      (i) => curData.consanants.forEach((j) => currentSounds.value.push(j + i)) //add each vowel to each consonant and push that to current sounds
+    .forEach((i) =>
+    (curData.consanants ?? []).forEach((j) => {
+        if (!(j == "ங" || (j == "ஞ" && (i != "ா" && i != "")))) currentSounds.value.push(j + i); //add each vowel to each consonant and push that to current sounds
+      })
     );
-  currentSounds.value.push( //push the non uyirmey
-    ...curData.vowels.map((x) => x[0]), //uyir
-    ...curData.consanants.map((x) => x + "்") //mey
+  currentSounds.value.push(
+    //push the non uyirmey
+    ...(curData.vowels ?? []).map((x) => x[0]), //uyir
+    ...(curData.consanants ?? []).map((x) => x + "்") //mey
   );
-  currentSounds.value = shuffleArray(currentSounds.value, 5); //limit it to 5 sounds
+  currentEnglishSounds.value.push(...chars.filter(x => currentSounds.value.includes(x[0])).map(x => x[1])) //push to current english sounds before slicing
+  currentSounds.value = shuffleArray(currentSounds.value, 5); //shuffle and limit it to 5 sounds
   if (curLevel.value > 1) {
     let notcurDatas = levels.slice(0, curLevel.value - 1); //all level data before current level
     let notcur = <string[]>[]; // have to limit other level sounds into current sounds
     let extraSounds = 3; //number of other level sounds
     notcurDatas
-      .flatMap((x) => x.vowels) //get vowels from every level, they are all inside objects so flatten
+      .flatMap((x) => x.vowels ?? []) //get vowels from every level, they are all inside objects so flatten
       .map((x) => x[1]) //get the "additive vowel" character
-      .forEach((i) => notcurDatas.flatMap((x) => x.consanants).forEach((j) => notcur.push(j + i)));
+      .forEach((i) =>
+        notcurDatas
+          .flatMap((x) => x.consanants ?? [])
+          .forEach((j) => {
+            if (!(j == "ங" || (j == "ஞ" && (i != "ா" && i != "")))) notcur.push(j + i);
+          })
+      );
     notcur.push(
-      ...notcurDatas.flatMap((x) => x.vowels).map((x) => x[0]), //uyir
-      ...notcurDatas.flatMap((x) => x.consanants).map((x) => x + "்") //mey
+      ...notcurDatas.flatMap((x) => x.vowels ?? []).map((x) => x[0]), //uyir
+      ...notcurDatas.flatMap((x) => x.consanants ?? []).map((x) => x + "்") //mey
     );
-    for (let i = 0; i <= extraSounds; i++) currentSounds.value.push(notcur[Math.floor(Math.random() * notcur.length)]);
-    shuffleArray(currentSounds.value, 5); // shuffle new sounds in 
+    currentEnglishSounds.value.push(...chars.filter(x => notcur.includes(x[0])).map(x => x[1])); //push previous sounds into current english sounds
+    for (let i = 0; i < extraSounds; i++) currentSounds.value.push(notcur[Math.floor(Math.random() * notcur.length)]);
+    shuffleArray(currentSounds.value); // shuffle new sounds in
   }
   shuffleSounds(currentSounds.value); //run shuffle sounds for first time
 };
@@ -147,7 +158,6 @@ let initSounds = () => {
 let shuffleSounds = (arr: String[]) => {
   // the first element of arr is the current sound
   gameCurrentEnglishSounds.value = <string[]>[chars.find((d) => d[0] == arr[0])![1]]; // make array with the right sound
-
   while (gameCurrentEnglishSounds.value.length != 4) {
     //add sounds from any level
     let toPush = currentEnglishSounds.value[Math.floor(Math.random() * currentEnglishSounds.value.length)];
@@ -158,59 +168,39 @@ let shuffleSounds = (arr: String[]) => {
 };
 let checkSound = (e: Event, es: string) => {
   soundDisable.value = true;
-  if (
-    chars
-      .find((d) => d[0] == currentSounds.value[0])
-      ?.slice(1)
-      ?.includes(es)
-  ) {
+  if (chars.find((d) => d[0] == (currentSounds.value.length != 0 ? currentSounds.value : wrongSounds.value)[0])![1] == es) {
     (<HTMLButtonElement>e.target).classList.add("correct");
     playAudio("/sounds/correct.mp3");
-    setTimeout( ()=>playSound(currentSounds.value[0]), 300);
+    setTimeout(() => playSound((currentSounds.value.length != 0 ? currentSounds.value : wrongSounds.value)[0]), 300);
   } else {
     wrongSounds.value.push(currentSounds.value[0]);
     (<HTMLButtonElement>e.target).classList.add("wrong");
     playAudio("/sounds/wrong.mp3");
   }
-  setTimeout(() => {
-    currentSounds.value.splice(0, 1);
-    if (!currentSounds.value.length) {
-      if (wrongSounds.value.length == 0) showGamingWords.value = !showGamingWords.value;
-      else shuffleSounds(wrongSounds.value);
-    } else shuffleSounds(currentSounds.value);
-    soundDisable.value = false;
-  }, 1000);
-};
-let checkWrongSound = (e: Event, es: string) => {
-  soundDisable.value = true;
-  if (
-    chars
-      .find((d) => d[0] == wrongSounds.value[0])
-      ?.slice(1)
-      ?.includes(es)
-  ) {
-    (<HTMLButtonElement>e.target).classList.add("correct");
-    playAudio("/sounds/correct.mp3");
-    setTimeout( ()=>playSound(wrongSounds.value[0]), 300);
-  } else {
-    wrongSounds.value.push(wrongSounds.value[0]);
-    (<HTMLButtonElement>e.target).classList.add("wrong");
-    playAudio("/sounds/wrong.mp3");
-  }
-  setTimeout(() => {
-    if (wrongSounds.value.length == 1) {
-      wrongSounds.value = [];
-      showGamingWords.value = !showGamingWords.value;
-    } else {
-      wrongSounds.value.splice(0, 1);
-      shuffleSounds(wrongSounds.value);
+  if (currentSounds.value.length != 0)
+    setTimeout(() => {
+      currentSounds.value.splice(0, 1);
+      if (currentSounds.value.length == 0) {
+        if (wrongSounds.value.length == 0) showGamingWords.value = !showGamingWords.value;
+        else shuffleSounds(wrongSounds.value);
+      } else shuffleSounds(currentSounds.value);
       soundDisable.value = false;
-    }
-  }, 1600);
+    }, 1000);
+  else
+    setTimeout(() => {
+      if (wrongSounds.value.length == 1) {
+        wrongSounds.value = [];
+        showGamingWords.value = !showGamingWords.value;
+      } else {
+        wrongSounds.value.splice(0, 1);
+        shuffleSounds(wrongSounds.value);
+        soundDisable.value = false;
+      }
+    }, 1000);
 };
 let playSound = (sound: string) => {
   if ([...sound].length > 1) {
-    if (sound[1] == "்") playAudio("/sounds/muthal/" + "k,ng,ch,ny,d,danagaram,th,thanagaram,p,m,y,r,l1,v,l3,l2,Rstrong,ranagaram".split(",")[[..."கஙசஞடணதநபமயரலவழளறன"].indexOf(sound[0])] + ".mp3");
+    if (sound[1] == "்") playAudio("/sounds/muthal/" + "k,ng,ch,nj,d,danagaram,th,thanagaram,p,m,y,r,l1,v,l3,l2,Rstrong,ranagaram".split(",")[[..."கஙசஞடணதநபமயரலவழளறன"].indexOf(sound[0])] + ".mp3");
     else playAudio("/sounds/uyirmey/" + "k,ng,ch,ny,d,danagaram,th,thanagaram,p,m,y,r,l1,v,l3,l2,Rstrong,ranagaram".split(",")[[..."கஙசஞடணதநபமயரலவழளறன"].indexOf(sound[0])] + "/" + "aa,i,ee,u,oo,e,ae,ai,o,onedil,ow".split(",")[[..."ாிீுூெேைொோௌ"].indexOf(sound[1])] + ".mp3");
   } else {
     if ([..."அஆஇஈஉஊஎஏஐஒஓஔ"].indexOf(sound) > -1) playAudio("/sounds/muthal/" + "a,aa,i,ee,u,oo,e,ae,ai,o,onedil,ou".split(",")[[..."அஆஇஈஉஊஎஏஐஒஓஔ"].indexOf(sound)] + ".mp3");
@@ -225,7 +215,7 @@ let check = () => {
     correction.value = "";
     mainInput.value = "";
     playAudio("/sounds/correct.mp3");
-    setTimeout( ()=>playWord(words.value[curWord.value]), 300);
+    setTimeout(() => playWord(words.value[curWord.value]), 300);
   } else {
     correction.value = mainInput.value.slice(0, val.curInp) + `<span class='correction'>${val.curEnglish}</span>` + mainInput.value.slice(val.curInp + val.curEnglish.length);
     playAudio("/sounds/wrong.mp3");
@@ -248,8 +238,8 @@ let playAudio = async (path: string) => {
   source.start();
 };
 onMounted(() => {
-  document.body.style.backgroundImage = "url(/images/background/" + ('000' + Math.floor(Math.random() * 250 + 1)).slice(-4) + ".png)";
-  document.body.style.backgroundPosition = curLevel.value / 12 * 100 + "vw 100vh";
+  document.body.style.backgroundImage = "url(/images/background/" + ("000" + Math.floor(Math.random() * 250 + 1)).slice(-4) + ".png)";
+  //document.body.style.backgroundPosition = curLevel.value / 12 * 100 + "vw 100vh";
   ctx = new AudioContext();
   ctx.resume();
   document.addEventListener("keyup", (e) => {
@@ -259,10 +249,7 @@ onMounted(() => {
           (<HTMLInputElement>document.querySelector("#input")).focus();
           mainInput.value += e.key;
         }
-        if (e.key == "Enter") {
-          //(<HTMLButtonElement>document.querySelector("#check-btn")).click();
-          showDef.value ? nextWord() : check();
-        }
+        if (e.key == "Enter") showDef.value ? nextWord() : check();
       }
       if (!showGamingWords.value && !isNaN(Number(e.key))) (<HTMLButtonElement>document.querySelectorAll(".sound-btn")[Number(e.key) - 1])?.click();
       if (wrongSounds.value.length != 0 && currentSounds.value.length == 0 && e.key == "Enter") showGamingWords.value = !showGamingWords.value;
@@ -270,6 +257,9 @@ onMounted(() => {
       if (e.key == "ArrowRight") nextPage();
       if (e.key == "ArrowLeft") backPage();
     }
+  });
+  window.addEventListener("resize", (e) => {
+    initDraw(document.querySelector(".draw"), document.querySelector(".page"));
   });
 });
 
