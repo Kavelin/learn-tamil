@@ -63,8 +63,7 @@
       { "word": "சட்டம்", "def": "frame", "rom":"sattam"},
       { "word": "மட்டம்", "def": "level","rom":"mattam" },            
       { "word": "கட்டடம்", "def": "building","rom":"kattadam" },
-      { "word": "காகம்", "def": "crow", "rom":"kaagam"},
-      { "word": "தாத்தா", "def": "grandfather", "rom":"thaaththaa", "sound":"thaaththaa.mp3"}
+      { "word": "காகம்", "def": "crow", "rom":"kaagam"}
       
     ]
   },
@@ -103,8 +102,7 @@
       { "word": "மணி", "def": "bell", "rom":"mani"},
       { "word": "பனி", "def": "snow" , "rom":"pani"},
       { "word": "ஆணி", "def": "nail" , "rom":"aani"},
-      { "word": "அணில்", "def": "squirrel" , "rom":"anil"},
-      { "word": "கத்தி", "def": "knife" , "rom":"kaththi", "sound":"kathi.mp3"}
+      { "word": "அணில்", "def": "squirrel" , "rom":"anil"}
     ]
   },
   {
