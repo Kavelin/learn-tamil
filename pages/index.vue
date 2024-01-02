@@ -2,7 +2,7 @@
   <div id="wrapper">
     <div>
       <span id="title">Learn Tamil!</span>
-      <NuxtLink :to="'/learn/' + learnLevel">Basics -></NuxtLink>
+      <NuxtLink :to="'/basics/' + learnLevel">Basics -></NuxtLink>
       <NuxtLink to="/conjugation/">Conjugation -></NuxtLink>
     </div>
   </div>
