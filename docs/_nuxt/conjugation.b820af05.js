@@ -1,0 +1,1 @@
+import{n,c as l,a as e,t,o}from"./entry.2c6c74a4.js";const s=e("br",null,null,-1),a=e("br",null,null,-1),c=e("input",{type:"text",id:"",name:"lname"},null,-1),r=e("input",{type:"submit",value:"Enter"},null,-1),u="",_="",b=n({__name:"conjugation",setup(i){return(p,m)=>(o(),l("form",null,[e("label",{for:"lname"},t(u)),s,e("label",null,t(_)),a,c,r]))}});export{b as default};

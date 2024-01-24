@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  ssr: false,
   app: {
     head: {
       title: "Learn Tamil",
@@ -11,7 +12,7 @@ export default defineNuxtConfig({
         {
           charset: "utf-8",
         },
-      ]
+      ],
     },
   },
 });
