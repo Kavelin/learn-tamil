@@ -7,7 +7,7 @@
     ],
     "consanants": ["ம", "ப", "ட"],
     "pages": [
-      "Welcome! Let's learn Tamil!<br/><br/>Tamil (actual pronunciation Thamil, also romanized as Thamizh) is a classical ancient language!<br/>",
+      "Welcome! Let's learn Tamil. <br/><br/>Tamil ( தமிழ் - actual pronunciation Thamil, also romanized as Thamizh) is a classical ancient language!<br/> It's one of the longest-surviving classical languages, with a written history of over 2,000 years.<br/><br/> This basics module introduces the Tamil alphabet. <br/>",
       "There are 247 letters in the Tamil alphabet, and while this may seem daunting at first, it follows a pattern that gets easier to follow as we go along.<BR/><BR/>There are only 30 basic letters - 12 vowels and 18 consonants. <BR/>The rest of the alphabet is derived from these 30 basic letters with just a few patterns. <BR/><BR/>",
       "In the first lesson, we will learn 2 vowels and 3 consonants.<br/><br/>",
       "The first vowel of the tamil alphabet is அ , pronounced like the A in 'allow'. <br> <button data-sound='/sounds/muthal/a.mp3'>🔊</button> <br> Practice tracing it below. <br> <canvas class='draw' data-url='https://upload.wikimedia.org/wikipedia/commons/7/7c/Writing_Tamil_2.gif'></canvas> <button onclick='document.querySelector(\".draw\").getContext(\"2d\").clearRect(0, 0, 1000, 1000)'>clear</button>",
