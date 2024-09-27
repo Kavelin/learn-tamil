@@ -153,6 +153,8 @@ h1 {
 #pages-outer {
   justify-content: start;
   flex-direction: column;
+  border:#adadad solid 2px;
+  border-radius:4px;
 }
 .nuxt-loading-indicator {
   background: black !important;
