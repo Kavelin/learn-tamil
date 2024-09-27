@@ -238,7 +238,7 @@ let playAudio = async (path: string) => {
   source.start();
 };
 onMounted(() => {
-  document.body.style.backgroundImage = "url(/images/background/" + ("000" + Math.floor(Math.random() * 250 + 1)).slice(-4) + ".png)";
+  //document.body.style.backgroundImage = "url(/images/background/" + ("000" + Math.floor(Math.random() * 250 + 1)).slice(-4) + ".png)";
   //document.body.style.backgroundPosition = curLevel.value / 12 * 100 + "vw 100vh";
   ctx = new AudioContext();
   ctx.resume();
