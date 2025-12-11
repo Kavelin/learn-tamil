@@ -1,12 +1,36 @@
 # தமிழ் கற்கலாம், வாங்க!
 
-based off of https://letslearnhangul.com
+Welcome to **Learn Tamil** — an interactive, open-source project designed to help beginners read, write, and understand Tamil step by step. 
 
-Sources:
+https://learntamil.vercel.app
 
--- https://commons.wikimedia.org/wiki/Tamil_alphabet_gallery
+---
 
--- Tamil course for European schools (book one) - Kerslake and Narayanaswami Aiyar
+Tamil (தமிழ்) is one of the world’s oldest living languages with a rich literary tradition and millions of speakers across India, Sri Lanka, Singapore, and beyond. The goal of this project is to make the the basics of Tamil clear and beginner-friendly to english speakers. 
 
--- Learn Tamil by yourself - https://drive.google.com/file/d/0BzwpbxABzaV5MHotLVVKal9xYUE/view?resourcekey=0-jkzteXUFm1SDbes19misUg
+This project:
+
+- Teaches all vowels and consanants  
+- Shows how letters combine into syllables
+- Includes pronunciation guides and example words
+
+
+## Want to Contribute?
+
+If you see any area of improvement for the base line project, please feel free to open an issue or a PR!
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js  
+- npm or Yarn  
+
+```bash
+git clone https://github.com/Kavelin/learn-tamil.git
+cd learn-tamil
+npm install
+npm run dev
+```
+
 
