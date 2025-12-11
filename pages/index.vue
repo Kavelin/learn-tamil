@@ -4,7 +4,7 @@
       <span id="title">Learn Tamil!</span>
       <br> <br>
       <NuxtLink :to="'/basics/' + learnLevel">Basics -> <br> <i> learn the tamil alphabet! </i> </NuxtLink>
-      <a class="disabled" title="under construction!">Conjugation -> <br> <i> learn conjugation of verbs! (under construction)</i> </a>
+      <NuxtLink :to="'/conjugation'"> Conjugation -> <br> <i> learn conjugation of verbs!</i> </NuxtLink>
     </div>
   </div>
 </template>

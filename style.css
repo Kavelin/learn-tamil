@@ -16,7 +16,7 @@ body:before {
   height: 100%;
   opacity: 0.2;
   background-image:url('/public/images/puthiyathalaimurai_import_uploads_news-image_2021_08_09_800x400_127648.png');
-  
+  z-index:-100;
   /*background-image:url('https://media.assettype.com/puthiyathalaimurai%2Fimport%2Fuploads%2Fnews-image%2F2021%2F08%2F09%2F800x400%2F127648.webp');
   */background-size: cover;
 }

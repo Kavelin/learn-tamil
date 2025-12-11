@@ -13,11 +13,14 @@ This project:
 - Teaches all vowels and consanants  
 - Shows how letters combine into syllables
 - Includes pronunciation guides and example words
+- Conjugation trainer that helps test you on conjugating verbs!
 
 
 ## Want to Contribute?
 
 If you see any area of improvement for the base line project, please feel free to open an issue or a PR!
+
+Help is needed in adding more verbs for conjugation, and adding clarity to the basic lessons.
 
 ### Prerequisites
 
