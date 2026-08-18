@@ -1,5 +1,5 @@
 {
-  "Weak verbs": [
+  "Verb set 1": [
     {
       "infinitive": "அழு",
       "translation": "to cry",
@@ -46,7 +46,7 @@
       }
     }
   ],
-  "Strong verbs": [
+  "Verb set 2": [
     {
       "infinitive": "நட",
       "translation": "to walk",

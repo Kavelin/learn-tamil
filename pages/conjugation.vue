@@ -1,87 +1,115 @@
 <template>
-  <div class="conj-trainer">
-    <section class="controls" v-if="!running">
-      <label for="set">Choose verb set:</label>
-      <select id="set" v-model="selectedSet">
-        <option v-for="(s, key) in Object.keys(verbSets)" :key="key" :value="s">
-          {{ s }}
-        </option>
-      </select>
+  <div class="conj-trainer-wrapper">
+    <div class="comic-card">
+      <div class="conj-trainer">
+        
+        <!-- Controls Section -->
+        <section class="controls" v-if="!running">
+          <div class="comic-header">
+            <h2>Verb Conjugation </h2>
+            <p>Master your Tamil verb conjugation!</p>
+          </div>
 
-      <button @click="usePredefined(selectedSet)">Load set</button>
-      <button @click="randomPick">Get random 10</button>
+          <div class="select-group">
+            <label for="set">Choose verb set:</label>
+            <select id="set" v-model="selectedSet" class="comic-select">
+              <option v-for="(s, key) in Object.keys(verbSets)" :key="key" :value="s">
+                {{ s }}
+              </option>
+            </select>
+          </div>
 
-      <div class="selected-list">
-        <strong>Selected verbs ({{ chosen.length }}/10):</strong>
-        <div v-if="chosen.length === 0">No verbs selected.</div>
-        <ul>
-          <li v-for="v in chosen" :key="v.infinitive">
-            {{ v.infinitive }} — {{ v.translation }}
-          </li>
-        </ul>
+          <div class="action-buttons">
+            <button class="comic-btn secondary" @click="usePredefined(selectedSet)">Load set 📦</button>
+            <button class="comic-btn accent" @click="randomPick">Get random 10 🎲</button>
+          </div>
+
+          <div class="selected-list">
+            <strong>Selected verbs ({{ chosen.length }}/10):</strong>
+            <div v-if="chosen.length === 0" class="empty-notice">No verbs selected yet! Load a set or pick random ones.</div>
+            <ul v-else class="comic-ul">
+              <li v-for="v in chosen" :key="v.infinitive">
+                <span class="tamil-word">{{ v.infinitive }}</span> — <span class="trans">{{ v.translation }}</span>
+              </li>
+            </ul>
+          </div>
+
+          <button class="comic-btn primary start-btn" @click="startQuiz" :disabled="chosen.length === 0">
+            Start Quiz 🚀
+          </button>
+        </section>
+
+        <!-- Quiz Trainer Section -->
+        <section class="trainer" v-else>
+          <div class="status-panel">
+            <div class="status">
+              <div><strong>Verb:</strong> <span class="tamil-word-lg">{{ current.infinitive }}</span></div>
+              <small class="rom">({{ romanize(current.infinitive) }})</small> —
+              <em class="trans-lg">{{ current.translation }}</em>
+            </div>
+            <div class="progress-badge">
+              {{ index + 1 }} / {{ chosen.length }}
+            </div>
+          </div>
+
+          <div class="options comic-callout">
+            <div><strong>🎯 Tense:</strong> <span class="badge-pill">{{ tense }}</span></div>
+            <div><strong>👤 Person:</strong> <span class="badge-pill">{{ persons[person] }}</span></div>
+          </div>
+
+          <form @submit.prevent="checkAnswer" class="quiz-form">
+            <input
+              id="input"
+              v-model="answer"
+              placeholder="Type conjugation here..."
+              autocomplete="off"
+            />
+            <div class="form-actions">
+              <button type="submit" class="comic-btn primary">Check ⚡</button>
+              <button type="button" class="comic-btn secondary" @click="showAnswer">Show Answer 💡</button>
+            </div>
+          </form>
+
+          <!-- Feedback Stamp Box -->
+          <div class="feedback-box" v-if="feedback" :class="{ 'is-correct': feedback.includes('Correct'), 'is-wrong': feedback.includes('Incorrect') || feedback.includes('No answer') }">
+            {{ feedback }}
+          </div>
+
+          <div class="controls-quiz">
+            <button class="comic-btn" @click="prev" :disabled="index === 0">◀ Prev</button>
+            <button class="comic-btn accent" @click="next">Next ▶</button>
+            <button class="comic-btn danger" @click="stop">Quit 🛑</button>
+          </div>
+
+          <!-- Conjugation Reference Table (Kept hidden/toggleable as in your code) -->
+          <div class="conjugation-table" style="display: none">
+            <h3>Conjugation Table ({{ tense }})</h3>
+            <table>
+              <thead>
+                <tr>
+                  <th>Person</th>
+                  <th>Conjugation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="(p, i) in persons" :key="i">
+                  <td>{{ p }}</td>
+                  <td>
+                    <div class="tamil">
+                      {{ tableFor(current, tense)[i] || "—" }}
+                    </div>
+                    <div class="rom small">
+                      {{ romanize(tableFor(current, tense)[i] || "") }}
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
       </div>
-
-      <button @click="startQuiz" :disabled="chosen.length === 0">
-        Start Quiz
-      </button>
-    </section>
-    <section class="trainer" v-else>
-      <div class="status">
-        <strong>Verb:</strong> {{ current.infinitive }}
-        <small class="rom">{{ romanize(current.infinitive) }}</small> —
-        <em>{{ current.translation }}</em>
-        <span class="progress">({{ index + 1 }} / {{ chosen.length }})</span>
-      </div>
-
-      <div class="options">
-        <!-- Randomized prompt: tense and person are chosen automatically per-verb -->
-        <div><strong>Tense:</strong> {{ tense }}</div>
-        <div><strong>Person:</strong> {{ persons[person] }}</div>
-      </div>
-
-      <form @submit.prevent="checkAnswer">
-        <input
-          v-model="answer"
-          placeholder="Type conjugation here"
-          autocomplete="off"
-        />
-        <button type="submit">Check</button>
-        <button type="button" @click="showAnswer">Show answer</button>
-      </form>
-
-      <div class="feedback" v-if="feedback">{{ feedback }}</div>
-
-      <div class="controls-quiz">
-        <button @click="prev" :disabled="index === 0">Prev</button>
-        <button @click="next">Next</button>
-        <button @click="stop">Stop</button>
-      </div>
-
-      <div class="conjugation-table" style="display: none">
-        <h3>Conjugation Table ({{ tense }})</h3>
-        <table>
-          <thead>
-            <tr>
-              <th>Person</th>
-              <th>Conjugation</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr v-for="(p, i) in persons" :key="i">
-              <td>{{ p }}</td>
-              <td>
-                <div class="tamil">
-                  {{ tableFor(current, tense)[i] || "—" }}
-                </div>
-                <div class="rom small">
-                  {{ romanize(tableFor(current, tense)[i] || "") }}
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -109,9 +137,6 @@ const chosen = ref<Verb[]>([]);
 const tenses = ["Present", "Preterite", "Future"];
 const persons = ["I", "You (sing.)", "He/She", "We", "You (pl.)", "They"];
 
-// For each chosen verb we create a random prompt {tense, person} so the quiz
-// presents a randomized challenge. Keeping prompts per-verb lets users
-// navigate back and forth without changing the prompt for an item.
 const prompts = ref<{ tense: string; person: number }[]>([]);
 
 function generatePrompts() {
@@ -134,10 +159,8 @@ function usePredefined(setName: string) {
 }
 
 function randomPick() {
-  // pick 10 random verbs
   const all = Object.values(verbSets).flat();
   const copy = [...all];
-  // shuffle
   for (let i = copy.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [copy[i], copy[j]] = [copy[j], copy[i]];
@@ -156,10 +179,8 @@ function tableFor(v: Verb, t: string) {
 }
 
 function startQuiz() {
-  // generate a stable random prompt (tense+person) for each chosen verb
   generatePrompts();
   index.value = 0;
-  // set the current prompt from the generated list
   tense.value = prompts.value[0]?.tense ?? tenses[0];
   person.value = prompts.value[0]?.person ?? 0;
   running.value = true;
@@ -183,17 +204,12 @@ function prev() {
   feedback.value = "";
 }
 
-// When the current index changes, update the displayed tense/person from prompts
 watch(index, (n) => {
   if (prompts.value[n]) {
     tense.value = prompts.value[n].tense;
     person.value = prompts.value[n].person;
   }
 });
-
-function normalize(s: string) {
-  return (s || "").trim().toLowerCase();
-}
 
 function asciiNormalize(s: string) {
   return (s || "")
@@ -208,7 +224,6 @@ function romanize(s: string) {
   let out: string[] = [];
   let i = 0;
   while (i < s.length) {
-    // try 2-char match (consonant + vowel marker)
     const two = s.slice(i, i + 2);
     const one = s.slice(i, i + 1);
     let found: any = chars.find((d: any) => d[0] === two);
@@ -223,11 +238,9 @@ function romanize(s: string) {
       i += 1;
       continue;
     }
-    // fallback: push the character itself
     out.push(one);
     i += 1;
   }
-  // join parts and normalize spacing
   return out.filter(Boolean).join("").replace(/\s+/g, " ");
 }
 
@@ -240,111 +253,341 @@ function checkAnswer() {
 
   const userRaw = (answer.value || "").trim();
 
-  // 1) If the user typed the exact Tamil string (ignoring unicode diacritics/spaces), accept immediately.
   if (asciiNormalize(userRaw) === asciiNormalize(correct)) {
-    feedback.value = "Correct!";
+    feedback.value = "Correct! ✅";
     return;
   }
 
-  // 2) Try tolerant romanization matching using the same algorithm as `pages/basics/check.ts`.
-  //    `checkDef` will attempt to match the user's roman input sequentially against
-  //    the set of allowed roman variants for each Tamil character (from `chars`).
   try {
     const r = checkDef(userRaw, correct);
-    // `r.ret` true indicates the matching algorithm succeeded for the sequence;
-    // ensure the user's input was fully consumed (no trailing chars left)
     if (r.ret && r.curInp === userRaw.length) {
-      feedback.value = "Correct ✅";
+      feedback.value = "Correct! ✅";
       return;
     }
-  } catch (e) {
-    // If checkDef throws for unexpected input, ignore and fall back to romanize compare.
-    // (This is defensive; checkDef is stable but may throw if given unexpected types.)
-  }
+  } catch (e) {}
 
-  // 3) Fallback: accept if the ascii-normalized romanization equals the user's ascii-normalized input.
   const correctRom = romanize(correct);
   if (asciiNormalize(userRaw) === asciiNormalize(correctRom)) {
-    feedback.value = "Correct!";
+    feedback.value = "Correct! ✅";
     return;
   }
 
-  // If nothing matched, show the correct form and its romanization to help the learner.
   feedback.value = `Incorrect — correct: ${correct} (${correctRom})`;
 }
 
 function showAnswer() {
   const correct = tableFor(current.value, tense.value)[person.value];
-  feedback.value = correct ? `Answer: ${correct}` : "No answer available.";
+  feedback.value = correct ? `Answer: ${correct} (${romanize(correct)})` : "No answer available.";
 }
 
 usePredefined(selectedSet.value);
 </script>
 
 <style scoped>
-.conj-trainer {
-  width:100vw;
-  height:100vh;
-  margin: auto;
-  font-family: system-ui, sans-serif;
-  display:flex;
+.conj-trainer-wrapper {
+  width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--comic-bg, #fffdf5);
+  background-image: radial-gradient(#d1cbb8 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
+  padding: 1rem;
+  box-sizing: border-box;
 }
 
-.conj-trainer section {
-    width: 80%;
-    height: 80%;
+/* Comic Panel Container */
+.comic-card {
+  width: 100%;
+  max-width: 650px;
+  background: var(--comic-card, #ffffff);
+  border: 4px solid var(--comic-border, #2b2b2b);
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 6px 6px 0px var(--comic-border, #2b2b2b);
 }
-.controls {
+
+.conj-trainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.comic-header h2 {
+  font-weight: 900;
+  font-size: 2rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: -0.5px;
+}
+
+.comic-header p {
+  font-family: 'Caveat', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #555;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.select-group {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.comic-select {
+  border: 3px solid var(--comic-border, #2b2b2b);
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-weight: 700;
+  background: #fff;
+  margin-left: 8px;
+  box-shadow: 2px 2px 0px var(--comic-border, #2b2b2b);
+  outline: none;
+}
+
+.action-buttons {
   display: flex;
   gap: 8px;
-  align-items: center;
   flex-wrap: wrap;
+  margin-bottom: 1rem;
 }
+
+/* Chunky Comic Buttons */
+.comic-btn {
+  border: 3px solid var(--comic-border, #2b2b2b);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--comic-yellow, #ffe600);
+  color: var(--comic-text, #1a1a1a);
+  box-shadow: 3px 3px 0px var(--comic-border, #2b2b2b);
+  transition: transform 150ms ease, box-shadow 150ms ease, background 150ms ease;
+  outline: none;
+}
+
+.comic-btn.primary {
+  background: var(--comic-yellow, #ffe600);
+}
+
+.comic-btn.secondary {
+  background: var(--comic-blue, #4d9de0);
+  color: #fff;
+  text-shadow: 1px 1px 0px var(--comic-border, #2b2b2b);
+}
+
+.comic-btn.accent {
+  background: var(--comic-pink, #ff6f91);
+  color: #fff;
+  text-shadow: 1px 1px 0px var(--comic-border, #2b2b2b);
+}
+
+.comic-btn.danger {
+  background: var(--comic-red, #ff5959);
+  color: #fff;
+  text-shadow: 1px 1px 0px var(--comic-border, #2b2b2b);
+}
+
+.comic-btn:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0px var(--comic-border, #2b2b2b);
+}
+
+.comic-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px var(--comic-border, #2b2b2b);
+}
+
+.comic-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
 .selected-list {
-  flex-basis: 100%;
-  margin-top: 8px;
+  background: #fdfaf0;
+  border: 3px dashed var(--comic-border, #2b2b2b);
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 1.5rem;
 }
-.trainer {
-  margin-top: 16px;
+
+.comic-ul {
+  margin: 8px 0 0 0;
+  padding-left: 20px;
+  max-height: 150px;
+  overflow-y: auto;
 }
-.status {
-  margin-bottom: 8px;
+
+.comic-ul li {
+  margin-bottom: 4px;
+  font-size: 0.95rem;
 }
-.options {
+
+.tamil-word {
+  font-weight: 900;
+  color: var(--comic-text);
+}
+
+.tamil-word-lg {
+  font-weight: 900;
+  font-size: 1.4rem;
+}
+
+.trans {
+  color: #555;
+  font-style: italic;
+}
+
+.trans-lg {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+.empty-notice {
+  font-family: 'Caveat', cursive;
+  font-size: 1.2rem;
+  color: #777;
+  margin-top: 4px;
+}
+
+.start-btn {
+  width: 100%;
+  font-size: 1.2rem;
+  padding: 14px;
+}
+
+/* Quiz Section Layout */
+.status-panel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 3px solid var(--comic-border);
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  box-shadow: 3px 3px 0px var(--comic-border);
+}
+
+.progress-badge {
+  background: var(--comic-yellow);
+  border: 2px solid var(--comic-border);
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-weight: 900;
+  font-size: 0.9rem;
+}
+
+.comic-callout {
+  display: flex;
+  gap: 16px;
+  background: #eef7ff;
+  border: 3px solid var(--comic-border);
+  padding: 12px 16px;
+  border-radius: 14px;
+  margin-bottom: 1rem;
+  box-shadow: 3px 3px 0px var(--comic-border);
+}
+
+.badge-pill {
+  background: #fff;
+  border: 2px solid var(--comic-border);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+}
+
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+
+#input {
+  font-size: 1.5rem;
+  font-family: "Noto Sans Tamil", sans-serif;
+  font-weight: 700;
+  padding: 12px 16px;
+  border: 3px solid var(--comic-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: inset 3px 3px 0px rgba(0,0,0,0.06);
+  outline: none;
+}
+
+#input:focus {
+  border-color: var(--comic-blue);
+  box-shadow: inset 3px 3px 0px rgba(77, 157, 224, 0.15), 3px 3px 0px var(--comic-border);
+}
+
+.form-actions {
   display: flex;
   gap: 8px;
-  align-items: center;
-  margin-bottom: 8px;
 }
+
+.form-actions button {
+  flex: 1;
+}
+
+/* Comic Feedback Box */
+.feedback-box {
+  padding: 12px 16px;
+  border: 3px solid var(--comic-border);
+  border-radius: 14px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  box-shadow: 3px 3px 0px var(--comic-border);
+  background: #fff;
+  text-align: center;
+}
+
+.feedback-box.is-correct {
+  background: var(--comic-green, #37c788);
+  color: #fff;
+}
+
+.feedback-box.is-wrong {
+  background: var(--comic-red, #ff5959);
+  color: #fff;
+}
+
+.controls-quiz {
+  display: flex;
+  gap: 8px;
+}
+
+.controls-quiz button {
+  flex: 1;
+}
+
+/* Reference Table styles */
 .conjugation-table {
-  margin-top: 12px;
+  margin-top: 1rem;
+  background: #fff;
+  border: 3px solid var(--comic-border);
+  padding: 12px;
+  border-radius: 14px;
 }
+
 table {
   border-collapse: collapse;
   width: 100%;
 }
-td,
+
+td, th {
+  border: 2px solid var(--comic-border);
+  padding: 8px;
+}
+
 th {
-  border: 1px solid #ddd;
-  padding: 6px;
-}
-.feedback {
-  margin-top: 8px;
-}
-.progress {
-  margin-left: 8px;
-  color: #666;
-}
-.rom {
-  color: #444;
-  margin-left: 8px;
-  font-style: italic;
-}
-.small {
-  font-size: 0.9em;
-  color: #666;
-}
-.tamil {
-  font-weight: 600;
+  background: var(--comic-yellow);
 }
 </style>
